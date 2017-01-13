@@ -20,6 +20,8 @@ html
   body.flat-blue
     .app-container
       .row.content-container
+        include templates/top-nav
+        include templates/side-nav
         .container-fluid
           block content
     script(type='text/javascript', src='/javascripts/jquery.min.js')
