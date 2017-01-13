@@ -17,8 +17,11 @@ html
     link(rel='stylesheet', type='text/css', href='/stylesheets/select2.min.css')
     link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
     link(rel='stylesheet', type='text/css', href='/stylesheets/flat-blue.css')
-  body
-    block content
+  body.flat-blue
+    .app-container
+      .row.content-container
+        .container-fluid
+          block content
     script(type='text/javascript', src='/javascripts/jquery.min.js')
     script(type='text/javascript', src='/javascripts/bootstrap.min.js')
     script(type='text/javascript', src='/javascripts/bootstrap-switch.min.js')
@@ -26,3 +29,5 @@ html
     script(type='text/javascript', src='/javascripts/jquery.dataTables.min.js')
     script(type='text/javascript', src='/javascripts/dataTables.bootstrap.min.js')
     script(type='text/javascript', src='/javascripts/select2.full.min.js')
+    script(type='text/javascript', src='/javascripts/app.js')
+    script(type='text/javascript', src='/javascripts/index.js')
