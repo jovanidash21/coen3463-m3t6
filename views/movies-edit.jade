@@ -1,3 +1,159 @@
 extends layout
 
 block content
+    .side-body
+        .row.no-margin-bottom
+            .col-xs-12
+                button.btn.btn-primary(type='button') Add New
+            .col-xs-12
+                form(action='#', method='post')
+                    .row
+                        .col-md-9
+                            .row
+                                .col-md-12
+                                    .card
+                                        .card-body
+                                            div
+                                                input.form-control(name='title', type='text', placeholder='Movie Title', value='')
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .title Plot
+                                        .card-body
+                                            textarea.form-control(rows='12')
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .title Background
+                                        .card-body
+                                            .sub-title
+                                                | Director &nbsp;
+                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                            div
+                                                input.form-control(name='director', type='text', placeholder='Director', value='')
+                                            .sub-title
+                                                | Studio &nbsp;
+                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                            div
+                                                input.form-control(name='studio', type='text', placeholder='Studio', value='')
+                                            .sub-title
+                                                | Starring &nbsp;
+                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                            div
+                                                input.form-control(name='starring', type='text', placeholder='Starring', value='')
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .title Media
+                                        .card-body
+                                            .sub-title
+                                                | IMDB
+                                            div
+                                                input.form-control(name='imdb', type='text', placeholder='IMDB Link', value='')
+                                            .sub-title
+                                                | YouTube Trailer &nbsp;
+                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                            div
+                                                input.form-control(name='youtubeTrailer', type='text', placeholder='Studio', value='')
+                                            .sub-title
+                                                | Images &nbsp;
+                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                            div
+                                                input.form-control(name='images', type='text', placeholder='Image', value='')
+                        .col-md-3
+                            .row
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .sub-title Publish
+                                        .card-body
+                                            div
+                                                ul.list-group
+                                                    li.list-group-item Date Created:
+                                                    li.list-group-item Last Updated:
+                                            div(align='right')
+                                                button.btn.btn-primary(type='button') Publish
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .sub-title Year
+                                        .card-body
+                                            .radio3.radio-inline
+                                                input#2006(type='radio', name='year', value='2006')
+                                                label(for='2006')
+                                                    | 2006
+                                            .radio3.radio-inline
+                                                input#2007(type='radio', name='year', value='2007')
+                                                label(for='2007')
+                                                    | 2007
+                                            .radio3.radio-inline
+                                                input#2008(type='radio', name='year', value='2008')
+                                                label(for='2008')
+                                                    | 2008
+                                            .radio3.radio-inline
+                                                input#2009(type='radio', name='year', value='2009')
+                                                label(for='2009')
+                                                    | 2009
+                                            .radio3.radio-inline
+                                                input#2010(type='radio', name='year', value='2010')
+                                                label(for='2010')
+                                                    | 2010
+                                            .radio3.radio-inline
+                                                input#2011(type='radio', name='year', value='2011')
+                                                label(for='2011')
+                                                    | 2011
+                                            .radio3.radio-inline
+                                                input#2012(type='radio', name='year', value='2012')
+                                                label(for='2012')
+                                                    | 2012
+                                            .radio3.radio-inline
+                                                input#2013(type='radio', name='year', value='2013')
+                                                label(for='2013')
+                                                    | 2013
+                                            .radio3.radio-inline
+                                                input#2014(type='radio', name='year', value='2014')
+                                                label(for='2014')
+                                                    | 2014
+                                            .radio3.radio-inline
+                                                input#2015(type='radio', name='year', value='2015')
+                                                label(for='2015')
+                                                    | 2015
+                                            .radio3.radio-inline
+                                                input#2016(type='radio', name='year', value='2016')
+                                                label(for='2016')
+                                                    | 2016
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .sub-title Genre
+                                        .card-body
+                                            .checkbox3.checkbox-check.checkbox-circle
+                                                input#checkbox-1(type='checkbox')
+                                                label(for='checkbox-1')
+                                                    | Genre 1
+                                                input#checkbox-2(type='checkbox')
+                                                label(for='checkbox-2')
+                                                    | Genre 2
+                                                input#checkbox-3(type='checkbox')
+                                                label(for='checkbox-3')
+                                                    | Genre 3
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .sub-title Gross Ticket Sales
+                                        .card-body
+                                            input.form-control(name='grossTicketSales', type='text', placeholder='Gross TIcket Sales', value='')
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .sub-title Poster Image
+                                        .card-body
+                                            input.form-control(type='text', placeholder='Poster Image', value='')
