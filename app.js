@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI);
@@ -14,6 +14,11 @@ var index = require('./routes/index');
 var movies = require('./routes/movies');
 
 var app = express();
+
+// load all models directory files
+fs.readdirSync(__dirname + '/models').forEach(function(filename) {
+  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
