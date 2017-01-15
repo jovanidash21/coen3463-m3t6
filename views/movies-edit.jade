@@ -4,8 +4,7 @@ block content
     .side-body
         .row.no-margin-bottom
             .col-xs-12
-                a(href='/movies/add')
-                    button.btn.btn-primary(type='submit') Add New
+                a.btn.btn-lg.btn-primary(href='/movies/add', role='button') Add New
             .col-xs-12
                 form(action='/movies/#{movieData._id}', method='post')
                     .row
@@ -31,20 +30,35 @@ block content
                                                 .title Background
                                         .card-body
                                             .sub-title
-                                                | Director &nbsp;
-                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                                | Director
                                             div
-                                                input.form-control(name='director', type='text', placeholder='Director', value='#{movieData.director}')
+                                                each director in movieData.directors
+                                                    input.form-control(name='director1', type='text', placeholder='Director 1', value='#{director.director1}')
+                                                    input.form-control(name='director2', type='text', placeholder='Director 2', value='#{director.director2}')
+                                                    input.form-control(name='director3', type='text', placeholder='Director 3', value='#{director.director3}')
                                             .sub-title
-                                                | Studio &nbsp;
-                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                                | Studio
                                             div
-                                                input.form-control(name='studio', type='text', placeholder='Studio', value='#{movieData.studio}')
+                                                each studio in movieData.studios
+                                                    input.form-control(name='studio1', type='text', placeholder='Studio 1', value='#{studio.studio1}')
+                                                    input.form-control(name='studio2', type='text', placeholder='Studio 2', value='#{studio.studio2}')
+                                                    input.form-control(name='studio3', type='text', placeholder='Studio 3', value='#{studio.studio3}')
+                                                    input.form-control(name='studio4', type='text', placeholder='Studio 4', value='#{studio.studio4}')
+                                                    input.form-control(name='studio5', type='text', placeholder='Studio 5', value='#{studio.studio5}')
                                             .sub-title
-                                                | Starring &nbsp;
-                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                                | Starring
                                             div
-                                                input.form-control(name='starring', type='text', placeholder='Starring', value='#{movieData.starring}')
+                                                each star in movieData.starring
+                                                    input.form-control(name='starring1', type='text', placeholder='Starring 1', value='#{star.starring1}')
+                                                    input.form-control(name='starring2', type='text', placeholder='Starring 2', value='#{star.starring2}')
+                                                    input.form-control(name='starring3', type='text', placeholder='Starring 3', value='#{star.starring3}')
+                                                    input.form-control(name='starring4', type='text', placeholder='Starring 4', value='#{star.starring4}')
+                                                    input.form-control(name='starring5', type='text', placeholder='Starring 5', value='#{star.starring5}')
+                                                    input.form-control(name='starring6', type='text', placeholder='Starring 6', value='#{star.starring6}')
+                                                    input.form-control(name='starring7', type='text', placeholder='Starring 7', value='#{star.starring7}')
+                                                    input.form-control(name='starring8', type='text', placeholder='Starring 8', value='#{star.starring8}')
+                                                    input.form-control(name='starring9', type='text', placeholder='Starring 9', value='#{star.starring9}')
+                                                    input.form-control(name='starring10', type='text', placeholder='Starring 10', value='#{star.starring10}')
                                 .col-md-12
                                     .card
                                         .card-header
@@ -54,17 +68,23 @@ block content
                                             .sub-title
                                                 | IMDB
                                             div
-                                                input.form-control(name='imdbLink', type='text', placeholder='IMDB Link', value='#{movieData.imdbLink}')
+                                                input.form-control(name='imdbLink', type='text', placeholder='IMDB Link (URL)', value='#{movieData.imdbLink}')
                                             .sub-title
-                                                | YouTube Trailer &nbsp;
-                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                                | Trailer Links
                                             div
-                                                input.form-control(name='youtubeTrailerLink', type='text', placeholder='Studio', value='#{movieData.youtubeTrailerLink}')
+                                                each trailerLink in movieData.trailerLinks
+                                                    input.form-control(name='trailerLink1', type='text', placeholder='Traler 1 (URL)', value='#{trailerLink.trailerLink1}')
+                                                    input.form-control(name='trailerLink2', type='text', placeholder='Trailer 2 (URL)', value='#{trailerLink.trailerLink2}')
+                                                    input.form-control(name='trailerLink3', type='text', placeholder='Trailer 3 (URL)', value='#{trailerLink.trailerLink3}')
                                             .sub-title
-                                                | Images &nbsp;
-                                                button.btn.btn-xs.btn-primary(type='button') Add
+                                                | Images Links
                                             div
-                                                input.form-control(name='image', type='text', placeholder='Image', value='#{movieData.image}')
+                                                each imageLink in movieData.imageLinks
+                                                    input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value='#{imageLink.imageLink1}')
+                                                    input.form-control(name='imageLink2', type='text', placeholder='Image 2 (URL)', value='#{imageLink.imageLink2}')
+                                                    input.form-control(name='imageLink3', type='text', placeholder='Image 3 (URL)', value='#{imageLink.imageLink3}')
+                                                    input.form-control(name='imageLink4', type='text', placeholder='Image 4 (URL)', value='#{imageLink.imageLink4}')
+                                                    input.form-control(name='imageLink5', type='text', placeholder='Image 5 (URL)', value='#{imageLink.imageLink5}')
                         .col-md-3
                             .row
                                 .col-md-12
@@ -75,10 +95,12 @@ block content
                                         .card-body
                                             div
                                                 ul.list-group
-                                                    li.list-group-item Date Created:
+                                                    li.list-group-item Created:
+                                                        | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
                                                     li.list-group-item Last Updated:
+                                                        | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
                                             div(align='right')
-                                                button.btn.btn-primary(name='submit', type='submit') Publish
+                                                button.btn.btn-primary(name='submit', type='submit') Update
                                 .col-md-12
                                     .card
                                         .card-header

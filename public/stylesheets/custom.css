@@ -8,3 +8,6 @@ h3#thumbnail-label
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+input[type="text"]{
+    margin: 3px 0;
+}
