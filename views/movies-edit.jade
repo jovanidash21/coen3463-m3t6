@@ -6,6 +6,16 @@ block content
             .col-xs-12
                 a.btn.btn-lg.btn-primary(href='/movies/add', role='button') Add New
             .col-xs-12
+                if(typeof alertMessage !== "undefined")
+                    if(!!postError)
+                        .alert.alert-danger.alert-dismissable.fade.in
+                            | #{alertMessage}
+                            a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+                    else
+                        .alert.alert-success.alert-dismissable.fade.in
+                            | #{alertMessage}
+                            a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+            .col-xs-12
                 form(action='/movies/#{movieData._id}', method='post')
                     .row
                         .col-md-9
