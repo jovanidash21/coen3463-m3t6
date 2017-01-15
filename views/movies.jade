@@ -4,44 +4,34 @@ block content
     .side-body
         .row
             .col-xs-12
+                a.btn.btn-lg.btn-primary(href='/movies/add', role='button') Add New
+            .col-xs-12
                 .card
                     .card-body
                         table.datatable.table.table-striped(cellspacing='0', width='100%')
                             thead
                                 tr
-                                    th Name
-                                    th Position
-                                    th Office
-                                    th Age
-                                    th Start date
-                                    th Salary
+                                    th Title
+                                    th Year
+                                    th Genre
+                                    th Gross Ticket Sales
+                                    th Date Published
+                                    th Last Update
                             tfoot
                                 tr
-                                    th Name
-                                    th Position
-                                    th Office
-                                    th Age
-                                    th Start date
-                                    th Salary
+                                    th Title
+                                    th Year
+                                    th Genre
+                                    th Gross Ticket Sales
+                                    th Date Published
+                                    th Last Update
                             tbody
-                                tr
-                                    td Tiger Nixon
-                                    td System Architect
-                                    td Edinburgh
-                                    td 61
-                                    td 2011/04/25
-                                    td $320,800
-                                tr
-                                    td Garrett Winters
-                                    td Accountant
-                                    td Tokyo
-                                    td 63
-                                    td 2011/07/25
-                                    td $170,750
-                                tr
-                                    td Ashton Cox
-                                    td Junior Technical Author
-                                    td San Francisco
-                                    td 66
-                                    td 2009/01/12
-                                    td $86,000
+                                each movieData in moviesData.reverse()
+                                    tr
+                                        td
+                                            a(href='/movies/#{movieData._id}')= movieData.title
+                                        td= movieData.year
+                                        td= movieData.genre
+                                        td= movieData.grossTicketSales
+                                        td #{moment(movieData.createdAt).format("YYYY-MM-DD")}
+                                        td #{moment(movieData.updatedAt).format("YYYY-MM-DD")}
