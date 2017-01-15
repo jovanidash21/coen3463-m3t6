@@ -1,6 +1,10 @@
 h3#thumbnail-label
 {
-    font-size: 18px;
-    height: 18px;
-    overflow: hidden;
+    display:inline-block;
+    font-size: 14px;
+    height: 14px;
+    overflow:hidden !important;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
