@@ -7,8 +7,21 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mongoose = require('mongoose');
 
+var options = {
+  server: {
+    socketOptions: {
+      keepAlive: 300000, connectTimeoutMS: 30000
+    }
+  },
+  replset: {
+    socketOptions: {
+      keepAlive: 300000, connectTimeoutMS : 30000
+    }
+  }
+};
+
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, options);
 
 var index = require('./routes/index');
 var movies = require('./routes/movies');
