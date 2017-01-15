@@ -2,7 +2,7 @@ h3#thumbnail-label
 {
     display:inline-block;
     font-size: 14px;
-    height: 14px;
+    height: 16px;
     overflow:hidden !important;
     width: 100%;
     white-space: nowrap;
