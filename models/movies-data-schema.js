@@ -1,27 +1,28 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var timestamps = require('mongoose-timestamp');
 
 var moviesDataSchema = new Schema
 (
     {
         title: {type: String, required: true},
-        posterImage: {type: String, required: true},
-        director: {type: String, required: true},
-        studio: {type: String, required: true},
-        starring: {type: String, required: true, unique: true},
-        year: {type: String, required: true, unique: true},
-        genre: {type: String, required: true},
-        plot: {type: String, required: true},
-        imdbLink: {type: String, required: true},
-        youtubeTrailerLink: {type: String, required: true},
-        image: {type: String, required: true},
-        grossTicketSales: {type: String, required: true},
-        createDate: {type: Date, default: Date.now},
-        updateDate: {type: Date, default: Date.now}
+        posterImage: {type: String},
+        director: {type: String},
+        studio: {type: String},
+        starring: {type: String},
+        year: {type: String},
+        genre: {type: String},
+        plot: {type: String},
+        imdbLink: {type: String},
+        youtubeTrailerLink: {type: String},
+        image: {type: String},
+        grossTicketSales: {type: String}
     },
     {
         collection: 'moviesData'
     }
 );
+
+moviesDataSchema.plugin(timestamps);
 
 moviesData = mongoose.model('moviesData', moviesDataSchema);
