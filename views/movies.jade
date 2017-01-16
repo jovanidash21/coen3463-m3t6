@@ -13,17 +13,21 @@ block content
                             thead
                                 tr
                                     th Title
+                                    th Director
+                                    th Starring
                                     th Year
                                     th Genre
-                                    th Gross Ticket Sales
+                                    th Gross Ticket Sales (&#8369;)
                                     th Date Published
                                     th Last Update
                             tfoot
                                 tr
                                     th Title
+                                    th Director
+                                    th Starring
                                     th Year
                                     th Genre
-                                    th Gross Ticket Sales
+                                    th Gross Ticket Sales (&#8369;)
                                     th Date Published
                                     th Last Update
                             tbody
@@ -31,6 +35,36 @@ block content
                                     tr
                                         td
                                             a(href='/movies/#{movieData._id}')= movieData.title
+                                        td
+                                            each director in movieData.directors
+                                                if director.director1
+                                                    | #{director.director1}
+                                                if director.director2
+                                                    | ,&nbsp;#{director.director2}
+                                                if director.director3
+                                                    | ,&nbsp;#{director.director3}
+                                        td
+                                            each star in movieData.starring
+                                                if star.starring1
+                                                    | #{star.starring1}
+                                                if star.starring2
+                                                    | ,&nbsp;#{star.starring2}
+                                                if star.starring3
+                                                    | ,&nbsp;#{star.starring3}
+                                                if star.starring4
+                                                    | ,&nbsp;#{star.starring4}
+                                                if star.starring5
+                                                    | ,&nbsp;#{star.starring5}
+                                                if star.starring6
+                                                    | ,&nbsp;#{star.starring6}
+                                                if star.starring7
+                                                    | ,&nbsp;#{star.starring7}
+                                                if star.starring8
+                                                    | ,&nbsp;#{star.starring8}
+                                                if star.starring9
+                                                    | ,&nbsp;#{star.starring9}
+                                                if star.starring10
+                                                    | ,&nbsp;#{star.starring10}
                                         td= movieData.year
                                         td= movieData.genre
                                         td= movieData.grossTicketSales
