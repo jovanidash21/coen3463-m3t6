@@ -11,7 +11,8 @@ block content
                     each movieData in moviesData.reverse()
                         .col-md-2.col-sm-3.col-xs-6
                             .thumbnail.no-margin-bottom
-                                img.img-responsive(src='#{movieData.posterImage}')
+                                a.thumbnail(href='/movies/add')
+                                    img.img-responsive(src='#{movieData.posterImage}')
                                 .caption
                                     h3#thumbnail-label
                                         | #{movieData.title}
@@ -20,7 +21,7 @@ block content
                                     p
                                         | #{movieData.year}
                                     p
-                                        a.btn.btn-primary(href='/movies/#{movieData._id}', role='button') Edit
+                                        a.btn.btn-primary(href='/movies/#{movieData._id}/edit', role='button') Edit
                                         | &nbsp;
                                         a.btn.btn-warning(role='button', data-toggle='modal', data-target='##{movieData._id}') Delete
                         .modal.fade(id="#{movieData._id}")
