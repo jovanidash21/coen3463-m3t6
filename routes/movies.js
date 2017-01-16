@@ -77,7 +77,7 @@ router.post('/add', function(req, res, next) {
         plot: req.body.plot,
         imdbLink: req.body.imdbLink,
         trailerLinks: trailerLinks,
-        imagesLinks: imageLinks,
+        imageLinks: imageLinks,
         grossTicketSales: req.body.grossTicketSales
     };
     var movieData = new moviesData(movie);
@@ -96,6 +96,23 @@ router.get('/:movieID/', function(req, res, next) {
     var movieID = req.params.movieID;
     moviesData.findOne({_id: movieID}, function(err, movieData) {
         if(!err){
+            res.render('movies-profile', {
+                title: 'Movie Profile | MMFF Movies',
+                navBarTitle: 'Movie Profile',
+                movieData: movieData,
+                moment: moment
+            });
+        }
+        else {
+            res.end(err);
+        }
+    });
+});
+
+router.get('/:movieID/edit', function(req, res, next) {
+    var movieID = req.params.movieID;
+    moviesData.findOne({_id: movieID}, function(err, movieData) {
+        if(!err){
             res.render('movies-edit', {
                 title: 'Movies | MMFF Movies',
                 navBarTitle: 'Update Movie',
@@ -109,13 +126,13 @@ router.get('/:movieID/', function(req, res, next) {
     });
 });
 
-router.post('/:movieID/', function(req, res, next) {
+router.post('/:movieID/edit', function(req, res, next) {
     var movieID = req.params.movieID;
     var directors = [];
     var studios = [];
     var starring = [];
     var trailerLinks = [];
-    var imagesLinks = [];
+    var imageLinks = [];
 
     directors.push({
         director1: req.body.director1,
@@ -146,7 +163,7 @@ router.post('/:movieID/', function(req, res, next) {
         trailerLink2: req.body.trailerLink2,
         trailerLink3: req.body.trailerLink3
     });
-    imagesLinks.push({
+    imageLinks.push({
         imageLink1: req.body.imageLink1,
         imageLink2: req.body.imageLink2,
         imageLink3: req.body.imageLink3,
@@ -166,7 +183,7 @@ router.post('/:movieID/', function(req, res, next) {
             movieData.plot = req.body.plot;
             movieData.imdbLink = req.body.imdbLink;
             movieData.trailerLinks = trailerLinks;
-            movieData.imageLinks = imagesLinks;
+            movieData.imageLinks = imageLinks;
             movieData.grossTicketSales = req.body.grossTicketSales;
             movieData.save(function(err, movieData){
                 if(!err){
