@@ -11,7 +11,7 @@ block content
                     each movieData in moviesData.reverse()
                         .col-md-2.col-sm-3.col-xs-6
                             .thumbnail.no-margin-bottom
-                                a.thumbnail(href='/movies/add')
+                                a.thumbnail(href='/movies/#{movieData._id}')
                                     img.img-responsive(src='#{movieData.posterImage}')
                                 .caption
                                     h3#thumbnail-label
