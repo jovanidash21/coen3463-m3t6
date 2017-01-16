@@ -1,0 +1,139 @@
+extends layout
+
+block content
+    .side-body
+        .row.no-margin-bottom
+            .col-xs-12
+                div(align='right')
+                    a.btn.btn-lg.btn-primary(href='/movies/#{movieData._id}/edit', role='button') Edit
+            .col-xs-12
+                .card
+                    .card-header
+                        .card-title
+                            .title
+                                strong Movie Title: &nbsp;
+                                | #{movieData.title}
+                    .card-body
+                        .row
+                            .col-md-3
+                                .sub-title
+                                    | Movie Poster Image
+                                div(align='center')
+                                    if movieData.posterImage
+                                        img.img-responsive(src='#{movieData.posterImage}')
+                            .col-md-9
+                                .sub-title
+                                    | Plot
+                                if movieData.plot
+                                    p= movieData.plot
+                        .row
+                            .col-md-4
+                                .sub-title
+                                    | Director
+                                each director in movieData.directors
+                                    if director.director1
+                                        p= director.director1
+                                    if director.director2
+                                        p= director.director2
+                                    if director.director3
+                                        p= director.director3
+                            .col-md-4
+                                .sub-title
+                                    | Studio
+                                each studio in movieData.studios
+                                    if studio.studio1
+                                        p= studio.studio1
+                                    if studio.studio2
+                                        p= studio.studio2
+                                    if studio.studio3
+                                        p= studio.studio3
+                                    if studio.studio4
+                                        p= studio.studio4
+                                    if studio.studio5
+                                        p= studio.studio5
+                            .col-md-4
+                                .sub-title
+                                    | Starring
+                                each star in movieData.starring
+                                    if star.starring1
+                                        p= star.starring1
+                                    if star.starring2
+                                        p= star.starring2
+                                    if star.starring3
+                                        p= star.starring3
+                                    if star.starring4
+                                        p= star.starring4
+                                    if star.starring5
+                                        p= star.starring5
+                                    if star.starring6
+                                        p= star.starring6
+                                    if star.starring7
+                                        p= star.starring7
+                                    if star.starring8
+                                        p= star.starring8
+                                    if star.starring9
+                                        p= star.starring9
+                                    if star.starring10
+                                        p= star.starring10
+                        .row
+                            .col-md-2
+                                .sub-title
+                                    | Year
+                                if  movieData.year
+                                    p= movieData.year
+                            .col-md-2
+                                .sub-title
+                                    | Genre
+                                if movieData.genre
+                                    p= movieData.genre
+                            .col-md-4
+                                .sub-title
+                                    | IMDB Link
+                                if movieData.imdbLink
+                                    p= movieData.imdbLink
+                            .col-md-4
+                                .sub-title
+                                    | Gross Ticket Sales
+                                if movieData.grossTicketSales
+                                    p= movieData.grossTicketSales
+                        .row
+                            .col-md-6
+                                .sub-title
+                                    | Trailer Links
+                                each trailerLink in movieData.trailerLinks
+                                    if trailerLink.trailerLink1
+                                        p
+                                            a(href="#{trailerLink.trailerLink1}" target="_blank")
+                                               | #{trailerLink.trailerLink1}
+                                    if trailerLink.trailerLink2
+                                        p
+                                            a(href="#{trailerLink.trailerLink2}" target="_blank")
+                                                | #{trailerLink.trailerLink2}
+                                    if trailerLink.trailerLink3
+                                        p
+                                            a(href="#{trailerLink.trailerLink3}" target="_blank")
+                                                | #{trailerLink.trailerLink3}
+                            .col-md-6
+                                .sub-title
+                                    | Image Links
+                                each imageLink in movieData.imageLinks
+                                    if imageLink.imageLink1
+                                        p
+                                            a(href="#{imageLink.imageLink1}" target="_blank")
+                                                | #{imageLink.imageLink1}
+                                    if imageLink.imageLink2
+                                        p
+                                            a(href="#{imageLink.imageLink2}" target="_blank")
+                                                | #{imageLink.imageLink2}
+                                    if imageLink.imageLink3
+                                        p
+                                            a(href="#{imageLink.imageLink3}" target="_blank")
+                                                | #{imageLink.imageLink3}
+                                    if imageLink.imageLink4
+                                        p
+                                            a(href="#{imageLink.imageLink4}" target="_blank")
+                                                | #{imageLink.imageLink4}
+                                    if imageLink.imageLink5
+                                        p
+                                            a(href="#{imageLink.imageLink5}" target="_blank")
+                                                | #{imageLink.imageLink5}
