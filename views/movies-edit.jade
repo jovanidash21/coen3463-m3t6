@@ -4,7 +4,8 @@ block content
     .side-body
         .row.no-margin-bottom
             .col-xs-12
-                a.btn.btn-lg.btn-primary(href='/movies/add', role='button') Add New
+                div(align='right')
+                    a.btn.btn-lg.btn-primary(href='/movies/add', role='button') Add New
             .col-xs-12
                 if(typeof alertMessage !== "undefined")
                     if(!!postError)
@@ -13,10 +14,11 @@ block content
                             a.close(href="#", data-dismiss="alert", aria-label="close") &times;
                     else
                         .alert.alert-success.alert-dismissable.fade.in
-                            | #{alertMessage}
+                            | #{alertMessage} &nbsp;
+                            a.alert-link(href='/movies/#{movieData._id}') View changes
                             a.close(href="#", data-dismiss="alert", aria-label="close") &times;
             .col-xs-12
-                form(action='/movies/#{movieData._id}', method='post')
+                form(action='/movies/#{movieData._id}/edit', method='post')
                     .row
                         .col-md-9
                             .row
@@ -105,9 +107,13 @@ block content
                                         .card-body
                                             div
                                                 ul.list-group
-                                                    li.list-group-item Created:
+                                                    li.list-group-item
+                                                        strong
+                                                            | Created: &nbsp;
                                                         | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
-                                                    li.list-group-item Last Updated:
+                                                    li.list-group-item
+                                                        strong
+                                                            | Last Updated: &nbsp;
                                                         | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
                                             div(align='right')
                                                 button.btn.btn-primary(name='submit', type='submit') Update
