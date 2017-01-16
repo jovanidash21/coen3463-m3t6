@@ -20,7 +20,8 @@ block content
                                     | Movie Poster Image
                                 div(align='center')
                                     if movieData.posterImage
-                                        img.img-responsive(src='#{movieData.posterImage}')
+                                        a.thumbnail(href='#{movieData.posterImage}', target='_blank')
+                                            img.img-responsive(src='#{movieData.posterImage}')
                             .col-md-6
                                 .sub-title
                                     | Plot
@@ -89,23 +90,16 @@ block content
                                     if star.starring10
                                         p= star.starring10
                         .row
-                            .col-md-2
+                            .col-md-4
                                 .sub-title
                                     | Year
                                 if  movieData.year
                                     p= movieData.year
-                            .col-md-2
+                            .col-md-4
                                 .sub-title
                                     | Genre
                                 if movieData.genre
                                     p= movieData.genre
-                            .col-md-4
-                                .sub-title
-                                    | IMDB Link
-                                if movieData.imdbLink
-                                    p
-                                        a(href="#{movieData.imdbLink}" target="_blank")
-                                            | #{movieData.imdbLink}
                             .col-md-4
                                 .sub-title
                                     | Gross Ticket Sales
@@ -114,41 +108,56 @@ block content
                         .row
                             .col-md-6
                                 .sub-title
+                                    | IMDB Link
+                                if movieData.imdbLink
+                                    p
+                                        a(href='#{movieData.imdbLink}', target='_blank')
+                                            | #{movieData.imdbLink}
+                            .col-md-6
+                                .sub-title
                                     | Trailer Links
                                 each trailerLink in movieData.trailerLinks
                                     if trailerLink.trailerLink1
                                         p
-                                            a(href="#{trailerLink.trailerLink1}" target="_blank")
+                                            a(href='#{trailerLink.trailerLink1}', target='_blank')
                                                | #{trailerLink.trailerLink1}
                                     if trailerLink.trailerLink2
                                         p
-                                            a(href="#{trailerLink.trailerLink2}" target="_blank")
+                                            a(href='#{trailerLink.trailerLink2}', target='_blank')
                                                 | #{trailerLink.trailerLink2}
                                     if trailerLink.trailerLink3
                                         p
-                                            a(href="#{trailerLink.trailerLink3}" target="_blank")
+                                            a(href='#{trailerLink.trailerLink3}', target='_blank')
                                                 | #{trailerLink.trailerLink3}
-                            .col-md-6
+                        .row
+                            .col-md-12
                                 .sub-title
                                     | Image Links
-                                each imageLink in movieData.imageLinks
-                                    if imageLink.imageLink1
-                                        p
-                                            a(href="#{imageLink.imageLink1}" target="_blank")
-                                                | #{imageLink.imageLink1}
-                                    if imageLink.imageLink2
-                                        p
-                                            a(href="#{imageLink.imageLink2}" target="_blank")
-                                                | #{imageLink.imageLink2}
-                                    if imageLink.imageLink3
-                                        p
-                                            a(href="#{imageLink.imageLink3}" target="_blank")
-                                                | #{imageLink.imageLink3}
-                                    if imageLink.imageLink4
-                                        p
-                                            a(href="#{imageLink.imageLink4}" target="_blank")
-                                                | #{imageLink.imageLink4}
-                                    if imageLink.imageLink5
-                                        p
-                                            a(href="#{imageLink.imageLink5}" target="_blank")
-                                                | #{imageLink.imageLink5}
+                                .row
+                                    .col-md-10.col-md-offset-1
+                                        each imageLink in movieData.imageLinks
+                                            if imageLink.imageLink1
+                                                col-md-2
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink1}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink1}')
+                                            if imageLink.imageLink2
+                                                col-md-2
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink2}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink2}')
+                                            if imageLink.imageLink3
+                                                col-md-2
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink3}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink3}')
+                                            if imageLink.imageLink4
+                                                col-md-2
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink4}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink4}')
+                                            if imageLink.imageLink5
+                                                col-md-2
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink5}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink5}')
