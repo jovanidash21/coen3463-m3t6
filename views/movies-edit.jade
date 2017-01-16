@@ -82,14 +82,14 @@ block content
                                             div
                                                 input.form-control(name='imdbLink', type='text', placeholder='IMDB Link (URL)', value='#{movieData.imdbLink}')
                                             .sub-title
-                                                | Trailer Links
+                                                | Trailer Link
                                             div
                                                 each trailerLink in movieData.trailerLinks
                                                     input.form-control(name='trailerLink1', type='text', placeholder='Traler 1 (URL)', value='#{trailerLink.trailerLink1}')
                                                     input.form-control(name='trailerLink2', type='text', placeholder='Trailer 2 (URL)', value='#{trailerLink.trailerLink2}')
                                                     input.form-control(name='trailerLink3', type='text', placeholder='Trailer 3 (URL)', value='#{trailerLink.trailerLink3}')
                                             .sub-title
-                                                | Images Links
+                                                | Image Gallery
                                             div
                                                 each imageLink in movieData.imageLinks
                                                     input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value='#{imageLink.imageLink1}')

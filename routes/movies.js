@@ -113,7 +113,7 @@ router.get('/:movieID/edit', function(req, res, next) {
     moviesData.findOne({_id: movieID}, function(err, movieData) {
         if(!err){
             res.render('movies-edit', {
-                title: 'Movies | MMFF Movies',
+                title: 'Edit Movie | MMFF Movies',
                 navBarTitle: 'Update Movie',
                 movieData: movieData,
                 moment: moment
@@ -186,7 +186,7 @@ router.post('/:movieID/edit', function(req, res, next) {
             movieData.save(function(err, movieData){
                 if(!err){
                     res.render('movies-edit', {
-                        title: 'Movies | MMFF Movies',
+                        title: 'Edit Movie | MMFF Movies',
                         navBarTitle: 'Update Movie',
                         alertMessage: 'Movie Updated',
                         postError: false,
@@ -196,7 +196,7 @@ router.post('/:movieID/edit', function(req, res, next) {
                 }
                 else{
                     res.render('movies-edit', {
-                        title: 'Movies | MMFF Movies',
+                        title: 'Edit Movie | MMFF Movies',
                         navBarTitle: 'Update Movie',
                         alertMessage: 'Movie Not Updated! Please Try Again',
                         postError: true,
