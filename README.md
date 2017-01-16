@@ -27,10 +27,10 @@ mongo
 ``` 
 * Create a database locally using MongoDB on your computer.
 ```
-use screw-it
+use mmff-movies
 ``` 
 * Insert to the database the JSON files inside the data folder of this project.
-* Open app.js and replace ```process.env.MONGODB_URI``` with ```'localhost:27017/screw-it'```.
+* Open app.js and replace ```process.env.MONGODB_URI``` with ```'localhost:27017/mmff-movies'```.
 * Open another terminal or cmd and run 'www' file inside the bin directory.
 ```
 node ./bin/www
@@ -39,7 +39,7 @@ node ./bin/www
 
 ## Credits
 - [Bootstrap Theme](https://github.com/tui2tone/flat-admin-bootstrap-templates/releases/tag/v2.1.2)
-- Content from Wikipedia
+- Contents from Wikipedia
 - Images downloaded from Google
 
 ## Connect
