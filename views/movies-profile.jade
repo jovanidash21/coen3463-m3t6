@@ -21,11 +21,24 @@ block content
                                 div(align='center')
                                     if movieData.posterImage
                                         img.img-responsive(src='#{movieData.posterImage}')
-                            .col-md-9
+                            .col-md-6
                                 .sub-title
                                     | Plot
                                 if movieData.plot
                                     p= movieData.plot
+                            .col-md-3
+                                .sub-title
+                                    | Publish
+                                div
+                                    ul.list-group
+                                        li.list-group-item
+                                            strong
+                                                | Created: &nbsp;
+                                            | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
+                                        li.list-group-item
+                                            strong
+                                                | Last Updated: &nbsp;
+                                            | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
                         .row
                             .col-md-4
                                 .sub-title
@@ -90,7 +103,9 @@ block content
                                 .sub-title
                                     | IMDB Link
                                 if movieData.imdbLink
-                                    p= movieData.imdbLink
+                                    p
+                                        a(href="#{movieData.imdbLink}" target="_blank")
+                                            | #{movieData.imdbLink}
                             .col-md-4
                                 .sub-title
                                     | Gross Ticket Sales
