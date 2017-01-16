@@ -62,8 +62,7 @@ router.post('/add', function(req, res, next) {
         imageLink1: req.body.imageLink1,
         imageLink2: req.body.imageLink2,
         imageLink3: req.body.imageLink3,
-        imageLink4: req.body.imageLink4,
-        imageLink5: req.body.imageLink5
+        imageLink4: req.body.imageLink4
     });
 
     var movie = {
@@ -167,8 +166,7 @@ router.post('/:movieID/edit', function(req, res, next) {
         imageLink1: req.body.imageLink1,
         imageLink2: req.body.imageLink2,
         imageLink3: req.body.imageLink3,
-        imageLink4: req.body.imageLink4,
-        imageLink5: req.body.imageLink5
+        imageLink4: req.body.imageLink4
     });
 
     moviesData.findOne({_id: movieID}, function(err, movieData) {

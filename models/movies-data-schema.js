@@ -44,8 +44,7 @@ var moviesDataSchema = new Schema
             imageLink1: {type: String},
             imageLink2: {type: String},
             imageLink3: {type: String},
-            imageLink4: {type: String},
-            imageLink5: {type: String}
+            imageLink4: {type: String}
         }],
         grossTicketSales: {type: String}
     },

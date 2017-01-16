@@ -138,30 +138,25 @@ block content
                                 .sub-title
                                     | Image
                                 .row
-                                    .col-md-10.col-md-offset-1
+                                    .col-md-12
                                         each imageLink in movieData.imageLinks
                                             if imageLink.imageLink1
-                                                col-md-2
+                                                .col-md-3
                                                     p
                                                         a.thumbnail(href='#{imageLink.imageLink1}', target='_blank')
                                                             img.img-responsive(src='#{imageLink.imageLink1}')
                                             if imageLink.imageLink2
-                                                col-md-2
+                                                .col-md-3
                                                     p
                                                         a.thumbnail(href='#{imageLink.imageLink2}', target='_blank')
                                                             img.img-responsive(src='#{imageLink.imageLink2}')
                                             if imageLink.imageLink3
-                                                col-md-2
+                                                .col-md-3
                                                     p
                                                         a.thumbnail(href='#{imageLink.imageLink3}', target='_blank')
                                                             img.img-responsive(src='#{imageLink.imageLink3}')
                                             if imageLink.imageLink4
-                                                col-md-2
+                                                .col-md-3
                                                     p
                                                         a.thumbnail(href='#{imageLink.imageLink4}', target='_blank')
                                                             img.img-responsive(src='#{imageLink.imageLink4}')
-                                            if imageLink.imageLink5
-                                                col-md-2
-                                                    p
-                                                        a.thumbnail(href='#{imageLink.imageLink5}', target='_blank')
-                                                            img.img-responsive(src='#{imageLink.imageLink5}')
