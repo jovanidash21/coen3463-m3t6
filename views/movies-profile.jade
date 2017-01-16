@@ -45,50 +45,53 @@ block content
                                 .sub-title
                                     | Director
                                 each director in movieData.directors
-                                    if director.director1
-                                        p= director.director1
-                                    if director.director2
-                                        p= director.director2
-                                    if director.director3
-                                        p= director.director3
+                                    p
+                                        if director.director1
+                                            | #{director.director1}
+                                        if director.director2
+                                            | ,&nbsp;#{director.director2}
+                                        if director.director3
+                                            | ,&nbsp;#{director.director3}
                             .col-md-4
                                 .sub-title
                                     | Studio
                                 each studio in movieData.studios
-                                    if studio.studio1
-                                        p= studio.studio1
-                                    if studio.studio2
-                                        p= studio.studio2
-                                    if studio.studio3
-                                        p= studio.studio3
-                                    if studio.studio4
-                                        p= studio.studio4
-                                    if studio.studio5
-                                        p= studio.studio5
+                                    p
+                                        if studio.studio1
+                                            | #{studio.studio1}
+                                        if studio.studio2
+                                            | ,&nbsp;#{studio.studio2}
+                                        if studio.studio3
+                                            | ,&nbsp;#{studio.studio3}
+                                        if studio.studio4
+                                            | ,&nbsp;#{studio.studio4}
+                                        if studio.studio5
+                                            | ,&nbsp;#{studio.studio5}
                             .col-md-4
                                 .sub-title
                                     | Starring
                                 each star in movieData.starring
-                                    if star.starring1
-                                        p= star.starring1
-                                    if star.starring2
-                                        p= star.starring2
-                                    if star.starring3
-                                        p= star.starring3
-                                    if star.starring4
-                                        p= star.starring4
-                                    if star.starring5
-                                        p= star.starring5
-                                    if star.starring6
-                                        p= star.starring6
-                                    if star.starring7
-                                        p= star.starring7
-                                    if star.starring8
-                                        p= star.starring8
-                                    if star.starring9
-                                        p= star.starring9
-                                    if star.starring10
-                                        p= star.starring10
+                                    p
+                                        if star.starring1
+                                            | #{star.starring1}
+                                        if star.starring2
+                                            | ,&nbsp;#{star.starring2}
+                                        if star.starring3
+                                            | ,&nbsp;#{star.starring3}
+                                        if star.starring4
+                                            | ,&nbsp;#{star.starring4}
+                                        if star.starring5
+                                            | ,&nbsp;#{star.starring5}
+                                        if star.starring6
+                                            | ,&nbsp;#{star.starring6}
+                                        if star.starring7
+                                            | ,&nbsp;#{star.starring7}
+                                        if star.starring8
+                                            | ,&nbsp;#{star.starring8}
+                                        if star.starring9
+                                            | ,&nbsp;#{star.starring9}
+                                        if star.starring10
+                                            | ,&nbsp;#{star.starring10}
                         .row
                             .col-md-4
                                 .sub-title
@@ -104,7 +107,8 @@ block content
                                 .sub-title
                                     | Gross Ticket Sales
                                 if movieData.grossTicketSales
-                                    p= movieData.grossTicketSales
+                                    p &#8369;
+                                     | #{movieData.grossTicketSales}
                         .row
                             .col-md-6
                                 .sub-title
@@ -132,7 +136,7 @@ block content
                         .row
                             .col-md-12
                                 .sub-title
-                                    | Image Links
+                                    | Image
                                 .row
                                     .col-md-10.col-md-offset-1
                                         each imageLink in movieData.imageLinks
