@@ -5,7 +5,7 @@ block content
         .row.no-margin-bottom
             .col-xs-12
                 div(align='right')
-                    a.btn.btn-lg.btn-primary(href='/movies/add', role='button') Add New
+                    a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New
             .col-xs-12
                 if(typeof alertMessage !== "undefined")
                     if(!!postError)
@@ -115,6 +115,8 @@ block content
                                                             | Last Updated: &nbsp;
                                                         | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
                                             div(align='right')
+                                                a.btn.btn-default(href='/movies/#{movieData._id}', role='button') View Profile
+                                                | &nbsp;
                                                 button.btn.btn-primary(name='submit', type='submit') Update
                                 .col-md-12
                                     .card
