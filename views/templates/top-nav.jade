@@ -7,14 +7,22 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar-top.navbar-inverse
                 li= navBarTitle
             button.navbar-right-expand-toggle.pull-right.visible-xs(type='button')
                 i.fa.fa-th.icon
-        ul.nav.navbar-nav.navbar-right
-            li.dropdown.profile
-                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                    | Administrator
-                    span.caret
-                ul.dropdown-menu.animated.fadeInDown
-                    li.profile-img
-                        img.profile-img(src='/images/administrator.png')
-                    li
-                        .profile-info
-                            h4.username Administrator
+        form(action='/logout', method='post')
+            if user
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown.profile
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                            | #{user.firstName}
+                            | #{user.lastName}
+                            span.caret
+                        ul.dropdown-menu.animated.fadeInDown
+                            li.profile-img
+                                img.profile-img(src='#{user.profileImage}')
+                            li
+                                .profile-info
+                                    h4.username
+                                        | &#64;#{user.username}
+                                    .btn-group.margin-bottom-2x(role='group')
+                                        button.btn.btn-default(name='submit', type='submit')
+                                            i.fa.fa-sign-out
+                                            | &nbsp;Logout

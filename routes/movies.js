@@ -3,23 +3,35 @@ var router = express.Router();
 var moment = require('moment');
 
 router.get('/', function(req, res, next) {
-    moviesData.find()
-        .then(function(moviesData) {
-            res.render('movies', {
-                title: 'Movies | MMFF Movies',
-                navBarTitle: 'Movies',
-                moviesData: moviesData,
-                moment: moment
+    if(req.user){
+        moviesData.find()
+            .then(function (moviesData) {
+                res.render('movies', {
+                    user: req.user,
+                    title: 'Movies | MMFF Movies',
+                    navBarTitle: 'Movies',
+                    moviesData: moviesData,
+                    moment: moment
+                });
             });
-        });
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 router.get('/add', function(req, res, next) {
-    res.render('movies-add', {
-        title: 'Add New Movie | MMFF Movies',
-        navBarTitle: 'Add New Movie',
-        moviesData: moviesData
-    });
+    if(req.user) {
+        res.render('movies-add', {
+            user: req.user,
+            title: 'Add New Movie | MMFF Movies',
+            navBarTitle: 'Add New Movie',
+            moviesData: moviesData
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 router.post('/add', function(req, res, next) {
@@ -92,37 +104,49 @@ router.post('/add', function(req, res, next) {
 });
 
 router.get('/:movieID/', function(req, res, next) {
-    var movieID = req.params.movieID;
-    moviesData.findOne({_id: movieID}, function(err, movieData) {
-        if(!err){
-            res.render('movies-profile', {
-                title: 'Movie Profile | MMFF Movies',
-                navBarTitle: 'Movie Profile',
-                movieData: movieData,
-                moment: moment
-            });
-        }
-        else {
-            res.end(err);
-        }
-    });
+    if(req.user){
+        var movieID = req.params.movieID;
+        moviesData.findOne({_id: movieID}, function (err, movieData) {
+            if (!err) {
+                res.render('movies-profile', {
+                    user: req.user,
+                    title: 'Movie Profile | MMFF Movies',
+                    navBarTitle: 'Movie Profile',
+                    movieData: movieData,
+                    moment: moment
+                });
+            }
+            else {
+                res.end(err);
+            }
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 router.get('/:movieID/edit', function(req, res, next) {
-    var movieID = req.params.movieID;
-    moviesData.findOne({_id: movieID}, function(err, movieData) {
-        if(!err){
-            res.render('movies-edit', {
-                title: 'Edit Movie | MMFF Movies',
-                navBarTitle: 'Update Movie',
-                movieData: movieData,
-                moment: moment
-            });
-        }
-        else {
-            res.end(err);
-        }
-    });
+    if(req.user){
+        var movieID = req.params.movieID;
+        moviesData.findOne({_id: movieID}, function (err, movieData) {
+            if (!err) {
+                res.render('movies-edit', {
+                    user: req.user,
+                    title: 'Edit Movie | MMFF Movies',
+                    navBarTitle: 'Update Movie',
+                    movieData: movieData,
+                    moment: moment
+                });
+            }
+            else {
+                res.end(err);
+            }
+        });
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 router.post('/:movieID/edit', function(req, res, next) {

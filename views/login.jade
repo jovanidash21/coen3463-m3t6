@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title Login - MMFF Movies
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400', rel='stylesheet', type='text/css')
+        link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.min.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/flat-blue.css')
+    body.flat-blue.login-page(style="background-image: url(/images/login_background.png);")
+        .container
+            .login-box
+                div
+                    .login-form.row
+                        .col-sm-12.text-center.login-header
+                            img.img-responsive(src='/images/login_logo.png')
+                        .col-sm-12
+                            form(action='/login', method='post')
+                                .control
+                                    input.form-control(name='username', type='text', placeholder='Username')
+                                .control
+                                    input.form-control(name='password', type='password', placeholder='Password')
+                                .login-button.text-center
+                                    input.btn.btn-success(type='submit', value='Login')
+        script(type='text/javascript', src='/javascripts/jquery.min.js')
+        script(type='text/javascript', src='/javascripts/bootstrap.min.js')
+        script(type='text/javascript', src='/javascripts/app.js')

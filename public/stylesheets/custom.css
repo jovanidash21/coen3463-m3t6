@@ -1,3 +1,17 @@
+body.login-page
+{
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.navbar .dropdown.profile .dropdown-menu
+{
+    width: 300px;
+}
 h3#thumbnail-label
 {
     display:inline-block;
