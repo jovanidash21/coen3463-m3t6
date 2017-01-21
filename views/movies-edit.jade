@@ -19,14 +19,14 @@ block content
                             a.close(href="#", data-dismiss="alert", aria-label="close") &times;
             .col-xs-12
                 form(action='/movies/#{movieData._id}/edit', method='post')
-                    .row
+                    .row.no-margin-bottom
                         .col-md-9
                             .row
                                 .col-md-12
                                     .card
                                         .card-body
                                             div
-                                                input.form-control(name='title', type='text', placeholder='Movie Title', value='#{movieData.title}' required='')
+                                                input.form-control(name='title', type='text', placeholder='Movie Title', value='#{movieData.title}', required='')
                                 .col-md-12
                                     .card
                                         .card-header
