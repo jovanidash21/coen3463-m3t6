@@ -19,9 +19,9 @@ html
                         .col-sm-12
                             form(action='/login', method='post')
                                 .control
-                                    input.form-control(name='username', type='text', placeholder='Username')
+                                    input.form-control(name='username', type='text', placeholder='Username', required='')
                                 .control
-                                    input.form-control(name='password', type='password', placeholder='Password')
+                                    input.form-control(name='password', type='password', placeholder='Password', required='')
                                 .login-button.text-center
                                     input.btn.btn-success(type='submit', value='Login')
         script(type='text/javascript', src='/javascripts/jquery.min.js')
