@@ -23,7 +23,12 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar-top.navbar-inverse
                                 .profile-info
                                     h4.username
                                         | &#64;#{user.username}
+                                    if user.email
+                                        p= user.email
                                     .btn-group.margin-bottom-2x(role='group')
-                                        button.btn.btn-default(name='submit', type='submit')
+                                        a.btn.btn-default(href='/users/#{user._id}', role='button')
+                                            i.fa.fa-user
+                                            |  Profile
+                                        button.btn.btn-primary(name='submit', type='submit')
                                             i.fa.fa-sign-out
                                             | &nbsp;Logout
