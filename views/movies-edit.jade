@@ -92,10 +92,30 @@ block content
                                                 | Image Gallery
                                             div
                                                 each imageLink in movieData.imageLinks
-                                                    input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value='#{imageLink.imageLink1}')
-                                                    input.form-control(name='imageLink2', type='text', placeholder='Image 2 (URL)', value='#{imageLink.imageLink2}')
-                                                    input.form-control(name='imageLink3', type='text', placeholder='Image 3 (URL)', value='#{imageLink.imageLink3}')
-                                                    input.form-control(name='imageLink4', type='text', placeholder='Image 4 (URL)', value='#{imageLink.imageLink4}')
+                                                    .col-md-3
+                                                        input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value='#{imageLink.imageLink1}')
+                                                        if imageLink.imageLink1
+                                                            p
+                                                                a.thumbnail(href='#{imageLink.imageLink1}', target='_blank')
+                                                                    img.img-responsive(src='#{imageLink.imageLink1}')
+                                                    .col-md-3
+                                                        input.form-control(name='imageLink2', type='text', placeholder='Image 2 (URL)', value='#{imageLink.imageLink2}')
+                                                        if imageLink.imageLink2
+                                                            p
+                                                                a.thumbnail(href='#{imageLink.imageLink2}}', target='_blank')
+                                                                    img.img-responsive(src='#{imageLink.imageLink2}')
+                                                    .col-md-3
+                                                        input.form-control(name='imageLink3', type='text', placeholder='Image 3 (URL)', value='#{imageLink.imageLink3}')
+                                                        if imageLink.imageLink3
+                                                            p
+                                                                a.thumbnail(href='#{imageLink.imageLink3}', target='_blank')
+                                                                    img.img-responsive(src='#{imageLink.imageLink3}')
+                                                    .col-md-3
+                                                        input.form-control(name='imageLink4', type='text', placeholder='Image 4 (URL)', value='#{imageLink.imageLink4}')
+                                                        if imageLink.imageLink4
+                                                            p
+                                                                a.thumbnail(href='#{imageLink.imageLink4}', target='_blank')
+                                                                    img.img-responsive(src='#{imageLink.imageLink4}')
                         .col-md-3
                             .row
                                 .col-md-12
@@ -148,3 +168,7 @@ block content
                                                 .sub-title Poster Image
                                         .card-body
                                             input.form-control(name= 'posterImage', type='text', placeholder='Poster Image', value='#{movieData.posterImage}')
+                                            if movieData.posterImage
+                                                p
+                                                    a.thumbnail(href='#{movieData.posterImage}', target='_blank')
+                                                        img.img-responsive(src='#{movieData.posterImage}')

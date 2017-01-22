@@ -25,8 +25,7 @@ router.get('/add', function(req, res, next) {
         res.render('movies-add', {
             user: req.user,
             title: 'Add New Movie | MMFF Movies',
-            navBarTitle: 'Add New Movie',
-            moviesData: moviesData
+            navBarTitle: 'Add New Movie'
         });
     }
     else{
@@ -238,7 +237,7 @@ router.post('/:movieID/edit', function(req, res, next) {
 
 router.post('/:movieID/delete', function(req, res, next) {
     var movieID = req.params.movieID;
-    moviesData.remove({_id: movieID}, function(err,movieData){
+    moviesData.remove({_id: movieID}, function(err){
         if(!err){
             res.redirect('/');
         }
