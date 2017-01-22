@@ -5,14 +5,15 @@ block content
         .row.no-margin-bottom
             .col-xs-12
                 div(align='right')
-                    a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New
+                    a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
             .col-xs-12
                 .row
                     each movieData in moviesData.reverse()
                         .col-md-2.col-sm-3.col-xs-6
                             .thumbnail.no-margin-bottom
-                                a.thumbnail(href='/movies/#{movieData._id}')
-                                    img.img-responsive(src='#{movieData.posterImage}')
+                                if movieData.posterImage
+                                    a.thumbnail(href='/movies/#{movieData._id}')
+                                        img.img-responsive(src='#{movieData.posterImage}')
                                 .caption
                                     h3#thumbnail-label
                                         | #{movieData.title}
