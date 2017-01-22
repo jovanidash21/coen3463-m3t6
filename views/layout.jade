@@ -24,7 +24,9 @@ html
         include templates/top-nav
         include templates/side-nav
         .container-fluid
-          block content
+          .side-body.padding-top
+            .row.no-margin-bottom
+              block content
       include templates/footer
     script(type='text/javascript', src='/javascripts/jquery.min.js')
     script(type='text/javascript', src='/javascripts/bootstrap.min.js')

@@ -1,43 +1,41 @@
 extends layout
 
 block content
-    .side-body
-        .row
-            .col-xs-12
-                div(align='right')
-                    a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
-            .col-xs-12
-                .card
-                    .card-body
-                        table.datatable.table.table-striped(cellspacing='0', width='100%')
-                            thead
-                                tr
-                                    th Username
-                                    th First Name
-                                    th Last Name
-                                    th Email
-                                    th Website
-                                    th Date Created
-                                    th Last Update
-                            tfoot
-                                tr
-                                    th Username
-                                    th First Name
-                                    th Last Name
-                                    th Email
-                                    th Website
-                                    th Date Published
-                                    th Last Update
-                            tbody
-                                each userData in usersData
-                                    tr
-                                        td
-                                            a(href='/users/#{userData._id}')= userData.username
-                                        td= userData.firstName
-                                        td= userData.lastName
-                                        td= userData.email
-                                        td
-                                            a(href='#{userData.website}', target='_blank')
-                                                | #{userData.website}
-                                        td #{moment(userData.createdAt).format("YYYY-MM-DD")}
-                                        td #{moment(userData.updatedAt).format("YYYY-MM-DD")}
+    .col-xs-12
+        div(align='right')
+            a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
+    .col-xs-12
+        .card
+            .card-body
+                table.datatable.table.table-striped(cellspacing='0', width='100%')
+                    thead
+                        tr
+                            th Username
+                            th First Name
+                            th Last Name
+                            th Email
+                            th Website
+                            th Date Created
+                            th Last Update
+                    tfoot
+                        tr
+                            th Username
+                            th First Name
+                            th Last Name
+                            th Email
+                            th Website
+                            th Date Published
+                            th Last Update
+                    tbody
+                        each userData in usersData
+                            tr
+                                td
+                                    a(href='/users/#{userData.username}')= userData.username
+                                td= userData.firstName
+                                td= userData.lastName
+                                td= userData.email
+                                td
+                                    a(href='#{userData.website}', target='_blank')
+                                        | #{userData.website}
+                                td #{moment(userData.createdAt).format("YYYY-MM-DD")}
+                                td #{moment(userData.updatedAt).format("YYYY-MM-DD")}
