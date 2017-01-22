@@ -8,16 +8,17 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar-top.navbar-inverse
             button.navbar-right-expand-toggle.pull-right.visible-xs(type='button')
                 i.fa.fa-th.icon
         form(action='/logout', method='post')
-            if user
-                ul.nav.navbar-nav.navbar-right
+            ul.nav.navbar-nav.navbar-right
+                if user
                     li.dropdown.profile
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
                             | #{user.firstName}
                             | #{user.lastName}
                             span.caret
                         ul.dropdown-menu.animated.fadeInDown
-                            li.profile-img
-                                img.profile-img(src='#{user.profileImage}')
+                            if user.profileImage
+                                li.profile-img
+                                    img.profile-img(src='#{user.profileImage}')
                             li
                                 .profile-info
                                     h4.username

@@ -1,0 +1,58 @@
+extends layout
+
+block content
+    .side-body
+        .row.no-margin-bottom
+            .col-xs-12
+                if(typeof alertMessage !== "undefined")
+                    .alert.alert-danger.alert-dismissable.fade.in
+                        | #{alertMessage}
+                        a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+            .col-xs-12
+                form(action='/users/add', method='post')
+                    .row
+                        .col-md-9
+                            .row
+                                .col-md-12
+                                    .card
+                                        .card-body
+                                            .sub-title
+                                                | Username
+                                            div
+                                                input.form-control(name='username', type='text', placeholder='Username', value='', required='')
+                                            .sub-title
+                                                | First Name
+                                            div
+                                                input.form-control(name='firstName', type='text', placeholder='First Name', value='')
+                                            .sub-title
+                                                | Last Name
+                                            div
+                                                input.form-control(name='lastName', type='text', placeholder='Last Name', value='')
+                                            .sub-title
+                                                | Email
+                                            div
+                                                input.form-control(name='email', type='email', placeholder='E-mail', value='')
+                                            .sub-title
+                                                | Website
+                                            div
+                                                input.form-control(name='website', type='text', placeholder='Website', value='')
+                                            .sub-title
+                                                | Password
+                                            div
+                                                input.form-control(name='password', id='password', type='password', placeholder='Password', value='', required='')
+                                            .sub-title
+                                                | Confirm Password
+                                            div
+                                                input.form-control(name='confirmPassword', id='confirmPassword', type='password', placeholder='Password', value='', required='')
+                        .col-md-3
+                            .row
+                                .col-md-12
+                                    div(align='right')
+                                        button.btn.btn-lg.btn-success(name='submit', type='submit') Register
+                                .col-md-12
+                                    .card
+                                        .card-header
+                                            .card-title
+                                                .sub-title Profile Image
+                                        .card-body
+                                            input.form-control(name= 'profileImage', type='text', placeholder='Profile Image', value='')
