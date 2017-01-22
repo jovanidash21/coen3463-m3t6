@@ -59,10 +59,10 @@ router.post('/add', function(req, res, next) {
     });
 });
 
-router.get('/:userID', function(req, res, next) {
+router.get('/:username', function(req, res, next) {
     if(req.user){
-        var userID = req.params.userID;
-        usersData.findOne({_id: userID}, function (err, userData) {
+        var username = req.params.username;
+        usersData.findOne({username: username}, function (err, userData) {
             if (!err) {
                 res.render('users-profile', {
                     user: req.user,
@@ -82,10 +82,10 @@ router.get('/:userID', function(req, res, next) {
     }
 });
 
-router.get('/:userID/edit', function(req, res, next) {
+router.get('/:username/edit', function(req, res, next) {
     if(req.user){
-        var userID = req.params.userID;
-        usersData.findOne({_id: userID}, function (err, userData) {
+        var username = req.params.username;
+        usersData.findOne({username: username}, function (err, userData) {
             if (!err) {
                 res.render('users-edit', {
                     user: req.user,
@@ -105,9 +105,9 @@ router.get('/:userID/edit', function(req, res, next) {
     }
 });
 
-router.post('/:userID/edit', function(req, res, next) {
-    var userID = req.params.userID;
-    usersData.findOne({_id: userID}, function(err, userData) {
+router.post('/:username/edit', function(req, res, next) {
+    var username = req.params.username;
+    usersData.findOne({username: username}, function(err, userData) {
         if(!err){
             userData.username = req.body.username;
             userData.firstName = req.body.firstName;
@@ -115,6 +115,11 @@ router.post('/:userID/edit', function(req, res, next) {
             userData.email= req.body.email;
             userData.website = req.body.website;
             userData.profileImage = req.body.profileImage;
+            if(req.body.password != ''){
+                userData.setPassword(req.body.password, function(){
+                    userData.save();
+                });
+            }
             userData.save(function(err, userData){
                 if(!err){
                     res.render('users-edit', {
@@ -146,9 +151,9 @@ router.post('/:userID/edit', function(req, res, next) {
     });
 });
 
-router.post('/:userID/delete', function(req, res, next) {
-    var userID = req.params.userID;
-    usersData.remove({_id: userID}, function(err){
+router.post('/:username/delete', function(req, res, next) {
+    var username = req.params.username;
+    usersData.remove({username: username}, function(err){
         if(!err){
             res.redirect('/users');
         }
