@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var flash = require('connect-flash');
 
 router.get('/', function(req, res, next) {
     if(req.user){
-        moviesData.find()
+        moviesData.find().sort('-year')
             .then(function(moviesData) {
                 res.render('index', {
                     user: req.user,
                     title: 'Dashboard | MMFF Movies',
                     navBarTitle: 'Dashboard',
-                    moviesData: moviesData
+                    moviesData: moviesData,
+                    alertMessage: req.flash('alertMessage')
                 });
             });
     }

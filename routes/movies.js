@@ -93,6 +93,7 @@ router.post('/add', function(req, res, next) {
     var movieData = new moviesData(movie);
     movieData.save(function(err){
         if(!err){
+            req.flash('alertMessage', 'New Movie Added');
             res.redirect('/');
         }
         else

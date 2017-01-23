@@ -4,9 +4,14 @@ block content
     .col-xs-12
         div(align='right')
             a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
+    if (alertMessage.length > 0)
+        .col-xs-12
+            .alert.alert-success.alert-dismissable.fade.in
+                | #{alertMessage}
+                a.close(href="#", data-dismiss="alert", aria-label="close") &times;
     .col-xs-12
         .row
-            each movieData in moviesData.reverse()
+            each movieData in moviesData
                 .col-md-2.col-sm-3.col-xs-6
                     .thumbnail.no-margin-bottom
                         if movieData.posterImage
