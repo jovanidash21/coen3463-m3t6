@@ -8,6 +8,30 @@ body.login-page
     -o-background-size: cover;
     background-size: cover;
 }
+body.login-page .login-form
+{
+    background-color: rgba(10, 10, 10, 0.9);
+    border-radius: 5px;
+}
+body.login-page .login-form .login-header
+{
+    margin: 20px 0;
+}
+body.login-page .login-form .login-header .img-responsive
+{
+    margin: 0 auto;
+}
+body.login-page .login-form input
+{
+    font-size: 18px;
+    padding: 10px;
+}
+body.login-page .login-button .btn
+{
+    font-size: 21px;
+    padding: 5px;
+    width: 100%;
+}
 .navbar .dropdown.profile .dropdown-menu
 {
     width: 300px;
