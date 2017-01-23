@@ -7,9 +7,9 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar-top.navbar-inverse
                 li= navBarTitle
             button.navbar-right-expand-toggle.pull-right.visible-xs(type='button')
                 i.fa.fa-th.icon
-        form(action='/logout', method='post')
-            ul.nav.navbar-nav.navbar-right
-                if user
+        if user
+            form(action='/logout', method='post')
+                ul.nav.navbar-nav.navbar-right
                     li.dropdown.profile
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
                             | #{user.firstName}
