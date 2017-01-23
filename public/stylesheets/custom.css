@@ -55,3 +55,8 @@ input[name="title"]
     font-size: 25px;
     padding: 20px 10px;
 }
+.card .title,
+.card .sub-title
+{
+    font-weight: bold;
+}
