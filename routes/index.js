@@ -4,7 +4,7 @@ var passport = require('passport');
 
 router.get('/', function(req, res, next) {
     if(req.user){
-        moviesData.find().sort('-year')
+        moviesData.find().sort({year: -1, title: 1})
             .then(function(moviesData) {
                 res.render('index', {
                     user: req.user,
