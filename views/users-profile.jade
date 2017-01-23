@@ -30,7 +30,7 @@ block content
                     .col-md-12
                         .thumbnail.no-margin-bottom
                             if userData.profileImage
-                                a.thumbnail(href='/users/#{userData._id}')
+                                a.thumbnail(href='/users/#{userData.username}')
                                     img.img-responsive(src='#{userData.profileImage}')
                             .caption
                                 h3#thumbnail-label
