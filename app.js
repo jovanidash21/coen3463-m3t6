@@ -8,6 +8,7 @@ var fs = require('fs');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
 var mongoose = require('mongoose');
 
 var options = {
@@ -62,6 +63,8 @@ app.use(session({
 // passport configuration
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash());
 
 app.use('/', index);
 app.use('/movies', movies);
