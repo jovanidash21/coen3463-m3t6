@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var flash = require('connect-flash');
 
 router.get('/', function(req, res, next) {
     if(req.user){
@@ -25,13 +26,34 @@ router.get('/login', function(req, res, next) {
     }
     else{
         res.render('login', {
-            title: 'Login | MMFF Movies'
+            title: 'Login | MMFF Movies',
+            alertMessage: req.flash('alertMessage')
         });
     }
 });
 
-router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), function(req, res, next) {
-    res.redirect('/');
+router.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user) {
+        if(!err){
+            if(!user){
+                req.flash('alertMessage', 'Invalid username or password!');
+                res.redirect('/login');
+            }
+            else{
+                req.logIn(user, function(err) {
+                    if(!err){
+                        res.redirect('/');
+                    }
+                    else{
+                        res.end(err);
+                    }
+                })
+            }
+        }
+        else {
+            res.end(err);
+        }
+    })(req, res, next);
 });
 
 router.post('/logout', function(req, res){

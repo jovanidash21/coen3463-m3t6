@@ -17,6 +17,10 @@ html
                         .col-sm-12.text-center.login-header
                             img.img-responsive(src='/images/login_logo.png')
                         .col-sm-12
+                            if (alertMessage.length > 0)
+                                .alert.alert-danger.alert-dismissable.fade.in
+                                    strong Error:&nbsp;
+                                    | #{alertMessage}
                             form(action='/login', method='post')
                                 .control
                                     input.form-control(name='username', type='text', placeholder='Username', required='')
