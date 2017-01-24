@@ -41,34 +41,58 @@ block content
                                 .card-body
                                     .sub-title
                                         | Director
-                                    div
+                                    .row
                                         each director in movieData.directors
-                                            input.form-control(name='director1', type='text', placeholder='Director 1', value='#{director.director1}')
-                                            input.form-control(name='director2', type='text', placeholder='Director 2', value='#{director.director2}')
-                                            input.form-control(name='director3', type='text', placeholder='Director 3', value='#{director.director3}')
+                                            .col-md-4
+                                                input.form-control(name='director1', type='text', placeholder='Director 1', value='#{director.director1}')
+                                            .col-md-4
+                                                input.form-control(name='director2', type='text', placeholder='Director 2', value='#{director.director2}')
+                                            .col-md-4
+                                                input.form-control(name='director3', type='text', placeholder='Director 3', value='#{director.director3}')
                                     .sub-title
                                         | Studio
-                                    div
+                                    .row
                                         each studio in movieData.studios
-                                            input.form-control(name='studio1', type='text', placeholder='Studio 1', value='#{studio.studio1}')
-                                            input.form-control(name='studio2', type='text', placeholder='Studio 2', value='#{studio.studio2}')
-                                            input.form-control(name='studio3', type='text', placeholder='Studio 3', value='#{studio.studio3}')
-                                            input.form-control(name='studio4', type='text', placeholder='Studio 4', value='#{studio.studio4}')
-                                            input.form-control(name='studio5', type='text', placeholder='Studio 5', value='#{studio.studio5}')
+                                            .col-md-4
+                                                input.form-control(name='studio1', type='text', placeholder='Studio 1', value='#{studio.studio1}')
+                                            .col-md-4
+                                                input.form-control(name='studio2', type='text', placeholder='Studio 2', value='#{studio.studio2}')
+                                            .col-md-4
+                                                input.form-control(name='studio3', type='text', placeholder='Studio 3', value='#{studio.studio3}')
+                                            .col-md-4
+                                                input.form-control(name='studio4', type='text', placeholder='Studio 4', value='#{studio.studio4}')
+                                            .col-md-4
+                                                input.form-control(name='studio5', type='text', placeholder='Studio 5', value='#{studio.studio5}')
+                                            .col-md-4
+                                                input.form-control(name='studio6', type='text', placeholder='Studio 6', value='#{studio.studio6}')
                                     .sub-title
                                         | Starring
-                                    div
+                                    .row
                                         each star in movieData.starring
-                                            input.form-control(name='starring1', type='text', placeholder='Starring 1', value='#{star.starring1}')
-                                            input.form-control(name='starring2', type='text', placeholder='Starring 2', value='#{star.starring2}')
-                                            input.form-control(name='starring3', type='text', placeholder='Starring 3', value='#{star.starring3}')
-                                            input.form-control(name='starring4', type='text', placeholder='Starring 4', value='#{star.starring4}')
-                                            input.form-control(name='starring5', type='text', placeholder='Starring 5', value='#{star.starring5}')
-                                            input.form-control(name='starring6', type='text', placeholder='Starring 6', value='#{star.starring6}')
-                                            input.form-control(name='starring7', type='text', placeholder='Starring 7', value='#{star.starring7}')
-                                            input.form-control(name='starring8', type='text', placeholder='Starring 8', value='#{star.starring8}')
-                                            input.form-control(name='starring9', type='text', placeholder='Starring 9', value='#{star.starring9}')
-                                            input.form-control(name='starring10', type='text', placeholder='Starring 10', value='#{star.starring10}')
+                                            .col-md-4
+                                                input.form-control(name='starring1', type='text', placeholder='Starring 1', value='#{star.starring1}')
+                                            .col-md-4
+                                                input.form-control(name='starring2', type='text', placeholder='Starring 2', value='#{star.starring2}')
+                                            .col-md-4
+                                                input.form-control(name='starring3', type='text', placeholder='Starring 3', value='#{star.starring3}')
+                                            .col-md-4
+                                                input.form-control(name='starring4', type='text', placeholder='Starring 4', value='#{star.starring4}')
+                                            .col-md-4
+                                                input.form-control(name='starring5', type='text', placeholder='Starring 5', value='#{star.starring5}')
+                                            .col-md-4
+                                                input.form-control(name='starring6', type='text', placeholder='Starring 6', value='#{star.starring6}')
+                                            .col-md-4
+                                                input.form-control(name='starring7', type='text', placeholder='Starring 7', value='#{star.starring7}')
+                                            .col-md-4
+                                                input.form-control(name='starring8', type='text', placeholder='Starring 8', value='#{star.starring8}')
+                                            .col-md-4
+                                                input.form-control(name='starring9', type='text', placeholder='Starring 9', value='#{star.starring9}')
+                                            .col-md-4
+                                                input.form-control(name='starring10', type='text', placeholder='Starring 10', value='#{star.starring10}')
+                                            .col-md-4
+                                                input.form-control(name='starring11', type='text', placeholder='Starring 11', value='#{star.starring11}')
+                                            .col-md-4
+                                                input.form-control(name='starring12', type='text', placeholder='Starring 12', value='#{star.starring12}')
                         .col-md-12
                             .card
                                 .card-header
@@ -88,7 +112,7 @@ block content
                                             input.form-control(name='trailerLink3', type='text', placeholder='Trailer 3 (URL)', value='#{trailerLink.trailerLink3}')
                                     .sub-title
                                         | Image Gallery
-                                    div
+                                    .row
                                         each imageLink in movieData.imageLinks
                                             .col-md-3
                                                 input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value='#{imageLink.imageLink1}')

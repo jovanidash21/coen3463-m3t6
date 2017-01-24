@@ -17,7 +17,8 @@ var moviesDataSchema = new Schema
             studio2: {type: String},
             studio3: {type: String},
             studio4: {type: String},
-            studio5: {type: String}
+            studio5: {type: String},
+            studio6: {type: String}
         }],
         starring: [{
             starring1: {type: String},
@@ -29,7 +30,9 @@ var moviesDataSchema = new Schema
             starring7: {type: String},
             starring8: {type: String},
             starring9: {type: String},
-            starring10: {type: String}
+            starring10: {type: String},
+            starring11: {type: String},
+            starring12: {type: String}
         }],
         year: {type: String},
         genre: {type: String},

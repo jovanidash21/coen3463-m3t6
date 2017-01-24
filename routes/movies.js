@@ -50,7 +50,8 @@ router.post('/add', function(req, res, next) {
         studio2: req.body.studio2,
         studio3: req.body.studio3,
         studio4: req.body.studio4,
-        studio5: req.body.studio5
+        studio5: req.body.studio5,
+        studio6: req.body.studio6
     });
     starring.push({
         starring1: req.body.starring1,
@@ -62,7 +63,9 @@ router.post('/add', function(req, res, next) {
         starring7: req.body.starring7,
         starring8: req.body.starring8,
         starring9: req.body.starring9,
-        starring10: req.body.starring10
+        starring10: req.body.starring10,
+        starring11: req.body.starring11,
+        starring12: req.body.starring12
     });
     trailerLinks.push({
         trailerLink1: req.body.trailerLink1,
@@ -167,7 +170,8 @@ router.post('/:movieID/edit', function(req, res, next) {
         studio2: req.body.studio2,
         studio3: req.body.studio3,
         studio4: req.body.studio4,
-        studio5: req.body.studio5
+        studio5: req.body.studio5,
+        studio6: req.body.studio6
     });
     starring.push({
         starring1: req.body.starring1,
@@ -179,7 +183,9 @@ router.post('/:movieID/edit', function(req, res, next) {
         starring7: req.body.starring7,
         starring8: req.body.starring8,
         starring9: req.body.starring9,
-        starring10: req.body.starring10
+        starring10: req.body.starring10,
+        starring11: req.body.starring11,
+        starring12: req.body.starring12
     });
     trailerLinks.push({
         trailerLink1: req.body.trailerLink1,
