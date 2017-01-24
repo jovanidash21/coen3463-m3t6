@@ -24,7 +24,7 @@ block content
                             .card
                                 .card-body
                                     div
-                                        input.form-control(name='title', type='text', placeholder='Movie Title', value='#{movieData.title}', required='')
+                                        input.form-control(name='title', type='text', placeholder='Movie Title *', value='#{movieData.title}', required='')
                         .col-md-12
                             .card
                                 .card-header
@@ -140,10 +140,10 @@ block content
                             .card
                                 .card-header
                                     .card-title
-                                        .sub-title Year
+                                        .sub-title Year *
                                 .card-body
                                     div
-                                        input.form-control(name='year', type='text', placeholder='Year', value='#{movieData.year}')
+                                        input.form-control(name='year', type='text', placeholder='Year', value='#{movieData.year}', required='')
                         .col-md-12
                             .card
                                 .card-header
