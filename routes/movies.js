@@ -93,7 +93,7 @@ router.post('/add', function(req, res, next) {
     var movieData = new moviesData(movie);
     movieData.save(function(err){
         if(!err){
-            req.flash('alertMessage', 'New Movie Added');
+            req.flash('alertMessage', 'New Movie Added!');
             res.redirect('/');
         }
         else
@@ -240,6 +240,7 @@ router.post('/:movieID/delete', function(req, res, next) {
     var movieID = req.params.movieID;
     moviesData.remove({_id: movieID}, function(err){
         if(!err){
+            req.flash('alertMessage', 'Movie Deleted!');
             res.redirect('/');
         }
         else {

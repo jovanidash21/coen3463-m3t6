@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
                     title: 'Users | MMFF Movies',
                     navBarTitle: 'Users',
                     usersData: usersData,
-                    moment: moment
+                    moment: moment,
+                    alertMessage: req.flash('alertMessage')
                 });
             });
     }
@@ -44,6 +45,7 @@ router.post('/add', function(req, res, next) {
     };
     usersData.register(new usersData(user), req.body.confirmPassword, function(err) {
         if(!err){
+            req.flash('alertMessage', 'New User Added!');
             res.redirect('/users');
         }
         else
@@ -155,6 +157,7 @@ router.post('/:username/delete', function(req, res, next) {
     var username = req.params.username;
     usersData.remove({username: username}, function(err){
         if(!err){
+            req.flash('alertMessage', 'User Deleted!');
             res.redirect('/users');
         }
         else {
