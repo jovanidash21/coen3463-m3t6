@@ -13,7 +13,7 @@ block content
             else
                 .alert.alert-success.alert-dismissable.fade.in
                     | #{alertMessage} &nbsp;
-                    a.alert-link(href='/users/#{userData.username}') View User Profile
+                    a.alert-link(href='/users/#{userData.username}') View Profile
                     a.close(href="#", data-dismiss="alert", aria-label="close") &times;
     .col-xs-12
         form(action='/users/#{userData.username}/edit', method='post')
@@ -59,11 +59,11 @@ block content
                                         ul.list-group
                                             li.list-group-item
                                                 strong
-                                                    | Created: &nbsp;
+                                                    | Created:&nbsp;
                                                 | #{moment(userData.createdAt).format("YYYY-MM-DD HH:mm")}
                                             li.list-group-item
                                                 strong
-                                                    | Last Updated: &nbsp;
+                                                    | Last Updated:&nbsp;
                                                 | #{moment(userData.updatedAt).format("YYYY-MM-DD HH:mm")}
                                     div(align='right')
                                         button.btn.btn-primary(name='submit', type='submit') Update

@@ -13,7 +13,7 @@ block content
             else
                 .alert.alert-success.alert-dismissable.fade.in
                     | #{alertMessage} &nbsp;
-                    a.alert-link(href='/movies/#{movieData._id}') View Movie Profile
+                    a.alert-link(href='/movies/#{movieData._id}') View Profile
                     a.close(href="#", data-dismiss="alert", aria-label="close") &times;
     .col-xs-12
         form(action='/movies/#{movieData._id}/edit', method='post')
@@ -126,11 +126,11 @@ block content
                                         ul.list-group
                                             li.list-group-item
                                                 strong
-                                                    | Created: &nbsp;
+                                                    | Created:&nbsp;
                                                 | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
                                             li.list-group-item
                                                 strong
-                                                    | Last Updated: &nbsp;
+                                                    | Last Updated:&nbsp;
                                                 | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
                                     div(align='right')
                                         a.btn.btn-default(href='/movies/#{movieData._id}', role='button') View Profile
