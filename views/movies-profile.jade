@@ -24,156 +24,174 @@ block content
                         button.btn.btn-default(type='button', data-dismiss='modal') Cancel
                         button.btn.btn-danger(name='submit', type='submit',) Yes, Delete It!
     .col-xs-12
-        .card
-            .card-header
-                .card-title
-                    .title
-                        | Movie Title:&nbsp;
-                        | #{movieData.title}
-            .card-body
+        .row
+            .col-md-12
+                .card
+                    .card-header
+                        .card-title
+                            .title
+                                | #{movieData.title}
+    .col-xs-12
+        .row
+            .col-md-3
                 .row
-                    .col-md-3
-                        .sub-title
-                            | Movie Poster Image
-                        div(align='center')
-                            if movieData.posterImage
-                                a.thumbnail(href='#{movieData.posterImage}', target='_blank')
-                                    img.img-responsive(src='#{movieData.posterImage}')
-                    .col-md-6
-                        .sub-title
-                            | Plot / Synopsis
-                        if movieData.plot
-                            p= movieData.plot
-                    .col-md-3
-                        .sub-title
-                            | Publish
+                    .col-md-12
+                        if movieData.posterImage
+                            a.thumbnail(href='/movies/#{movieData._id}')
+                                img.img-responsive(src='#{movieData.posterImage}')
+                .row
+                    .col-md-12
                         div
                             ul.list-group
                                 li.list-group-item
                                     strong
-                                        | Created: &nbsp;
-                                    | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
+                                        | Year:&nbsp;
+                                    if  movieData.year
+                                        | #{movieData.year}
                                 li.list-group-item
                                     strong
-                                        | Last Updated: &nbsp;
-                                    | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
-                .row
-                    .col-md-4
-                        .sub-title
-                            | Director
-                        each director in movieData.directors
-                            p
-                                if director.director1
-                                    | #{director.director1}
-                                if director.director2
-                                    | ,&nbsp;#{director.director2}
-                                if director.director3
-                                    | ,&nbsp;#{director.director3}
-                    .col-md-4
-                        .sub-title
-                            | Studio
-                        each studio in movieData.studios
-                            p
-                                if studio.studio1
-                                    | #{studio.studio1}
-                                if studio.studio2
-                                    | ,&nbsp;#{studio.studio2}
-                                if studio.studio3
-                                    | ,&nbsp;#{studio.studio3}
-                                if studio.studio4
-                                    | ,&nbsp;#{studio.studio4}
-                                if studio.studio5
-                                    | ,&nbsp;#{studio.studio5}
-                    .col-md-4
-                        .sub-title
-                            | Starring
-                        each star in movieData.starring
-                            p
-                                if star.starring1
-                                    | #{star.starring1}
-                                if star.starring2
-                                    | ,&nbsp;#{star.starring2}
-                                if star.starring3
-                                    | ,&nbsp;#{star.starring3}
-                                if star.starring4
-                                    | ,&nbsp;#{star.starring4}
-                                if star.starring5
-                                    | ,&nbsp;#{star.starring5}
-                                if star.starring6
-                                    | ,&nbsp;#{star.starring6}
-                                if star.starring7
-                                    | ,&nbsp;#{star.starring7}
-                                if star.starring8
-                                    | ,&nbsp;#{star.starring8}
-                                if star.starring9
-                                    | ,&nbsp;#{star.starring9}
-                                if star.starring10
-                                    | ,&nbsp;#{star.starring10}
-                .row
-                    .col-md-4
-                        .sub-title
-                            | Year
-                        if  movieData.year
-                            p= movieData.year
-                    .col-md-4
-                        .sub-title
-                            | Genre
-                        if movieData.genre
-                            p= movieData.genre
-                    .col-md-4
-                        .sub-title
-                            | Gross Ticket Sales
-                        if movieData.grossTicketSales
-                            p &#8369;
-                             | #{movieData.grossTicketSales}
-                .row
-                    .col-md-6
-                        .sub-title
-                            | IMDB Link
-                        if movieData.imdbLink
-                            p
-                                a(href='#{movieData.imdbLink}', target='_blank')
-                                    | #{movieData.imdbLink}
-                    .col-md-6
-                        .sub-title
-                            | Trailer Link
-                        each trailerLink in movieData.trailerLinks
-                            if trailerLink.trailerLink1
-                                p
-                                    a(href='#{trailerLink.trailerLink1}', target='_blank')
-                                       | #{trailerLink.trailerLink1}
-                            if trailerLink.trailerLink2
-                                p
-                                    a(href='#{trailerLink.trailerLink2}', target='_blank')
-                                        | #{trailerLink.trailerLink2}
-                            if trailerLink.trailerLink3
-                                p
-                                    a(href='#{trailerLink.trailerLink3}', target='_blank')
-                                        | #{trailerLink.trailerLink3}
+                                        | Genre:&nbsp;
+                                    if  movieData.genre
+                                        | #{movieData.genre}
+                                li.list-group-item
+                                    strong
+                                        | Gross Ticket Sales:&nbsp;
+                                    if  movieData.grossTicketSales
+                                        | &#8369;
+                                        | #{movieData.grossTicketSales}
+            .col-md-6
                 .row
                     .col-md-12
-                        .sub-title
-                            | Image Gallery
-                        .row
-                            .col-md-12
-                                each imageLink in movieData.imageLinks
-                                    if imageLink.imageLink1
-                                        .col-md-3
-                                            p
-                                                a.thumbnail(href='#{imageLink.imageLink1}', target='_blank')
-                                                    img.img-responsive(src='#{imageLink.imageLink1}')
-                                    if imageLink.imageLink2
-                                        .col-md-3
-                                            p
-                                                a.thumbnail(href='#{imageLink.imageLink2}', target='_blank')
-                                                    img.img-responsive(src='#{imageLink.imageLink2}')
-                                    if imageLink.imageLink3
-                                        .col-md-3
-                                            p
-                                                a.thumbnail(href='#{imageLink.imageLink3}', target='_blank')
-                                                    img.img-responsive(src='#{imageLink.imageLink3}')
-                                    if imageLink.imageLink4
-                                        .col-md-3
-                                            p
-                                                a.thumbnail(href='#{imageLink.imageLink4}', target='_blank')
-                                                    img.img-responsive(src='#{imageLink.imageLink4}')
+                        .card
+                            .card-header
+                                .card-title
+                                    .title Plot / Synopsis
+                            .card-body
+                                if movieData.plot
+                                    p= movieData.plot
+                .row
+                    .col-md-12
+                        .card
+                            .card-header
+                                .card-title
+                                    .title Background
+                            .card-body
+                                .sub-title
+                                    | Director
+                                each director in movieData.directors
+                                    p
+                                        if director.director1
+                                            | #{director.director1}
+                                        if director.director2
+                                            | ,&nbsp;#{director.director2}
+                                        if director.director3
+                                            | ,&nbsp;#{director.director3}
+                                .sub-title
+                                    | Studio
+                                each studio in movieData.studios
+                                    p
+                                        if studio.studio1
+                                            | #{studio.studio1}
+                                        if studio.studio2
+                                            | ,&nbsp;#{studio.studio2}
+                                        if studio.studio3
+                                            | ,&nbsp;#{studio.studio3}
+                                        if studio.studio4
+                                            | ,&nbsp;#{studio.studio4}
+                                        if studio.studio5
+                                            | ,&nbsp;#{studio.studio5}
+                                .sub-title
+                                    | Starring
+                                each star in movieData.starring
+                                    p
+                                        if star.starring1
+                                            | #{star.starring1}
+                                        if star.starring2
+                                            | ,&nbsp;#{star.starring2}
+                                        if star.starring3
+                                            | ,&nbsp;#{star.starring3}
+                                        if star.starring4
+                                            | ,&nbsp;#{star.starring4}
+                                        if star.starring5
+                                            | ,&nbsp;#{star.starring5}
+                                        if star.starring6
+                                            | ,&nbsp;#{star.starring6}
+                                        if star.starring7
+                                            | ,&nbsp;#{star.starring7}
+                                        if star.starring8
+                                            | ,&nbsp;#{star.starring8}
+                                        if star.starring9
+                                            | ,&nbsp;#{star.starring9}
+                                        if star.starring10
+                                            | ,&nbsp;#{star.starring10}
+                .row
+                    .col-md-12
+                        .card
+                            .card-header
+                                .card-title
+                                    .title Media
+                            .card-body
+                                .sub-title
+                                    | IMDB Link
+                                if movieData.imdbLink
+                                    p
+                                        a(href='#{movieData.imdbLink}', target='_blank')
+                                            | #{movieData.imdbLink}
+                                .sub-title
+                                    | Trailer Link
+                                each trailerLink in movieData.trailerLinks
+                                    if trailerLink.trailerLink1
+                                        p
+                                            a(href='#{trailerLink.trailerLink1}', target='_blank')
+                                                | #{trailerLink.trailerLink1}
+                                    if trailerLink.trailerLink2
+                                        p
+                                            a(href='#{trailerLink.trailerLink2}', target='_blank')
+                                                | #{trailerLink.trailerLink2}
+                                    if trailerLink.trailerLink3
+                                        p
+                                            a(href='#{trailerLink.trailerLink3}', target='_blank')
+                                                | #{trailerLink.trailerLink3}
+                                .sub-title
+                                    | Image Gallery
+                                .row
+                                    .col-md-12
+                                        each imageLink in movieData.imageLinks
+                                            if imageLink.imageLink1
+                                                .col-md-6
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink1}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink1}')
+                                            if imageLink.imageLink2
+                                                .col-md-6
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink2}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink2}')
+                                            if imageLink.imageLink3
+                                                .col-md-6
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink3}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink3}')
+                                            if imageLink.imageLink4
+                                                .col-md-6
+                                                    p
+                                                        a.thumbnail(href='#{imageLink.imageLink4}', target='_blank')
+                                                            img.img-responsive(src='#{imageLink.imageLink4}')
+            .col-md-3
+                .row
+                    .col-md-12
+                        .card
+                            .card-header
+                                .card-title
+                                    .sub-title Publish
+                            .card-body
+                                div
+                                    ul.list-group
+                                        li.list-group-item
+                                            strong
+                                                | Created: &nbsp;
+                                            | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
+                                        li.list-group-item
+                                            strong
+                                                | Last Updated: &nbsp;
+                                            | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
