@@ -7,30 +7,59 @@ body.login-page
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'Roboto Condensed', sans-serif;
 }
-body.login-page .login-form
+body.login-page .form
 {
-    background-color: rgba(10, 10, 10, 0.9);
-    border-radius: 5px;
+    background: rgba(10, 10, 10, 0.9);
+    max-width: 400px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 15px;
 }
-body.login-page .login-form .login-header
+body.login-page .logo
 {
-    margin: 20px 0;
+    margin-bottom: 10px;
 }
-body.login-page .login-form .login-header .img-responsive
+body.login-page .tab-group
 {
-    margin: 0 auto;
+    margin-bottom: 20px;
 }
-body.login-page .login-form input
+body.login-page .tab-group li a
 {
     font-size: 18px;
-    padding: 10px;
+    padding: 8px;
 }
-body.login-page .login-button .btn
+body.login-page .alert-message
 {
-    font-size: 21px;
-    padding: 5px;
-    width: 100%;
+    color: #a93127;
+    margin: 10px 0;
+}
+body.login-page .field-wrap
+{
+    margin-bottom: 25px;
+}
+body.login-page input,
+body.login-page label
+{
+    font-size: 18px;
+}
+body.login-page label.active
+{
+    -webkit-transform: translateY(35px);
+    transform: translateY(35px);
+    left: 2px;
+    font-size: 15px;
+}
+body.login-page .button
+{
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
 }
 .navbar .dropdown.profile .dropdown-menu
 {

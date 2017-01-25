@@ -16,15 +16,6 @@ router.get('/', function(req, res, next) {
             });
     }
     else{
-        res.redirect('/login');
-    }
-});
-
-router.get('/login', function(req, res, next) {
-    if(req.user){
-        res.redirect('/');
-    }
-    else{
         res.render('login', {
             title: 'Login | MMFF Movies',
             alertMessage: req.flash('alertMessage')
@@ -37,7 +28,7 @@ router.post('/login', function(req, res, next) {
         if(!err){
             if(!user){
                 req.flash('alertMessage', 'Invalid username or password!');
-                res.redirect('/login');
+                res.redirect('/');
             }
             else{
                 req.logIn(user, function(err) {
@@ -56,9 +47,31 @@ router.post('/login', function(req, res, next) {
     })(req, res, next);
 });
 
+router.post('/signup', function(req, res, next) {
+    usersData.register(new usersData({username: req.body.username}), req.body.confirmPassword, function(err) {
+        if(!err){
+            passport.authenticate('local', function(err, user) {
+                req.logIn(user, function(err) {
+                    if(!err){
+                        res.redirect('/');
+                    }
+                    else{
+                        res.end(err);
+                    }
+                })
+            })(req, res, next);
+        }
+        else
+        {
+            req.flash('alertMessage', 'Sorry! Username already exists.');
+            res.redirect('/');
+        }
+    });
+});
+
 router.post('/logout', function(req, res){
     req.logout();
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 module.exports = router;

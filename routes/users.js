@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
             });
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
@@ -33,7 +33,7 @@ router.get('/add', function(req, res, next) {
         });
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
@@ -90,7 +90,7 @@ router.get('/:username', function(req, res, next) {
         });
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
@@ -113,7 +113,7 @@ router.get('/:username/edit', function(req, res, next) {
         });
     }
     else{
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 
