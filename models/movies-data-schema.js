@@ -6,50 +6,53 @@ var moviesDataSchema = new Schema
 (
     {
         title: {type: String, required: true},
-        posterImage: {type: String},
+        posterImage: {
+            type: String,
+            default: 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/poster_images/default.png'
+        },
         directors: [{
-            director1: {type: String},
-            director2: {type: String},
-            director3: {type: String}
+            director1: {type: String, default: ''},
+            director2: {type: String, default: ''},
+            director3: {type: String, default: ''}
         }],
         studios: [{
-            studio1: {type: String},
-            studio2: {type: String},
-            studio3: {type: String},
-            studio4: {type: String},
-            studio5: {type: String},
-            studio6: {type: String}
+            studio1: {type: String, default: ''},
+            studio2: {type: String, default: ''},
+            studio3: {type: String, default: ''},
+            studio4: {type: String, default: ''},
+            studio5: {type: String, default: ''},
+            studio6: {type: String, default: ''}
         }],
         starring: [{
-            starring1: {type: String},
-            starring2: {type: String},
-            starring3: {type: String},
-            starring4: {type: String},
-            starring5: {type: String},
-            starring6: {type: String},
-            starring7: {type: String},
-            starring8: {type: String},
-            starring9: {type: String},
-            starring10: {type: String},
-            starring11: {type: String},
-            starring12: {type: String}
+            starring1: {type: String, default: ''},
+            starring2: {type: String, default: ''},
+            starring3: {type: String, default: ''},
+            starring4: {type: String, default: ''},
+            starring5: {type: String, default: ''},
+            starring6: {type: String, default: ''},
+            starring7: {type: String, default: ''},
+            starring8: {type: String, default: ''},
+            starring9: {type: String, default: ''},
+            starring10: {type: String, default: ''},
+            starring11: {type: String, default: ''},
+            starring12: {type: String, default: ''}
         }],
-        year: {type: String},
-        genre: {type: String},
-        plot: {type: String},
-        imdbLink: {type: String},
+        year: {type: String, default: ''},
+        genre: {type: String ,default: ''},
+        plot: {type: String, default: ''},
+        imdbLink: {type: String, default: ''},
         trailerLinks: [{
-            trailerLink1: {type: String},
-            trailerLink2: {type: String},
-            trailerLink3: {type: String}
+            trailerLink1: {type: String, default: ''},
+            trailerLink2: {type: String, default: ''},
+            trailerLink3: {type: String, default: ''}
         }],
         imageLinks: [{
-            imageLink1: {type: String},
-            imageLink2: {type: String},
-            imageLink3: {type: String},
-            imageLink4: {type: String}
+            imageLink1: {type: String, default: ''},
+            imageLink2: {type: String, default: ''},
+            imageLink3: {type: String, default: ''},
+            imageLink4: {type: String, default: ''}
         }],
-        grossTicketSales: {type: String}
+        grossTicketSales: {type: String, default: ''}
     },
     {
         collection: 'moviesData'
