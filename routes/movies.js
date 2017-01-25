@@ -2,6 +2,13 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
+var directors = [];
+var studios = [];
+var starring = [];
+var trailerLinks = [];
+var imageLinks = [];
+var posterImage;
+
 router.get('/', function(req, res, next) {
     if(req.user){
         moviesData.find()
@@ -34,11 +41,12 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-    var directors = [];
-    var studios = [];
-    var starring = [];
-    var trailerLinks = [];
-    var imageLinks = [];
+    if (req.body.posterImage.length == 0) {
+        posterImage = '/images/poster_images/default.png';
+    }
+    else{
+        posterImage = req.body.posterImage;
+    }
 
     directors.push({
         director1: req.body.director1,
@@ -84,7 +92,7 @@ router.post('/add', function(req, res, next) {
         directors: directors,
         studios: studios,
         starring: starring,
-        posterImage: req.body.posterImage,
+        posterImage: posterImage,
         year: req.body.year,
         genre: req.body.genre,
         plot: req.body.plot,
@@ -154,11 +162,13 @@ router.get('/:movieID/edit', function(req, res, next) {
 
 router.post('/:movieID/edit', function(req, res, next) {
     var movieID = req.params.movieID;
-    var directors = [];
-    var studios = [];
-    var starring = [];
-    var trailerLinks = [];
-    var imageLinks = [];
+
+    if (req.body.posterImage.length == 0) {
+        posterImage = '/images/poster_images/default.png';
+    }
+    else{
+        posterImage = req.body.posterImage;
+    }
 
     directors.push({
         director1: req.body.director1,
@@ -202,7 +212,7 @@ router.post('/:movieID/edit', function(req, res, next) {
     moviesData.findOne({_id: movieID}, function(err, movieData) {
         if(!err){
             movieData.title = req.body.title;
-            movieData.posterImage = req.body.posterImage;
+            movieData.posterImage = posterImage;
             movieData.directors = directors;
             movieData.studios = studios;
             movieData.starring = starring;

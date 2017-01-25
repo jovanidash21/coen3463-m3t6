@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
+var profileImage;
+
 router.get('/', function(req, res, next) {
     if(req.user){
         usersData.find()
@@ -35,13 +37,20 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
+    if (req.body.profileImage.length == 0) {
+        profileImage = '/images/profile_images/default.png';
+    }
+    else{
+        profileImage = req.body.profileImage;
+    }
+
     var user = {
         username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         website: req.body.website,
-        profileImage: req.body.profileImage
+        profileImage: profileImage
     };
     usersData.register(new usersData(user), req.body.confirmPassword, function(err) {
         if(!err){
@@ -109,6 +118,14 @@ router.get('/:username/edit', function(req, res, next) {
 
 router.post('/:username/edit', function(req, res, next) {
     var username = req.params.username;
+
+    if (req.body.profileImage.length == 0) {
+        profileImage = '/images/profile_images/default.png';
+    }
+    else{
+        profileImage = req.body.profileImage;
+    }
+
     usersData.findOne({username: username}, function(err, userData) {
         if(!err){
             userData.username = req.body.username;
@@ -116,8 +133,8 @@ router.post('/:username/edit', function(req, res, next) {
             userData.lastName = req.body.lastName;
             userData.email= req.body.email;
             userData.website = req.body.website;
-            userData.profileImage = req.body.profileImage;
-            if(req.body.password != ''){
+            userData.profileImage = profileImage;
+            if(req.body.password.length > 0){
                 userData.setPassword(req.body.password, function(){
                     userData.save();
                 });
