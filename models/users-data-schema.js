@@ -13,7 +13,8 @@ var usersDataSchema = new Schema
         profileImage: {
             type:String,
             default: 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/profile_images/default.png'
-        }
+        },
+        role: {type:String, default: 'editor'}
     },
     {
         collection: 'usersData'
