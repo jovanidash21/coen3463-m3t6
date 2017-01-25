@@ -7,6 +7,7 @@ var studios = [];
 var starring = [];
 var trailerLinks = [];
 var imageLinks = [];
+var defaultPosterImage = 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/poster_images/default.png';
 var posterImage;
 
 router.get('/', function(req, res, next) {
@@ -42,7 +43,7 @@ router.get('/add', function(req, res, next) {
 
 router.post('/add', function(req, res, next) {
     if (req.body.posterImage.length == 0) {
-        posterImage = '/images/poster_images/default.png';
+        posterImage = defaultPosterImage
     }
     else{
         posterImage = req.body.posterImage;
@@ -164,7 +165,7 @@ router.post('/:movieID/edit', function(req, res, next) {
     var movieID = req.params.movieID;
 
     if (req.body.posterImage.length == 0) {
-        posterImage = '/images/poster_images/default.png';
+        posterImage = defaultPosterImage;
     }
     else{
         posterImage = req.body.posterImage;

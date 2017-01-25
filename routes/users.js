@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
+var defaultProfileImage = 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/profile_images/default.png';
 var profileImage;
 
 router.get('/', function(req, res, next) {
@@ -38,7 +39,7 @@ router.get('/add', function(req, res, next) {
 
 router.post('/add', function(req, res, next) {
     if (req.body.profileImage.length == 0) {
-        profileImage = '/images/profile_images/default.png';
+        profileImage = defaultProfileImage;
     }
     else{
         profileImage = req.body.profileImage;
@@ -120,7 +121,7 @@ router.post('/:username/edit', function(req, res, next) {
     var username = req.params.username;
 
     if (req.body.profileImage.length == 0) {
-        profileImage = '/images/profile_images/default.png';
+        profileImage = defaultProfileImage;
     }
     else{
         profileImage = req.body.profileImage;
