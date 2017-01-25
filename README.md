@@ -38,8 +38,9 @@ node ./bin/www
 * Open a browser and visit ```localhost:3000```.
 
 ## Credits
+- [Login Page](https://codepen.io/ehermanson/full/KwKWEv/)
 - [Bootstrap Theme](https://github.com/tui2tone/flat-admin-bootstrap-templates/releases/tag/v2.1.2)
-- Contents from Wikipedia
+- Contents from Google Search
 - Images downloaded from Google
 
 ## Connect
