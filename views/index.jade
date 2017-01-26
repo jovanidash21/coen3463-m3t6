@@ -20,7 +20,8 @@ block content
                                 img.img-responsive(src='#{movieData.posterImage}')
                         .caption
                             h3#thumbnail-label
-                                | #{movieData.title}
+                                a(href='/movies/#{movieData._id}')
+                                    | #{movieData.title}
                                 a.anchorjs-link(href='#thumbnail-label')
                                     span.anchorjs-icon
                             p

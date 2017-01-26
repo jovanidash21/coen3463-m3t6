@@ -1,3 +1,7 @@
+.flat-blue a:hover
+{
+    text-decoration: underline;
+}
 body.login-page
 {
     background-attachment: fixed;
