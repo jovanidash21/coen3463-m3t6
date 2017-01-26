@@ -4,8 +4,9 @@ block content
     .col-xs-12
         div(align='right')
             a.btn.btn-lg.btn-success(href='/movies/#{movieData._id}/edit', role='button') Edit Movie
-            | &nbsp;
-            a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target='##{movieData._id}') Delete Movie
+            if (user.role === 'administrator')
+                | &nbsp;
+                a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target='##{movieData._id}') Delete Movie
     .modal.fade(id="#{movieData._id}")
         form(action='/movies/#{movieData._id}/delete', method='post')
             .modal-dialog

@@ -1,9 +1,10 @@
 extends layout
 
 block content
-    .col-xs-12
-        div(align='right')
-            a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
+    if (user.role === 'administrator')
+        .col-xs-12
+            div(align='right')
+                a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
     .col-xs-12
         if(typeof alertMessage !== "undefined")
             if(!!postError)
@@ -66,7 +67,17 @@ block content
                                                     | Last Updated:&nbsp;
                                                 | #{moment(userData.updatedAt).format("YYYY-MM-DD HH:mm")}
                                     div(align='right')
+                                        a.btn.btn-default(href='/users/#{userData.username}', role='button') View Profile
+                                        | &nbsp;
                                         button.btn.btn-primary(name='submit', type='submit') Update
+                        if (user.role === 'administrator')
+                            .col-md-12
+                                .card
+                                    .card-header
+                                        .card-title
+                                            .sub-title Role
+                                    .card-body
+                                        input.form-control(name= 'role', type='text', placeholder='Role', value='#{userData.role}')
                         .col-md-12
                             .card
                                 .card-header
