@@ -105,7 +105,7 @@ router.get('/:username', function(req, res, next) {
 });
 
 router.get('/:username/edit', function(req, res, next) {
-    if (req.user){
+    if(req.user){
         var username = req.params.username;
         usersData.findOne({username: username}, function (err, userData) {
             if (!err) {
@@ -118,7 +118,7 @@ router.get('/:username/edit', function(req, res, next) {
                         moment: moment
                     });
                 }
-                else if(req.user.role === 'editor'){
+                else if(req.user.role === 'editor' || req.user.role === 'viewer'){
                     if (req.user.username == username){
                         res.render('users-edit', {
                             user: req.user,
@@ -181,7 +181,7 @@ router.post('/:username/edit', function(req, res, next) {
                                 moment: moment
                             });
                         }
-                        else if(req.user.role === 'editor') {
+                        else if(req.user.role === 'editor' || req.user.role === 'viewer') {
                             if (req.user.username == username) {
                                 res.render('users-edit', {
                                     user: req.user,
@@ -210,7 +210,7 @@ router.post('/:username/edit', function(req, res, next) {
                                 moment: moment
                             });
                         }
-                        else if(req.user.role === 'editor') {
+                        else if(req.user.role === 'editor' || req.user.role === 'viewer') {
                             if (req.user.username == username) {
                                 res.render('users-edit', {
                                     user: req.user,
@@ -253,7 +253,7 @@ router.post('/:username/delete', function(req, res, next) {
                 }
             });
         }
-        else if(req.user.role === 'editor') {
+        else if(req.user.role === 'editor' || req.user.role === 'viewer') {
             if (req.user.username == username) {
                 usersData.remove({username: username}, function(err){
                     if(!err){

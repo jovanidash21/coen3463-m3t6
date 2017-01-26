@@ -24,7 +24,7 @@ block content
                         .modal-footer
                             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
                             button.btn.btn-danger(name='submit', type='submit',) Yes, Delete It!
-    if (user.role === 'editor')
+    if (user.role === 'editor' || user.role === 'viewer')
         if (user.username == userData.username)
             .col-xs-12
                 div(align='right')

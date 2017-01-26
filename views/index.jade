@@ -1,9 +1,10 @@
 extends layout
 
 block content
-    .col-xs-12
-        div(align='right')
-            a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
+    if(user.role === 'administrator' || user.role === 'editor')
+        .col-xs-12
+            div(align='right')
+                a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
     if (alertMessage.length > 0)
         .col-xs-12
             .alert.alert-success.alert-dismissable.fade.in
@@ -24,11 +25,12 @@ block content
                                     span.anchorjs-icon
                             p
                                 | #{movieData.year}
-                            p
-                                a.btn.btn-primary(href='/movies/#{movieData._id}/edit', role='button') Edit
-                                if (user.role === 'administrator')
-                                    | &nbsp;
-                                    a.btn.btn-warning(role='button', data-toggle='modal', data-target='##{movieData._id}') Delete
+                            if(user.role === 'administrator' || user.role === 'editor')
+                                p
+                                    a.btn.btn-primary(href='/movies/#{movieData._id}/edit', role='button') Edit
+                                    if (user.role === 'administrator')
+                                        | &nbsp;
+                                        a.btn.btn-warning(role='button', data-toggle='modal', data-target='##{movieData._id}') Delete
                 if (user.role === 'administrator')
                     .modal.fade(id="#{movieData._id}")
                         form(action='/movies/#{movieData._id}/delete', method='post')

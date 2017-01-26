@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-    if(req.user) {
+    if(req.user.role === 'administrator' || req.user.role === 'editor'){
         res.render('movies-add', {
             user: req.user,
             title: 'Add New Movie | MMFF Movies',
@@ -42,7 +42,7 @@ router.get('/add', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-    if(req.user){
+    if(req.user.role === 'administrator' || req.user.role === 'editor'){
         if (req.body.posterImage.length == 0) {
             posterImage = defaultPosterImage
         }
@@ -123,7 +123,7 @@ router.post('/add', function(req, res, next) {
 router.get('/:movieID/', function(req, res, next) {
     if(req.user){
         var movieID = req.params.movieID;
-        moviesData.findOne({_id: movieID}, function (err, movieData) {
+        moviesData.findOne({_id: movieID}, function (err, movieData){
             if (!err) {
                 res.render('movies-profile', {
                     user: req.user,
@@ -144,10 +144,10 @@ router.get('/:movieID/', function(req, res, next) {
 });
 
 router.get('/:movieID/edit', function(req, res, next) {
-    if(req.user){
+    if(req.user.role === 'administrator' || req.user.role === 'editor'){
         var movieID = req.params.movieID;
-        moviesData.findOne({_id: movieID}, function (err, movieData) {
-            if (!err) {
+        moviesData.findOne({_id: movieID}, function (err, movieData){
+            if(!err) {
                 res.render('movies-edit', {
                     user: req.user,
                     title: 'Edit Movie | MMFF Movies',
@@ -167,7 +167,7 @@ router.get('/:movieID/edit', function(req, res, next) {
 });
 
 router.post('/:movieID/edit', function(req, res, next) {
-    if(req.user){
+    if(req.user.role === 'administrator' || req.user.role === 'editor'){
         var movieID = req.params.movieID;
 
         if (req.body.posterImage.length == 0) {

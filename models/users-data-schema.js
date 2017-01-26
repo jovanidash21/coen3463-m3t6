@@ -14,7 +14,11 @@ var usersDataSchema = new Schema
             type:String,
             default: 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/profile_images/default.png'
         },
-        role: {type:String, default: 'editor'}
+        role: {
+            type:String,
+            enum: ['administrator', 'editor', 'viewer'],
+            default: 'viewer'
+        }
     },
     {
         collection: 'usersData'

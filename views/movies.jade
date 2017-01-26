@@ -1,9 +1,10 @@
 extends layout
 
 block content
-    .col-xs-12
-        div(align='right')
-            a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
+    if(user.role === 'administrator' || user.role === 'editor')
+        .col-xs-12
+            div(align='right')
+                a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
     .col-xs-12
         .card
             .card-body
