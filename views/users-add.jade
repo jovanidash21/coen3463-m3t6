@@ -18,30 +18,39 @@ block content
                                         | Username *
                                     div
                                         input.form-control(name='username', type='text', placeholder='Username', value='', required='')
-                                    .sub-title
-                                        | First Name
-                                    div
-                                        input.form-control(name='firstName', type='text', placeholder='First Name', value='')
-                                    .sub-title
-                                        | Last Name
-                                    div
-                                        input.form-control(name='lastName', type='text', placeholder='Last Name', value='')
-                                    .sub-title
-                                        | Email
-                                    div
-                                        input.form-control(name='email', type='email', placeholder='E-mail', value='')
-                                    .sub-title
-                                        | Website
-                                    div
-                                        input.form-control(name='website', type='text', placeholder='Website', value='')
-                                    .sub-title
-                                        | Password *
-                                    div
-                                        input.form-control(name='password', id='password', type='password', placeholder='Password', value='', required='')
-                                    .sub-title
-                                        | Confirm Password *
-                                    div
-                                        input.form-control(name='confirmPassword', id='confirmPassword', type='password', placeholder='Password', value='', required='')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | First Name
+                                            div
+                                                input.form-control(name='firstName', type='text', placeholder='First Name', value='')
+                                        .col-md-6
+                                            .sub-title
+                                                | Last Name
+                                            div
+                                                input.form-control(name='lastName', type='text', placeholder='Last Name', value='')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | Email
+                                            div
+                                                input.form-control(name='email', type='email', placeholder='E-mail', value='')
+                                        .col-md-6
+                                            .sub-title
+                                                | Website
+                                            div
+                                                input.form-control(name='website', type='text', placeholder='Website', value='')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | Password *
+                                            div
+                                                input.form-control(name='password', id='password', type='password', placeholder='Password', value='', required='')
+                                        .col-md-6
+                                            .sub-title
+                                                | Confirm Password *
+                                            div
+                                                input.form-control(name='confirmPassword', id='confirmPassword', type='password', placeholder='Password', value='', required='')
                 .col-md-3
                     .row
                         .col-md-12
@@ -53,11 +62,11 @@ block content
                                     .card-title
                                         .sub-title Role
                                 .card-body
-                                    input.form-control(name= 'role', type='text', placeholder='Role', value='')
+                                    input.form-control(name='role', type='text', placeholder='Role', value='')
                         .col-md-12
                             .card
                                 .card-header
                                     .card-title
                                         .sub-title Profile Image
                                 .card-body
-                                    input.form-control(name= 'profileImage', type='text', placeholder='Profile Image', value='')
+                                    input.form-control(name='profileImage', type='text', placeholder='Profile Image', value='')

@@ -28,22 +28,28 @@ block content
                                         | Username *
                                     div
                                         input.form-control(name='username', type='text', placeholder='Username', value='#{userData.username}', required='')
-                                    .sub-title
-                                        | First Name
-                                    div
-                                        input.form-control(name='firstName', type='text', placeholder='First Name', value='#{userData.firstName}')
-                                    .sub-title
-                                        | Last Name
-                                    div
-                                        input.form-control(name='lastName', type='text', placeholder='Last Name', value='#{userData.lastName}')
-                                    .sub-title
-                                        | Email
-                                    div
-                                        input.form-control(name='email', type='email', placeholder='E-mail', value='#{userData.email}')
-                                    .sub-title
-                                        | Website
-                                    div
-                                        input.form-control(name='website', type='text', placeholder='Website', value='#{userData.website}')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | First Name
+                                            div
+                                                input.form-control(name='firstName', type='text', placeholder='First Name', value='#{userData.firstName}')
+                                        .col-md-6
+                                            .sub-title
+                                                | Last Name
+                                            div
+                                                input.form-control(name='lastName', type='text', placeholder='Last Name', value='#{userData.lastName}')
+                                    .row
+                                        .col-md-6
+                                            .sub-title
+                                                | Email
+                                            div
+                                                input.form-control(name='email', type='email', placeholder='E-mail', value='#{userData.email}')
+                                        .col-md-6
+                                            .sub-title
+                                                | Website
+                                            div
+                                                input.form-control(name='website', type='text', placeholder='Website', value='#{userData.website}')
                                     .sub-title
                                         | New Password
                                     div
@@ -77,14 +83,14 @@ block content
                                         .card-title
                                             .sub-title Role
                                     .card-body
-                                        input.form-control(name= 'role', type='text', placeholder='Role', value='#{userData.role}')
+                                        input.form-control(name='role', type='text', placeholder='Role', value='#{userData.role}')
                         .col-md-12
                             .card
                                 .card-header
                                     .card-title
                                         .sub-title Profile Image
                                 .card-body
-                                    input.form-control(name= 'profileImage', type='text', placeholder='Profile Image', value='#{userData.profileImage}')
+                                    input.form-control(name='profileImage', type='text', placeholder='Profile Image', value='#{userData.profileImage}')
                                     if userData.profileImage
                                         p
                                             a.thumbnail(href='#{userData.profileImage}', target='_blank')
