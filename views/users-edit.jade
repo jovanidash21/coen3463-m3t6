@@ -83,7 +83,13 @@ block content
                                         .card-title
                                             .sub-title Role
                                     .card-body
-                                        input.form-control(name='role', type='text', placeholder='Role', value='#{userData.role}')
+                                        select
+                                            - var roles = ['administrator', 'editor', 'viewer']
+                                            each role in roles
+                                                if userData.role == role
+                                                    option(value='#{role}', selected="true") #{role}
+                                                else
+                                                    option(value='#{role}') #{role}
                         .col-md-12
                             .card
                                 .card-header
