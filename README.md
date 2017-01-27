@@ -31,11 +31,14 @@ use mmff-movies
 ``` 
 * Insert to the database the JSON files inside the data folder of this project.
 * Open app.js and replace ```process.env.MONGODB_URI``` with ```'localhost:27017/mmff-movies'```.
+* On the same file, replace ```process.env.SECRET_KEY``` with ```'secret'```.
 * Open another terminal or cmd and run 'www' file inside the bin directory.
 ```
 node ./bin/www
 ```
 * Open a browser and visit ```localhost:3000```.
+* Signup to create an account.
+* Change the role of the account created from ```viewer``` to ```administrator``` on the database.
 
 ## Credits
 - [Login Page](https://codepen.io/ehermanson/full/KwKWEv/)
