@@ -62,15 +62,14 @@ block content
                                     | &#64;#{userData.username}
                                     a.anchorjs-link(href='#thumbnail-label')
                                         span.anchorjs-icon
-                if (user.role === 'administrator')
-                    .row
-                        .col-md-12
-                            div
-                                ul.list-group
-                                    li.list-group-item
-                                        strong
-                                            | Role:&nbsp;
-                                        | #{userData.role}
+                .row
+                    .col-md-12
+                        div
+                            ul.list-group
+                                li.list-group-item
+                                    strong
+                                        | Role:&nbsp;
+                                    | #{userData.role}
             .col-md-6
                 .row
                     .col-md-12
