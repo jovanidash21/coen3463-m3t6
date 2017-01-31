@@ -25,7 +25,8 @@ block content
                             .card
                                 .card-body
                                     .sub-title
-                                        | Username *
+                                        | Username&nbsp;
+                                        span.required *
                                     div
                                         input.form-control(name='username', type='text', placeholder='Username', value='#{userData.username}', required='')
                                     .row

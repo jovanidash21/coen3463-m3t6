@@ -15,7 +15,8 @@ block content
                             .card
                                 .card-body
                                     .sub-title
-                                        | Username *
+                                        | Username&nbsp;
+                                        span.required *
                                     div
                                         input.form-control(name='username', type='text', placeholder='Username', value='', required='')
                                     .row
@@ -43,12 +44,14 @@ block content
                                     .row
                                         .col-md-6
                                             .sub-title
-                                                | Password *
+                                                | Password&nbsp;
+                                                span.required *
                                             div
                                                 input.form-control(name='password', id='password', type='password', placeholder='Password', value='', required='')
                                         .col-md-6
                                             .sub-title
-                                                | Confirm Password *
+                                                | Confirm Password&nbsp;
+                                                span.required *
                                             div
                                                 input.form-control(name='confirmPassword', id='confirmPassword', type='password', placeholder='Password', value='', required='')
                 .col-md-3

@@ -80,6 +80,10 @@ h3#thumbnail-label a:hover,
 {
     text-decoration: underline;
 }
+span.required
+{
+    color: #ee3926;
+}
 input[type="text"]
 {
     margin: 3px 0;
