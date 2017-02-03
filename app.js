@@ -1,4 +1,5 @@
 var express = require('express');
+var router = express.Router()
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -10,6 +11,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
+var restify = require('express-restify-mongoose');
 
 var options = {
   server: {
@@ -43,6 +45,10 @@ passport.deserializeUser(usersData.deserializeUser());
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI, options);
 
+// express restify mongoose configuration
+restify.serve(router, usersData);
+restify.serve(router, moviesData);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -65,6 +71,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(flash());
+
+app.use(router)
 
 app.use('/', index);
 app.use('/movies', movies);
