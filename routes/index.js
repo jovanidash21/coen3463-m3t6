@@ -4,16 +4,12 @@ var passport = require('passport');
 
 router.get('/', function(req, res, next) {
     if(req.user){
-        moviesData.find().sort({year: -1, title: 1})
-            .then(function(moviesData) {
-                res.render('index', {
-                    user: req.user,
-                    title: 'Dashboard | MMFF Movies',
-                    navBarTitle: 'Dashboard',
-                    moviesData: moviesData,
-                    alertMessage: req.flash('alertMessage')
-                });
-            });
+        res.render('index', {
+            user: req.user,
+            title: 'Dashboard | MMFF Movies',
+            navBarTitle: 'Dashboard',
+            alertMessage: req.flash('alertMessage')
+        });
     }
     else{
         res.render('login', {

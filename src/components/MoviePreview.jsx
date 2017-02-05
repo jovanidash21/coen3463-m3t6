@@ -1,0 +1,72 @@
+import React, { Component, PropTypes } from 'react';
+
+const MoviePreview = ({movie}) => {
+    return (
+        <div>
+            <div className="col-md-2 col-sm-3 col-xs-6">
+                <div className="thumbnail no-margin-bottom">
+                    <a href="#" className="thumbnail">
+                        <img src={movie.posterImage} className="img-responsive" />
+                    </a>
+                    <div className="caption">
+                        <h3 id="thumbnail-label">
+                            <a href="#">
+                                {movie.title}
+                            </a>
+                            <a href="#thumbnail-label" className="anchorjs-link">
+
+                            </a>
+                            <span className="anchorjs-icon" />
+                        </h3>
+                        <p>
+                            {movie.year}
+                        </p>
+                        <p>
+                            <a href="#" className="btn btn-primary" role="button"> Edit </a>
+                            &nbsp;
+                            <a className="btn btn-warning" role="button" data-toggle="modal" data-target={"#"+ movie._id}> Delete </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id={movie._id} className="modal fade">
+                <form action="#" method="post">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button className="close" type="button" data-dismiss="modal" aria-label="Cancel">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 className="modal-title">Delete Movie</h4>
+                            </div>
+                            <div className="modal-body">
+                                <p>
+                                    <span className="text-danger">
+                                        {movie.title}
+                                    </span>
+                                    <span>
+                                        &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this movie?
+                                    </span>
+                                </p>
+                            </div>
+                            <div className="modal-footer">
+                                <button className="btn btn-default" type="button" data-dismiss="modal">
+                                    Cancel
+                                </button>
+                                <button className="btn btn-danger" name="submit" type="submit">
+                                    Yes, Delete It!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+MoviePreview.propTypes = {
+    movie: PropTypes.object.isRequired
+};
+
+export default MoviePreview;

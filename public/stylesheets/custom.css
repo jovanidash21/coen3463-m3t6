@@ -65,6 +65,18 @@ body.login-page .button
 {
     width: 300px;
 }
+.search-text,
+.search-btn
+{
+    margin: 0 !important;
+}
+.row.no-margin-bottom > div >  div > [class*="col-"]
+{
+    margin-bottom: 10px;
+}
+.row > div > [class*="col-"] {
+    margin-bottom: 25px;
+}
 h3#thumbnail-label
 {
     display:inline-block;
