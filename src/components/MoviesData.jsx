@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { connect, PromiseState } from 'react-refetch';
 import LoadingAnimation from './LoadingAnimation';
-import MoviePreview from './MoviePreview';
+import MoviesDashboard from './MoviesDashboard';
 
 class MoviesData extends Component {
     render() {
@@ -20,54 +19,9 @@ class MoviesData extends Component {
         else if (allMoviesDataFetch.fulfilled && allMoviesCountFetch.fulfilled) {
             const [movies] = allMoviesDataFetch.value;
             const [count] = allMoviesCountFetch.value;
-            console.log(count);
 
             return (
-                <div>
-                    <div className="col-xs-12">
-                        <div style={{textAlign:"right"}}>
-                            <a href="/movies/add" className="btn btn-lg btn-success" role="button">
-                                Add New Movie
-                            </a>
-                        </div>
-                    </div>
-                    <div className="col-xs-12">
-                        <div className="row">
-                            <div className="col-xs-12">
-                                <div className="card">
-                                    <div className="card-header">
-                                        <div className="card-title">
-                                            <div className="title">
-                                                <div className="col-sm-8">
-                                                    Showing {count.count} movies
-                                                </div>
-                                                <div className="col-sm-4" style={{textAlign:"right"}}>
-                                                    <div className="input-group">
-                                                        <input className="form-control search-text" type="text" placeholder="" />
-                                                        <span className="input-group-btn">
-                                                            <button className="btn btn-default search-btn" type="button">
-                                                                Search
-                                                            </button>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xs-12">
-                        <div className="row">
-                            {
-                                movies.map(movie =>
-                                    <MoviePreview key={movie._id} movie={movie} />
-                                )
-                            }
-                        </div>
-                    </div>
-                </div>
+                <MoviesDashboard count={count} movies={movies}/>
             )
         }
     }
