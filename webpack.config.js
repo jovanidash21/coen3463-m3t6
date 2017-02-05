@@ -2,8 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        users_data: './src/usersData.jsx',
-        movies_data: './src/moviesData.jsx'
+        movies_data: './src/movies_data.jsx'
     },
     output: {
         path: path.join(__dirname, '/public/build'),
