@@ -1,5 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MoviesData from './components/MoviesData';
+import { Router, browserHistory } from 'react-router';
+import routes from './routes';
 
-render(<MoviesData />, document.getElementById('movies-data'));
+const App = () => {
+    return (
+        <Router history={browserHistory} routes={routes} />
+    )
+};
+
+render(<App />, document.getElementById('movies-data'));

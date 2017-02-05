@@ -1,18 +1,19 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const MoviePreview = ({movie}) => {
     return (
         <div>
             <div className="col-md-2 col-sm-3 col-xs-6">
                 <div className="thumbnail no-margin-bottom">
-                    <a href="#" className="thumbnail">
+                    <Link to={'/movies/' + movie._id} className="thumbnail">
                         <img src={movie.posterImage} className="img-responsive" />
-                    </a>
+                    </Link>
                     <div className="caption">
                         <h3 id="thumbnail-label">
-                            <a href="#">
+                            <Link to={'/movies/' + movie._id}>
                                 {movie.title}
-                            </a>
+                            </Link>
                             <a href="#thumbnail-label" className="anchorjs-link">
 
                             </a>

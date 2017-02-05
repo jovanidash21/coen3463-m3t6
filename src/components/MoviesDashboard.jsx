@@ -28,7 +28,7 @@ class MoviesDashboard extends Component {
                                             </div>
                                             <div className="col-sm-4" style={{textAlign:"right"}}>
                                                 <div className="input-group">
-                                                    <input className="form-control search-text" type="text" placeholder="" />
+                                                    <input className="form-control search-text" type="text" placeholder="Enter Movie Title" />
                                                     <span className="input-group-btn">
                                                         <button className="btn btn-default search-btn" type="button">
                                                             Search

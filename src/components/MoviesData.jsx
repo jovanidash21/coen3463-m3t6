@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import LoadingAnimation from './LoadingAnimation';
+import Error from './Error';
 import MoviesDashboard from './MoviesDashboard';
 
 class MoviesData extends Component {
@@ -20,9 +21,7 @@ class MoviesData extends Component {
             const [movies] = allMoviesDataFetch.value;
             const [count] = allMoviesCountFetch.value;
 
-            return (
-                <MoviesDashboard count={count} movies={movies}/>
-            )
+            return <MoviesDashboard count={count} movies={movies}/>
         }
     }
 }
