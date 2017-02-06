@@ -29,16 +29,16 @@ const MoviesDashboard = React.createClass({
                                 <div className="card-header">
                                     <div className="card-title">
                                         <div className="title">
-                                            <div className="col-sm-8">
+                                            <div className="col-sm-4">
+                                                <SearchInput className="search-input" onChange={this.searchUpdated} />
+                                            </div>
+                                            <div className="col-sm-8" style={{textAlign:"right"}}>
                                                 Showing&nbsp;
                                                 {
-                                                    filteredMovies.length == "1"
+                                                    filteredMovies.length == "0" || filteredMovies.length == "1"
                                                         ? filteredMovies.length + " movie"
                                                         : filteredMovies.length + " movies"
                                                 }
-                                            </div>
-                                            <div className="col-sm-4" style={{textAlign:"right"}}>
-                                                <SearchInput className="search-input" onChange={this.searchUpdated} />
                                             </div>
                                         </div>
                                     </div>
