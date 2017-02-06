@@ -1,3 +1,7 @@
+body
+{
+    overflow-y: scroll;
+}
 body.login-page
 {
     background-attachment: fixed;
@@ -76,6 +80,19 @@ body.login-page .button
 }
 .row > div > [class*="col-"] {
     margin-bottom: 25px;
+}
+.card .card-header .card-title
+{
+    width: 100%;
+}
+.search-input input[type=search]
+{
+    border: 1px solid #cccccc;
+    border-radius: 1px;
+    box-shadow: none;
+    font-size: 16px;
+    padding: 3px 12px;
+    width: 100%;
 }
 h3#thumbnail-label
 {

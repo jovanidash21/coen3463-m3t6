@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { connect, PromiseState } from 'react-refetch';
+import SearchInput, { createFilter } from 'react-search-input';
 import MoviePreview from './MoviePreview';
 
-class MoviesDashboard extends Component {
+const KEYS_TO_FILTERS = ['title'];
+
+const MoviesDashboard = React.createClass({
+    getInitialState () {
+        return { searchTerm: '' }
+    },
+
     render() {
         const { movies} = this.props;
-        const { count } = this.props;
+        const filteredMovies = movies.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
 
         return (
             <div>
@@ -24,17 +30,15 @@ class MoviesDashboard extends Component {
                                     <div className="card-title">
                                         <div className="title">
                                             <div className="col-sm-8">
-                                                Showing {count.count} movies
+                                                Showing&nbsp;
+                                                {
+                                                    filteredMovies.length == "1"
+                                                        ? filteredMovies.length + " movie"
+                                                        : filteredMovies.length + " movies"
+                                                }
                                             </div>
                                             <div className="col-sm-4" style={{textAlign:"right"}}>
-                                                <div className="input-group">
-                                                    <input className="form-control search-text" type="text" placeholder="Enter Movie Title" />
-                                                    <span className="input-group-btn">
-                                                        <button className="btn btn-default search-btn" type="button">
-                                                            Search
-                                                        </button>
-                                                    </span>
-                                                </div>
+                                                <SearchInput className="search-input" onChange={this.searchUpdated} />
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +50,7 @@ class MoviesDashboard extends Component {
                 <div className="col-xs-12">
                     <div className="row">
                         {
-                            movies.map(movie =>
+                            filteredMovies.map(movie =>
                                 <MoviePreview key={movie._id} movie={movie} />
                             )
                         }
@@ -54,7 +58,11 @@ class MoviesDashboard extends Component {
                 </div>
             </div>
         )
+    },
+
+    searchUpdated (term) {
+        this.setState({searchTerm: term})
     }
-}
+});
 
 export default MoviesDashboard;
