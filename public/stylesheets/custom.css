@@ -69,11 +69,6 @@ body.login-page .button
 {
     width: 300px;
 }
-.search-text,
-.search-btn
-{
-    margin: 0 !important;
-}
 .row.no-margin-bottom > div >  div > [class*="col-"]
 {
     margin-bottom: 10px;
@@ -83,15 +78,6 @@ body.login-page .button
 }
 .card .card-header .card-title
 {
-    width: 100%;
-}
-.search-input input[type=search]
-{
-    border: 1px solid #cccccc;
-    border-radius: 1px;
-    box-shadow: none;
-    font-size: 16px;
-    padding: 3px 12px;
     width: 100%;
 }
 h3#thumbnail-label

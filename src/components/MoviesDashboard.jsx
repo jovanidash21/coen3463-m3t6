@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchInput, { createFilter } from 'react-search-input';
 import MoviePreview from './MoviePreview';
 
-const KEYS_TO_FILTERS = ['title'];
+const KEYS_TO_FILTERS = ['title', 'year'];
 
 const MoviesDashboard = React.createClass({
     getInitialState () {
@@ -30,7 +30,7 @@ const MoviesDashboard = React.createClass({
                                     <div className="card-title">
                                         <div className="title">
                                             <div className="col-sm-4">
-                                                <SearchInput className="search-input" onChange={this.searchUpdated} />
+                                                <SearchInput className="search-input" onChange={this.searchUpdated} inputClassName="form-control" placeholder="Search Movies (Title or Year)"/>
                                             </div>
                                             <div className="col-sm-8" style={{textAlign:"right"}}>
                                                 Showing&nbsp;
