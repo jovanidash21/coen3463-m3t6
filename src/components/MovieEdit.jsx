@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import LoadingAnimation from './LoadingAnimation';
 import Error from './Error';
-import MovieDetails from './MovieDetails';
+import MovieEditForm from './MovieEditForm';
 
-class MoviesProfile extends Component {
+class MovieEdit extends Component {
     render() {
         const { movieDataFetch } = this.props;
         const allMovieDataFetch = PromiseState.all([movieDataFetch]);
@@ -19,7 +19,7 @@ class MoviesProfile extends Component {
             const [movie] = allMovieDataFetch.value;
 
             return (
-                <MovieDetails movie={movie} />
+                <MovieEditForm movie={movie} />
             )
         }
     }
@@ -29,4 +29,4 @@ export default connect(props => {
     return {
         movieDataFetch: `/api/v1/moviesData/${props.params.movieID}`
     }
-})(MoviesProfile);
+})(MovieEdit);

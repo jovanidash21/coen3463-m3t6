@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 import moment from 'moment';
 
 const MovieDetails= ({movie}) => {
@@ -7,9 +7,13 @@ const MovieDetails= ({movie}) => {
         <div>
             <div className="col-xs-12">
                 <div style={{textAlign:"right"}}>
-                    <a href="#" className="btn btn-lg btn-success" role="button">
+                    <IndexLink to="/" className="btn btn-lg btn-primary" role="button">
+                        Dashboard
+                    </IndexLink>
+                    &nbsp;
+                    <Link to={'/movies/' + movie._id + '/edit'} className="btn btn-lg btn-success" role="button">
                         Edit Movie
-                    </a>
+                    </Link>
                     &nbsp;
                     <a className="btn btn-lg btn-warning" role="button" data-toggle="modal" data-target={"#"+ movie._id}>
                         Delete Movie
@@ -150,127 +154,121 @@ const MovieDetails= ({movie}) => {
                                         <div className="sub-title">
                                             Director
                                         </div>
-                                        <div>
-                                            {
-                                                movie.directors.map(director =>
-                                                    <p>
-                                                        {
-                                                            director.director1 != ""
-                                                                ? director.director1
-                                                                : ""
-                                                        }
-                                                        {
-                                                            director.director2 != ""
-                                                                ? ", " + director.director2
-                                                                : ""
-                                                        }
-                                                        {
-                                                            director.director3 != ""
-                                                                ? ", " + director.director3
-                                                                : ""
-                                                        }
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
+                                        {
+                                            movie.directors.map(director =>
+                                                <p>
+                                                    {
+                                                        director.director1 != ""
+                                                            ? director.director1
+                                                            : ""
+                                                    }
+                                                    {
+                                                        director.director2 != ""
+                                                            ? ", " + director.director2
+                                                            : ""
+                                                    }
+                                                    {
+                                                        director.director3 != ""
+                                                            ? ", " + director.director3
+                                                            : ""
+                                                    }
+                                                </p>
+                                            )
+                                        }
                                         <div className="sub-title">
                                             Studio
                                         </div>
-                                        <div>
-                                            {
-                                                movie.studios.map(studio =>
-                                                    <p>
-                                                        {
-                                                            studio.studio1 != ""
-                                                                ? studio.studio1
-                                                                : ""
-                                                        }
-                                                        {
-                                                            studio.studio2 != ""
-                                                                ? ", " + studio.studio2
-                                                                : ""
-                                                        }
-                                                        {
-                                                            studio.studio3 != ""
-                                                                ? ", " + studio.studio3
-                                                                : ""
-                                                        }
-                                                        {
-                                                            studio.studio4 != ""
-                                                                ? ", " + studio.studio4
-                                                                : ""
-                                                        }
-                                                        {
-                                                            studio.studio5 != ""
-                                                                ? ", " + studio.studio5
-                                                                : ""
-                                                        }
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
+                                        {
+                                            movie.studios.map(studio =>
+                                                <p>
+                                                    {
+                                                        studio.studio1 != ""
+                                                            ? studio.studio1
+                                                            : ""
+                                                    }
+                                                    {
+                                                        studio.studio2 != ""
+                                                            ? ", " + studio.studio2
+                                                            : ""
+                                                    }
+                                                    {
+                                                        studio.studio3 != ""
+                                                            ? ", " + studio.studio3
+                                                            : ""
+                                                    }
+                                                    {
+                                                        studio.studio4 != ""
+                                                            ? ", " + studio.studio4
+                                                            : ""
+                                                    }
+                                                    {
+                                                        studio.studio5 != ""
+                                                            ? ", " + studio.studio5
+                                                            : ""
+                                                    }
+                                                </p>
+                                            )
+                                        }
                                         <div className="sub-title">
                                             Starring
                                         </div>
-                                        <div>
-                                            {
-                                                movie.starring.map(star =>
-                                                    <p>
-                                                        {
-                                                            star.starring1 != ""
-                                                                ? star.starring1
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring2 != ""
-                                                                ? ", " + star.starring2
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring3 != ""
-                                                                ? ", " + star.starring3
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring4 != ""
-                                                                ? ", " + star.starring4
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring5 != ""
-                                                                ? ", " + star.starring5
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring6 != ""
-                                                                ? ", " + star.starring6
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring7 != ""
-                                                                ? ", " + star.starring7
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring8 != ""
-                                                                ? ", " + star.starring8
-                                                                : ""
-                                                        }
-                                                        {
-                                                            star.starring9 != ""
-                                                                ? ", " + star.starring9
-                                                                : ""
-                                                        }
-                                                        {
+                                        {
+                                            movie.starring.map(star =>
+                                                <p>
+                                                    {
+                                                        star.starring1 != ""
+                                                            ? star.starring1
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring2 != ""
+                                                            ? ", " + star.starring2
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring3 != ""
+                                                            ? ", " + star.starring3
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring4 != ""
+                                                            ? ", " + star.starring4
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring5 != ""
+                                                            ? ", " + star.starring5
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring6 != ""
+                                                            ? ", " + star.starring6
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring7 != ""
+                                                            ? ", " + star.starring7
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring8 != ""
+                                                            ? ", " + star.starring8
+                                                            : ""
+                                                    }
+                                                    {
+                                                        star.starring9 != ""
+                                                            ? ", " + star.starring9
+                                                            : ""
+                                                    }
+                                                    {
 
-                                                            star.starring10 != ""
-                                                                ? ", " + star.starring10
-                                                                : ""
-                                                        }
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
+                                                        star.starring10 != ""
+                                                            ? ", " + star.starring10
+                                                            : ""
+                                                    }
+                                                </p>
+                                            )
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -289,57 +287,53 @@ const MovieDetails= ({movie}) => {
                                         <div className="sub-title">
                                             IMDB Link
                                         </div>
-                                        <div>
-                                            {
-                                                movie.imdbLink != ""
-                                                    ?
-                                                    <p>
-                                                        <a href={movie.imdbLink} target="_blank"> {movie.imdbLink} </a>
-                                                    </p>
-                                                    : ""
-                                            }
-                                        </div>
+                                        {
+                                            movie.imdbLink != ""
+                                                ?
+                                                <p>
+                                                    <a href={movie.imdbLink} target="_blank"> {movie.imdbLink} </a>
+                                                </p>
+                                                : ""
+                                        }
                                         <div className="sub-title">
                                             Trailer Link
                                         </div>
-                                        <div>
-                                            {
-                                                movie.trailerLinks.map(trailerLink =>
-                                                    <div>
-                                                        {
-                                                            trailerLink.trailerLink1 != ""
-                                                                ?
-                                                                <p>
-                                                                    <a href={trailerLink.trailerLink1} target="_blank">
-                                                                        {trailerLink.trailerLink1}
-                                                                    </a>
-                                                                </p>
-                                                                : ""
-                                                        }
-                                                        {
-                                                            trailerLink.trailerLink2 != ""
-                                                                ?
-                                                                <p>
-                                                                    <a href={trailerLink.trailerLink2} target="_blank">
-                                                                        {trailerLink.trailerLink2}
-                                                                    </a>
-                                                                </p>
-                                                                : ""
-                                                        }
-                                                        {
-                                                            trailerLink.trailerLink3 != ""
-                                                                ?
-                                                                <p>
-                                                                    <a href={trailerLink.trailerLink3} target="_blank">
-                                                                        {trailerLink.trailerLink3}
-                                                                    </a>
-                                                                </p>
-                                                                : ""
-                                                        }
-                                                    </div>
-                                                )
-                                            }
-                                        </div>
+                                        {
+                                            movie.trailerLinks.map(trailerLink =>
+                                                <div>
+                                                    {
+                                                        trailerLink.trailerLink1 != ""
+                                                            ?
+                                                            <p>
+                                                                <a href={trailerLink.trailerLink1} target="_blank">
+                                                                    {trailerLink.trailerLink1}
+                                                                </a>
+                                                            </p>
+                                                            : ""
+                                                    }
+                                                    {
+                                                        trailerLink.trailerLink2 != ""
+                                                            ?
+                                                            <p>
+                                                                <a href={trailerLink.trailerLink2} target="_blank">
+                                                                    {trailerLink.trailerLink2}
+                                                                </a>
+                                                            </p>
+                                                            : ""
+                                                    }
+                                                    {
+                                                        trailerLink.trailerLink3 != ""
+                                                            ?
+                                                            <p>
+                                                                <a href={trailerLink.trailerLink3} target="_blank">
+                                                                    {trailerLink.trailerLink3}
+                                                                </a>
+                                                            </p>
+                                                            : ""
+                                                    }
+                                                </div>
+                                            )
+                                        }
                                         <div className="sub-title">
                                             Image Gallery
                                         </div>

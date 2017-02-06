@@ -14,18 +14,20 @@ const MoviePreview = ({movie}) => {
                             <Link to={'/movies/' + movie._id}>
                                 {movie.title}
                             </Link>
-                            <a href="#thumbnail-label" className="anchorjs-link">
-
-                            </a>
+                            <a href="#thumbnail-label" className="anchorjs-link" />
                             <span className="anchorjs-icon" />
                         </h3>
                         <p>
                             {movie.year}
                         </p>
                         <p>
-                            <a href="#" className="btn btn-primary" role="button"> Edit </a>
+                            <Link to={'/movies/' + movie._id + '/edit'} className="btn btn-primary" role="button">
+                                Edit
+                            </Link>
                             &nbsp;
-                            <a className="btn btn-warning" role="button" data-toggle="modal" data-target={"#"+ movie._id}> Delete </a>
+                            <a className="btn btn-warning" role="button" data-toggle="modal" data-target={"#"+ movie._id}>
+                                Delete
+                            </a>
                         </p>
                     </div>
                 </div>

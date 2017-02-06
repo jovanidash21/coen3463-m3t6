@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import SearchInput, { createFilter } from 'react-search-input';
 import MoviePreview from './MoviePreview';
 
@@ -17,9 +18,9 @@ const MoviesDashboard = React.createClass({
             <div>
                 <div className="col-xs-12">
                     <div style={{textAlign:"right"}}>
-                        <a href="/movies/add" className="btn btn-lg btn-success" role="button">
+                        <Link to="/movies/add" className="btn btn-lg btn-success" role="button">
                             Add New Movie
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-xs-12">
