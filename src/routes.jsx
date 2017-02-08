@@ -1,9 +1,9 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
-import MoviesDashboard from './components/MoviesDashboard';
-import AddMovie from './components/AddMovie';
-import EditMovie from './components/EditMovie';
-import MovieProfile from './components/MovieProfile';
+import MoviesDashboard from './components/MoviesDashboard/Index';
+import AddMovie from './components/AddMovie/Index';
+import EditMovie from './components/EditMovie/Index';
+import MovieProfile from './components/MovieProfile/Index';
 
 export default (
     <Route path="/">
