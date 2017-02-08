@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import moment from 'moment';
 
-const MovieEditForm = ({movie}) => {
+const EditMovieForm = ({movie}) => {
     return (
         <div>
             <div className="col-xs-12">
@@ -356,8 +356,8 @@ const MovieEditForm = ({movie}) => {
     );
 };
 
-MovieEditForm.propTypes = {
+EditMovieForm.propTypes = {
     movie: PropTypes.object.isRequired
 };
 
-export default MovieEditForm;
+export default EditMovieForm;

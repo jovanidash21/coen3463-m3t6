@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect, PromiseState } from 'react-refetch';
 import LoadingAnimation from '../LoadingAnimation';
 import Error from '../Error';
-import MovieEditForm from './MovieEditForm';
+import EditMovieForm from './EditMovieForm';
 
 class EditMovie extends Component {
     render() {
@@ -19,7 +19,7 @@ class EditMovie extends Component {
             const [movie] = allMovieDataFetch.value;
 
             return (
-                <MovieEditForm movie={movie} />
+                <EditMovieForm movie={movie} />
             )
         }
     }
