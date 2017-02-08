@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect, PromiseState } from 'react-refetch';
-import LoadingAnimation from './LoadingAnimation';
-import Error from './Error';
-import MoviesDashboard from './MoviesDashboard';
+import LoadingAnimation from '../LoadingAnimation';
+import Error from '../Error';
+import MoviesFilter from './MoviesFilter';
 
-class MoviesData extends Component {
+class MoviesDashboard extends Component {
     render() {
         const { moviesDataFetch } = this.props;
         const allMoviesDataFetch = PromiseState.all([moviesDataFetch]);
@@ -18,7 +18,7 @@ class MoviesData extends Component {
         else if (allMoviesDataFetch.fulfilled) {
             const [movies] = allMoviesDataFetch.value;
 
-            return <MoviesDashboard movies={movies}/>
+            return <MoviesFilter movies={movies}/>
         }
     }
 }
@@ -27,4 +27,4 @@ export default connect(() => {
     return {
         moviesDataFetch: `/api/v1/moviesData?sort=createdAt`
     }
-})(MoviesData);
+})(MoviesDashboard);

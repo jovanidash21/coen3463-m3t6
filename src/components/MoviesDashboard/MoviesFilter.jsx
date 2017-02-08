@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import SearchInput, { createFilter } from 'react-search-input';
 import MoviePreview from './MoviePreview';
 
 const KEYS_TO_FILTERS = ['title', 'year'];
 
-const MoviesDashboard = React.createClass({
+const MoviesFilter = React.createClass({
     getInitialState () {
         return { searchTerm: '' }
     },
 
     render() {
-        const { movies} = this.props;
+        const {movies} = this.props;
         const filteredMovies = movies.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
 
         return (
@@ -52,7 +52,7 @@ const MoviesDashboard = React.createClass({
                     <div className="row">
                         {
                             filteredMovies.map(movie =>
-                                <MoviePreview key={movie._id} movie={movie} />
+                                <MoviePreview movie={movie} />
                             )
                         }
                     </div>
@@ -66,4 +66,4 @@ const MoviesDashboard = React.createClass({
     }
 });
 
-export default MoviesDashboard;
+export default MoviesFilter;

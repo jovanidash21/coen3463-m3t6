@@ -69,7 +69,8 @@ body.login-page .button
 {
     width: 300px;
 }
-.row.no-margin-bottom > div >  div > [class*="col-"]
+.row.no-margin-bottom > div >  div > [class*="col-"],
+.row.no-margin-bottom > div >  div > form > [class*="col-"]
 {
     margin-bottom: 10px;
 }
