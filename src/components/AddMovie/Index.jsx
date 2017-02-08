@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IndexLink } from 'react-router';
+import { IndexLink, browserHistory } from 'react-router';
 import { connect } from 'react-refetch';
 
 class AddMovie extends Component {
@@ -7,11 +7,74 @@ class AddMovie extends Component {
         super(props);
         this.state = {value: ''};
 
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
     handleSubmit(event) {
-        alert('A movie was submitted');
         event.preventDefault();
+
+        let movie = [];
+        let title = this.refs.title.value;
+        let posterImage = this.state.value.length
+            ? this.refs.posterImage.value
+            : 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/poster_images/default.png';
+        let directors = [];
+        let studios = [];
+        let starring = [];
+        let year = this.refs.year.value;
+        let genre = this.refs.genre.value;
+        let plot = this.refs.plot.value;
+        let imdbLink = this.refs.imdbLink.value;
+        let trailerLinks = [];
+        let imageLinks = [];
+        let grossTicketSales = this.refs.grossTicketSales.value;
+
+        directors.push({
+            director1: this.refs.director1.value,
+            director2: this.refs.director2.value,
+            director3: this.refs.director3.value
+        });
+        studios.push({
+            studio1: this.refs.studio1.value,
+            studio2: this.refs.studio2.value,
+            studio3: this.refs.studio3.value,
+            studio4: this.refs.studio4.value,
+            studio5: this.refs.studio5.value,
+            studio6: this.refs.studio6.value
+        });
+        starring.push({
+            starring1: this.refs.starring1.value,
+            starring2: this.refs.starring2.value,
+            starring3: this.refs.starring3.value,
+            starring4: this.refs.starring4.value,
+            starring5: this.refs.starring5.value,
+            starring6: this.refs.starring6.value,
+            starring7: this.refs.starring7.value,
+            starring8: this.refs.starring8.value,
+            starring9: this.refs.starring9.value,
+            starring10: this.refs.starring10.value,
+            starring11: this.refs.starring11.value,
+            starring12: this.refs.starring12.value
+        });
+        trailerLinks.push({
+            trailerLink1: this.refs.trailerLink1.value,
+            trailerLink2: this.refs.trailerLink2.value,
+            trailerLink3: this.refs.trailerLink3.value
+        });
+        imageLinks.push({
+            imageLink1: this.refs.imageLink1.value,
+            imageLink2: this.refs.imageLink2.value,
+            imageLink3: this.refs.imageLink3.value,
+            imageLink4: this.refs.imageLink4.value
+        });
+
+        movie.push({title, posterImage, directors, studios, starring, year, genre, plot, imdbLink, trailerLinks, imageLinks, grossTicketSales});
+        this.props.addMovie(movie);
+
+        browserHistory.push('/');
     }
 
     render() {
@@ -37,7 +100,7 @@ class AddMovie extends Component {
                                         <div className="card">
                                             <div className="card-body">
                                                 <div>
-                                                    <input ref="title" type="text" className="form-control" placeholder="Movie Title *" value={this.state.value} required />
+                                                    <input ref="title" type="text" className="form-control" placeholder="Movie Title *" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +115,7 @@ class AddMovie extends Component {
                                                 </div>
                                             </div>
                                             <div className="card-body">
-                                                <textarea ref="plot" className="form-control" rows="12" value={this.state.value} />
+                                                <textarea ref="plot" className="form-control" rows="12" />
                                             </div>
                                         </div>
                                     </div>
@@ -71,13 +134,13 @@ class AddMovie extends Component {
                                                 </div>
                                                 <div className="row">
                                                     <div className="col-md-4">
-                                                        <input ref="director1" type="text" className="form-control" placeholder="Director 1" value={this.state.value} />
+                                                        <input ref="director1" type="text" className="form-control" placeholder="Director 1" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="director2" type="text" className="form-control" placeholder="Director 2" value={this.state.value} />
+                                                        <input ref="director2" type="text" className="form-control" placeholder="Director 2" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="director3" type="text" className="form-control" placeholder="Director 3" value={this.state.value} />
+                                                        <input ref="director3" type="text" className="form-control" placeholder="Director 3" />
                                                     </div>
                                                 </div>
                                                 <div className="sub-title">
@@ -85,22 +148,22 @@ class AddMovie extends Component {
                                                 </div>
                                                 <div className="row">
                                                     <div className="col-md-4">
-                                                        <input ref="studio1" type="text" className="form-control" placeholder="Studio 1" value={this.state.value} />
+                                                        <input ref="studio1" type="text" className="form-control" placeholder="Studio 1" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="studio2" type="text" className="form-control" placeholder="Studio 2" value={this.state.value} />
+                                                        <input ref="studio2" type="text" className="form-control" placeholder="Studio 2" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="studio3" type="text" className="form-control" placeholder="Studio 3" value={this.state.value} />
+                                                        <input ref="studio3" type="text" className="form-control" placeholder="Studio 3" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="studio4" type="text" className="form-control" placeholder="Studio 4" value={this.state.value} />
+                                                        <input ref="studio4" type="text" className="form-control" placeholder="Studio 4" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="studio5" type="text" className="form-control" placeholder="Studio 5" value={this.state.value} />
+                                                        <input ref="studio5" type="text" className="form-control" placeholder="Studio 5" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="studio6" type="text" className="form-control" placeholder="Studio 6" value={this.state.value} />
+                                                        <input ref="studio6" type="text" className="form-control" placeholder="Studio 6" />
                                                     </div>
                                                 </div>
                                                 <div className="sub-title">
@@ -108,40 +171,40 @@ class AddMovie extends Component {
                                                 </div>
                                                 <div className="row">
                                                     <div className="col-md-4">
-                                                        <input ref="starring1" type="text" className="form-control" placeholder="Starring 1" value={this.state.value} />
+                                                        <input ref="starring1" type="text" className="form-control" placeholder="Starring 1" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring2" type="text" className="form-control" placeholder="Starring 2" value={this.state.value} />
+                                                        <input ref="starring2" type="text" className="form-control" placeholder="Starring 2" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring3" type="text" className="form-control" placeholder="Starring 3" value={this.state.value} />
+                                                        <input ref="starring3" type="text" className="form-control" placeholder="Starring 3" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring4" type="text" className="form-control" placeholder="Starring 4" value={this.state.value} />
+                                                        <input ref="starring4" type="text" className="form-control" placeholder="Starring 4" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring5" type="text" className="form-control" placeholder="Starring 5" value={this.state.value} />
+                                                        <input ref="starring5" type="text" className="form-control" placeholder="Starring 5" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring6" type="text" className="form-control" placeholder="Starring 6" value={this.state.value} />
+                                                        <input ref="starring6" type="text" className="form-control" placeholder="Starring 6" />
                                                     </div>
                                                     <div className="col-md-4">
                                                         <input ref="starring7" type="text" className="form-control" placeholder="Starring 7"/>
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring8" type="text" className="form-control" placeholder="Starring 8" value={this.state.value} />
+                                                        <input ref="starring8" type="text" className="form-control" placeholder="Starring 8" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring9" type="text" className="form-control" placeholder="Starring 9" value={this.state.value} />
+                                                        <input ref="starring9" type="text" className="form-control" placeholder="Starring 9" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring10" type="text" className="form-control" placeholder="Starring 10" value={this.state.value} />
+                                                        <input ref="starring10" type="text" className="form-control" placeholder="Starring 10" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring11" type="text" className="form-control" placeholder="Starring 11" value={this.state.value} />
+                                                        <input ref="starring11" type="text" className="form-control" placeholder="Starring 11" />
                                                     </div>
                                                     <div className="col-md-4">
-                                                        <input ref="starring12" type="text" className="form-control" placeholder="Starring 12" value={this.state.value} />
+                                                        <input ref="starring12" type="text" className="form-control" placeholder="Starring 12" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,31 +224,31 @@ class AddMovie extends Component {
                                                     IMDB
                                                 </div>
                                                 <div>
-                                                    <input ref="imdbLink" type="text" className="form-control" placeholder="IMDB Link (URL)" value={this.state.value} />
+                                                    <input ref="imdbLink" type="text" className="form-control" placeholder="IMDB Link (URL)" />
                                                 </div>
                                                 <div className="sub-title">
                                                     Trailer Link
                                                 </div>
                                                 <div>
-                                                    <input ref="trailerLink1" type="text" className="form-control" placeholder="Traler 1 (URL)" value={this.state.value} />
-                                                    <input ref="trailerLink2" type="text" className="form-control" placeholder="Traler 2 (URL)" value={this.state.value} />
-                                                    <input ref="trailerLink3" type="text" className="form-control" placeholder="Traler 3 (URL)" value={this.state.value} />
+                                                    <input ref="trailerLink1" type="text" className="form-control" placeholder="Traler 1 (URL)" />
+                                                    <input ref="trailerLink2" type="text" className="form-control" placeholder="Traler 2 (URL)" />
+                                                    <input ref="trailerLink3" type="text" className="form-control" placeholder="Traler 3 (URL)" />
                                                 </div>
                                                 <div className="sub-title">
                                                     Image Gallery
                                                 </div>
                                                 <div className="row">
                                                     <div className="col-md-3">
-                                                        <input ref="imageLink1" type="text" className="form-control" placeholder="Image 1 (URL)" value={this.state.value} />
+                                                        <input ref="imageLink1" type="text" className="form-control" placeholder="Image 1 (URL)" />
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <input ref="imageLink2" type="text" className="form-control" placeholder="Image 2 (URL)" value={this.state.value} />
+                                                        <input ref="imageLink2" type="text" className="form-control" placeholder="Image 2 (URL)" />
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <input ref="imageLink3" type="text" className="form-control" placeholder="Image 3 (URL)" value={this.state.value} />
+                                                        <input ref="imageLink3" type="text" className="form-control" placeholder="Image 3 (URL)" />
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <input ref="imageLink4" type="text" className="form-control" placeholder="Image 4 (URL)" value={this.state.value} />
+                                                        <input ref="imageLink4" type="text" className="form-control" placeholder="Image 4 (URL)" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,7 +270,7 @@ class AddMovie extends Component {
                                             </div>
                                             <div className="card-body">
                                                 <div>
-                                                    <input ref="year" type="text" className="form-control" placeholder="Year" value={this.state.value} required />
+                                                    <input ref="year" type="text" className="form-control" placeholder="Year" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -223,7 +286,7 @@ class AddMovie extends Component {
                                             </div>
                                             <div className="card-body">
                                                 <div>
-                                                    <input ref="genre" type="text" className="form-control" placeholder="Genre" value={this.state.value} />
+                                                    <input ref="genre" type="text" className="form-control" placeholder="Genre" />
                                                 </div>
                                             </div>
                                         </div>
@@ -239,7 +302,7 @@ class AddMovie extends Component {
                                             </div>
                                             <div className="card-body">
                                                 <div>
-                                                    <input ref="grossTicketSales" type="text" className="form-control" placeholder="Gross TIcket Sales (in pesos)" value={this.state.value} />
+                                                    <input ref="grossTicketSales" type="text" className="form-control" placeholder="Gross TIcket Sales (in pesos)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -255,7 +318,7 @@ class AddMovie extends Component {
                                             </div>
                                             <div className="card-body">
                                                 <div>
-                                                    <input ref="posterImage" type="text" className="form-control" placeholder="Poster Image" value={this.state.value} />
+                                                    <input ref="posterImage" type="text" className="form-control" placeholder="Poster Image" value={this.state.value} onChange={this.handleChange} />
                                                 </div>
                                             </div>
                                         </div>
@@ -272,13 +335,11 @@ class AddMovie extends Component {
 
 export default connect((props) => {
     return {
-        movieAdd: (movie) => ({
-            movieAddFetch: {
+        addMovie: (movie) => ({
+            addMovieFetch: {
                 url: `/api/v1/moviesData/`,
                 method: 'POST',
-                body: JSON.stringify({
-                    movie:movie
-                })
+                body: JSON.stringify(movie),
             }
         })
     }
