@@ -25,7 +25,7 @@ class EditMovie extends Component {
     }
 }
 
-export default connect(props => {
+export default connect((props) => {
     return {
         movieDataFetch: `/api/v1/moviesData/${props.params.movieID}`
     }
