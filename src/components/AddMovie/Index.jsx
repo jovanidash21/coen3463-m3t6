@@ -16,7 +16,7 @@ class AddMovie extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        let movie = [];
+        let newMovie = [];
         let title = this.refs.title.value;
         let posterImage = this.state.value.length
             ? this.refs.posterImage.value
@@ -71,8 +71,8 @@ class AddMovie extends Component {
             imageLink4: this.refs.imageLink4.value
         });
 
-        movie.push({title, posterImage, directors, studios, starring, year, genre, plot, imdbLink, trailerLinks, imageLinks, grossTicketSales});
-        this.props.addMovie(movie);
+        newMovie.push({title, posterImage, directors, studios, starring, year, genre, plot, imdbLink, trailerLinks, imageLinks, grossTicketSales});
+        this.props.addMovie(newMovie);
 
         browserHistory.push('/');
     }
@@ -330,7 +330,7 @@ class AddMovie extends Component {
                 </form>
             </div>
         )
-    };
+    }
 }
 
 export default connect((props) => {
