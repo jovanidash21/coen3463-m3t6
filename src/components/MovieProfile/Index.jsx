@@ -6,20 +6,22 @@ import MovieDetails from './MovieDetails';
 
 class MovieProfile extends Component {
     render() {
-        const { movieDataFetch } = this.props;
+        const { userDataFetch, movieDataFetch } = this.props;
         const allMovieDataFetch = PromiseState.all([movieDataFetch]);
 
-        if (allMovieDataFetch.pending) {
+        if (userDataFetch.pending || allMovieDataFetch.pending) {
             return <LoadingAnimation />
         }
-        else if (allMovieDataFetch.rejected) {
+        else if (userDataFetch.rejected || allMovieDataFetch.rejected) {
             return <Error error={allMovieDataFetch.reason} />
         }
-        else if (allMovieDataFetch.fulfilled) {
+        else if (userDataFetch.fulfilled && allMovieDataFetch.fulfilled) {
+            const [userData] = userDataFetch.value;
             const [movie] = allMovieDataFetch.value;
+            const user = userData.userData;
 
             return (
-                <MovieDetails movie={movie} />
+                <MovieDetails user={user} movie={movie} />
             )
         }
     }
@@ -27,6 +29,7 @@ class MovieProfile extends Component {
 
 export default connect(props => {
     return {
+        userDataFetch: `/api/user`,
         movieDataFetch: `/api/v1/moviesData/${props.params.movieID}`
     }
 })(MovieProfile);

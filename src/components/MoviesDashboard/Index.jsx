@@ -6,25 +6,28 @@ import MoviesFilter from './MoviesFilter';
 
 class MoviesDashboard extends Component {
     render() {
-        const { moviesDataFetch } = this.props;
+        const { userDataFetch, moviesDataFetch } = this.props;
         const allMoviesDataFetch = PromiseState.all([moviesDataFetch]);
 
-        if (allMoviesDataFetch.pending) {
+        if (userDataFetch.pending || allMoviesDataFetch.pending) {
             return <LoadingAnimation />
         }
-        else if (allMoviesDataFetch.rejected) {
+        else if (userDataFetch.rejected || allMoviesDataFetch.rejected) {
             return <Error error={allMoviesDataFetch.reason} />
         }
-        else if (allMoviesDataFetch.fulfilled) {
+        else if (userDataFetch.fulfilled && allMoviesDataFetch.fulfilled) {
+            const [userData] = userDataFetch.value;
             const [movies] = allMoviesDataFetch.value;
+            const user = userData.userData;
 
-            return <MoviesFilter movies={movies}/>
+            return <MoviesFilter user={user} movies={movies}/>
         }
     }
 }
 
 export default connect(() => {
     return {
+        userDataFetch: `/api/user`,
         moviesDataFetch: `/api/v1/moviesData?sort=createdAt`
     }
 })(MoviesDashboard);

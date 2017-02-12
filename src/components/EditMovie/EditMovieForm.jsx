@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { IndexLink, Link, browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-refetch';
+import MenuBar from '../MenuBar/Index'
 import moment from 'moment';
 
 class EditMovieForm extends Component {
@@ -84,21 +85,13 @@ class EditMovieForm extends Component {
     }
 
     render() {
-        const { movie } = this.props;
+        const { user, movie } = this.props;
 
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="col-xs-12">
-                        <div style={{textAlign: "right"}}>
-                            <IndexLink to="/" className="btn btn-lg btn-primary" role="button">
-                                Dashboard
-                            </IndexLink>
-                            &nbsp;
-                            <Link to="/movies/add" className="btn btn-lg btn-success" role="button">
-                                Add New Movie
-                            </Link>
-                        </div>
+                        <MenuBar user={user} />
                     </div>
                     <div className="col-xs-12">
                         <div className="row no-margin-bottom">
@@ -360,9 +353,16 @@ class EditMovieForm extends Component {
                                                         View Profile
                                                     </Link>
                                                     &nbsp;
-                                                    <button className="btn btn-primary" type="submit" value="Submit">
-                                                        Update
-                                                    </button>
+                                                    {
+                                                        user.map(user =>
+                                                            user.role === "administrator" || user.role === "editor"
+                                                                ?
+                                                                <button className="btn btn-primary" type="submit" value="Submit">
+                                                                    Update
+                                                                </button>
+                                                                :""
+                                                        )
+                                                    }
                                                 </div>
                                             </div>
                                         </div>

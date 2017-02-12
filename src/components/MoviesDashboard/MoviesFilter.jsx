@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
 import SearchInput, { createFilter } from 'react-search-input';
+import MenuBar from '../MenuBar/Index'
 import MoviePreview from './MoviePreview';
 
 const KEYS_TO_FILTERS = ['title', 'year'];
@@ -11,17 +11,13 @@ const MoviesFilter = React.createClass({
     },
 
     render() {
-        const {movies} = this.props;
+        const { user, movies } = this.props;
         const filteredMovies = movies.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
 
         return (
             <div>
                 <div className="col-xs-12">
-                    <div style={{textAlign:"right"}}>
-                        <Link to="/movies/add" className="btn btn-lg btn-success" role="button">
-                            Add New Movie
-                        </Link>
-                    </div>
+                    <MenuBar user={user} />
                 </div>
                 <div className="col-xs-12">
                     <div className="row">
@@ -52,7 +48,7 @@ const MoviesFilter = React.createClass({
                     <div className="row">
                         {
                             filteredMovies.map(movie =>
-                                <MoviePreview movie={movie} />
+                                <MoviePreview user={user} movie={movie} />
                             )
                         }
                     </div>
