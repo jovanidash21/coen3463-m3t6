@@ -27,6 +27,7 @@ var options = {
 };
 
 var index = require('./routes/index');
+var api = require('./routes/api');
 var movies = require('./routes/movies');
 var users = require('./routes/users');
 
@@ -72,9 +73,10 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.use(router)
+app.use(router);
 
 app.use('/', index);
+app.use('/api', api);
 app.use('/movies', movies);
 app.use('/users', users);
 
