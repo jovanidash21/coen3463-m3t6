@@ -6,9 +6,9 @@ router.get('/user', function(req, res, next) {
         res.json({});
     }
     else {
-        res.json({
-            user: req.user
-        });
+        res.json([{
+            userData: [req.user]
+        }]);
     }
 });
 
