@@ -1,12 +1,25 @@
 import React, { Component, PropTypes } from 'react';
 import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-refetch';
+import { Button, Modal } from 'react-bootstrap';
 
 class MoviePreview extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            showModal: false
+        };
+
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    open() {
+        this.setState({ showModal: true });
+    }
+    close() {
+        this.setState({ showModal: false });
     }
     handleSubmit(event) {
         event.preventDefault();
@@ -15,9 +28,8 @@ class MoviePreview extends Component {
         let movieID = movie._id;
 
         this.props.deleteMovie(movieID);
-        this.props.refreshMovies();
 
-        browserHistory.push('/');
+        window.location.reload()
     }
 
     render() {
@@ -56,9 +68,9 @@ class MoviePreview extends Component {
                                         {
                                             user.role === "administrator"
                                                 ?
-                                                <a className="btn btn-warning" role="button" data-toggle="modal" data-target={"#" + movie._id}>
+                                                <Button bsStyle="warning" onClick={this.open}>
                                                     Delete
-                                                </a>
+                                                </Button>
                                                 :""
                                         }
                                     </p>
@@ -71,38 +83,31 @@ class MoviePreview extends Component {
                     user.map(user =>
                         user.role === "administrator"
                             ?
-                            <div id={movie._id} className="modal fade">
+                            <Modal show={this.state.showModal} onHide={this.close}>
                                 <form onSubmit={this.handleSubmit}>
-                                    <div className="modal-dialog">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <button className="close" type="button" data-dismiss="modal" aria-label="Cancel">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 className="modal-title">Delete Movie</h4>
-                                            </div>
-                                            <div className="modal-body">
-                                                <p>
-                                    <span className="text-danger">
-                                        {movie.title}
-                                    </span>
-                                                    <span>
-                                        &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this movie?
-                                    </span>
-                                                </p>
-                                            </div>
-                                            <div className="modal-footer">
-                                                <button className="btn btn-default" type="button" data-dismiss="modal">
-                                                    Cancel
-                                                </button>
-                                                <button className="btn btn-danger" type="submit" value="Submit">
-                                                    Yes, Delete It!
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Delete Movie</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <p>
+                                            <span className="text-danger">
+                                                {movie.title}
+                                            </span>
+                                            <span>
+                                                &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this movie?
+                                            </span>
+                                        </p>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button bsStyle="default" onClick={this.close}>
+                                            Cancel
+                                        </Button>
+                                        <Button bsStyle="danger" type="submit" value="Submit">
+                                            Yes, Delete It!
+                                        </Button>
+                                    </Modal.Footer>
                                 </form>
-                            </div>
+                            </Modal>
                             :""
                     )
                 }
@@ -117,13 +122,6 @@ MoviePreview.propTypes = {
 
 export default connect(() => {
     return {
-        refreshMovies: () => ({
-            moviesDataFetch: {
-                url: `/api/v1/moviesData?sort=createdAt`,
-                force: true,
-                refreshing: true
-            }
-        }),
         deleteMovie: (movieID) => ({
             deleteMovieFetch: {
                 url: `/api/v1/moviesData/${movieID}`,
