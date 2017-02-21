@@ -12,14 +12,12 @@ class MenuBar extends Component {
                         Dashboard
                     </IndexLink>
                     {
-                        user.map(user =>
-                            user.role === "administrator"
-                                ?
-                                <Link to="/movies/add" className="btn btn-lg btn-success" role="button">
-                                    Add New Movie
-                                </Link>
-                                :""
-                        )
+                        user.role === "administrator"
+                            ?
+                            <Link to="/movies/add" className="btn btn-lg btn-success" role="button">
+                                Add New Movie
+                            </Link>
+                            :""
                     }
                 </div>
             </div>

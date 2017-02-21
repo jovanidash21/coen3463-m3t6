@@ -354,14 +354,12 @@ class EditMovieForm extends Component {
                                                     </Link>
                                                     &nbsp;
                                                     {
-                                                        user.map(user =>
-                                                            user.role === "administrator" || user.role === "editor"
-                                                                ?
-                                                                <button className="btn btn-primary" type="submit" value="Submit">
-                                                                    Update
-                                                                </button>
-                                                                :""
-                                                        )
+                                                        user.role === "administrator" || user.role === "editor"
+                                                            ?
+                                                            <button className="btn btn-primary" type="submit" value="Submit">
+                                                                Update
+                                                            </button>
+                                                            :""
                                                     }
                                                 </div>
                                             </div>

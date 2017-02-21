@@ -430,29 +430,25 @@ class MovieDetails extends Component {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            {
-                                                user.map(user =>
-                                                    <div style={{textAlign: "right"}}>
-                                                        {
-                                                            user.role === "administrator" || user.role === "editor"
-                                                                ?
-                                                                <Link to={'/movies/' + movie._id + '/edit'} className="btn btn-default" role="button">
-                                                                    Edit Movie
-                                                                </Link>
-                                                                :""
-                                                        }
-                                                        &nbsp;
-                                                        {
-                                                            user.role === "administrator"
-                                                                ?
-                                                                <Button bsStyle="warning" onClick={this.open}>
-                                                                    Delete Movie
-                                                                </Button>
-                                                                :""
-                                                        }
-                                                    </div>
-                                                )
-                                            }
+                                            <div style={{textAlign: "right"}}>
+                                                {
+                                                    user.role === "administrator" || user.role === "editor"
+                                                        ?
+                                                        <Link to={'/movies/' + movie._id + '/edit'} className="btn btn-default" role="button">
+                                                            Edit Movie
+                                                        </Link>
+                                                        :""
+                                                }
+                                                &nbsp;
+                                                {
+                                                    user.role === "administrator"
+                                                        ?
+                                                        <Button bsStyle="warning" onClick={this.open}>
+                                                            Delete Movie
+                                                        </Button>
+                                                        :""
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -461,36 +457,34 @@ class MovieDetails extends Component {
                     </div>
                 </div>
                 {
-                    user.map(user =>
-                        user.role === "administrator"
-                            ?
-                            <Modal show={this.state.showModal} onHide={this.close}>
-                                <form onSubmit={this.handleSubmit}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Delete Movie</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>
-                                        <p>
-                                            <span className="text-danger">
-                                                {movie.title}
-                                            </span>
-                                            <span>
-                                                &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this movie?
-                                            </span>
-                                        </p>
-                                    </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button bsStyle="default" onClick={this.close}>
-                                            Cancel
-                                        </Button>
-                                        <Button bsStyle="danger" type="submit" value="Submit">
-                                            Yes, Delete It!
-                                        </Button>
-                                    </Modal.Footer>
-                                </form>
-                            </Modal>
-                            :""
-                    )
+                    user.role === "administrator"
+                        ?
+                        <Modal show={this.state.showModal} onHide={this.close}>
+                            <form onSubmit={this.handleSubmit}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Delete Movie</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <p>
+                                        <span className="text-danger">
+                                            {movie.title}
+                                        </span>
+                                        <span>
+                                            &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this movie?
+                                        </span>
+                                    </p>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button bsStyle="default" onClick={this.close}>
+                                        Cancel
+                                    </Button>
+                                    <Button bsStyle="danger" type="submit" value="Submit">
+                                        Yes, Delete It!
+                                    </Button>
+                                </Modal.Footer>
+                            </form>
+                        </Modal>
+                        :""
                 }
             </div>
         )

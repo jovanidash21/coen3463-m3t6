@@ -16,9 +16,9 @@ class MoviesDashboard extends Component {
             return <Error error={allMoviesDataFetch.reason} />
         }
         else if (userDataFetch.fulfilled && allMoviesDataFetch.fulfilled) {
-            const [userData] = userDataFetch.value;
+            const [user] = userDataFetch.value;
             const [movies] = allMoviesDataFetch.value;
-            const user = userData.userData;
+            console.log(user._id);
 
             return <MoviesFilter user={user} movies={movies}/>
         }

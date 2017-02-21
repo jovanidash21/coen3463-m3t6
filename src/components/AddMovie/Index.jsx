@@ -12,11 +12,10 @@ class AddMovie extends Component {
             return <LoadingAnimation />
         }
         else if (userDataFetch.rejected) {
-            return <Error error={allMovieDataFetch.reason} />
+            return <Error error={userDataFetch.reason} />
         }
         else if (userDataFetch.fulfilled) {
-            const [userData] = userDataFetch.value;
-            const user = userData.userData;
+            const [user] = userDataFetch.value;
 
             return (
                 <AddMovieForm user={user} />

@@ -16,9 +16,8 @@ class EditMovie extends Component {
             return <Error error={allMovieDataFetch.reason} />
         }
         else if (userDataFetch.fulfilled && allMovieDataFetch.fulfilled) {
-            const [userData] = userDataFetch.value;
+            const [user] = userDataFetch.value;
             const [movie] = allMovieDataFetch.value;
-            const user = userData.userData;
 
             return (
                 <EditMovieForm user={user} movie={movie} />
