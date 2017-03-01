@@ -47,7 +47,6 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI, options);
 
 // express restify mongoose configuration
-restify.serve(router, usersData);
 restify.serve(router, moviesData);
 
 // view engine setup
