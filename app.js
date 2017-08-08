@@ -30,6 +30,18 @@ var users = require('./routes/users');
 
 var app = express();
 
+// browserSync setup
+if ( process.env.NODE_ENV != 'production' ) {
+  var browserSync = require('browser-sync');
+  browserSync({
+    files: ['./**/*'],
+    online: false,
+    port: 9000,
+    proxy: 'localhost:3000',
+    ui: false
+  });
+}
+
 // load all models directory files
 fs.readdirSync(__dirname + '/models').forEach(function(filename) {
   if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
