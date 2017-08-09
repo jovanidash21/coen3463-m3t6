@@ -13,23 +13,26 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar-top.navbar-inverse
                     li.dropdown.profile
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
                             if user.firstName || user.lastName
-                                | #{user.firstName}
-                                | #{user.lastName}
+                                span= user.firstName
+                                | &nbsp;
+                                span= user.lastName
                             else if user.username
-                                | &#64;#{user.username}
+                                | &#64;
+                                span= user.username
                             span.caret
                         ul.dropdown-menu.animated.fadeInDown
                             if user.profileImage
                                 li.profile-img
-                                    img.profile-img(src='#{user.profileImage}')
+                                    img.profile-img(src=`${user.profileImage}`)
                             li
                                 .profile-info
                                     h4.username
-                                        | &#64;#{user.username}
+                                        | &#64;
+                                        span= user.username
                                     if user.email
                                         p= user.email
                                     .btn-group.margin-bottom-2x(role='group')
-                                        a.btn.btn-default(href='/users/#{user.username}', role='button')
+                                        a.btn.btn-default(href=`/users/${user.username}`, role='button')
                                             i.fa.fa-user
                                             |  Profile
                                         button.btn.btn-primary(name='submit', type='submit')

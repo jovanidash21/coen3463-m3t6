@@ -8,7 +8,7 @@ block content
     if (alertMessage.length > 0)
         .col-xs-12
             .alert.alert-success.alert-dismissable.fade.in
-                | #{alertMessage}
+                span= alertMessage
                 a.close(href="#", data-dismiss="alert", aria-label="close") &times;
     .col-xs-12
         .card
@@ -38,13 +38,12 @@ block content
                         each userData in usersData
                             tr
                                 td
-                                    a(href='/users/#{userData.username}')= userData.username
+                                    a(href=`/users/${userData.username}`)= userData.username
                                 td= userData.firstName
                                 td= userData.lastName
                                 td= userData.email
                                 td
-                                    a(href='#{userData.website}', target='_blank')
-                                        | #{userData.website}
+                                    a(href=`${userData.website}`, target='_blank')= userData.website
                                 td= userData.role
-                                td #{moment(userData.createdAt).format("YYYY-MM-DD")}
-                                td #{moment(userData.updatedAt).format("YYYY-MM-DD")}
+                                td= moment(userData.createdAt).format("YYYY-MM-DD")
+                                td= moment(userData.updatedAt).format("YYYY-MM-DD")

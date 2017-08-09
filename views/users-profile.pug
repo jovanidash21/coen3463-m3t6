@@ -4,11 +4,11 @@ block content
     if (user.role === 'administrator')
         .col-xs-12
             div(align='right')
-                a.btn.btn-lg.btn-success(href='/users/#{userData.username}/edit', role='button') Edit User
+                a.btn.btn-lg.btn-success(href=`/users/${userData.username}/edit`, role='button') Edit User
                 | &nbsp;
-                a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target='##{userData.username}') Delete User
-        .modal.fade(id="#{userData.username}")
-            form(action='/users/#{userData.username}/delete', method='post')
+                a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target=`#${userData.username}`) Delete User
+        .modal.fade(id=`${userData.username}`)
+            form(action=`/users/${userData.username}/delete`, method='post')
                 .modal-dialog
                     .modal-content
                         .modal-header
@@ -17,8 +17,7 @@ block content
                             h4.modal-title Delete User
                         .modal-body
                             p
-                                span.text-danger
-                                    | #{userData.username}
+                                span.text-danger= userData.username
                                 span
                                     | &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this user?
                         .modal-footer
@@ -28,11 +27,11 @@ block content
         if (user.username == userData.username)
             .col-xs-12
                 div(align='right')
-                    a.btn.btn-lg.btn-success(href='/users/#{userData.username}/edit', role='button') Edit Profile
+                    a.btn.btn-lg.btn-success(href=`/users/${userData.username}/edit`, role='button') Edit Profile
                     | &nbsp;
-                    a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target='##{userData.username}') Delete Account
-            .modal.fade(id="#{userData.username}")
-                form(action='/users/#{userData.username}/delete', method='post')
+                    a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target=`#${userData.username}`) Delete Account
+            .modal.fade(id=`${userData.username}`)
+                form(action=`/users/${userData.username}/delete`, method='post')
                     .modal-dialog
                         .modal-content
                             .modal-header
@@ -41,8 +40,7 @@ block content
                                 h4.modal-title Delete Account
                             .modal-body
                                 p
-                                    span.text-danger
-                                        | #{userData.username}
+                                    span.text-danger= userData.username
                                     span
                                         | &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete your account?
                             .modal-footer
@@ -55,11 +53,12 @@ block content
                     .col-md-12
                         .thumbnail.no-margin-bottom
                             if userData.profileImage
-                                a.thumbnail(href='/users/#{userData.username}')
-                                    img.img-responsive(src='#{userData.profileImage}')
+                                a.thumbnail(href=`/users/${userData.username}`)
+                                    img.img-responsive(src=`${userData.profileImage}`)
                             .caption
                                 h3#thumbnail-label
-                                    | &#64;#{userData.username}
+                                    | &#64;
+                                    span= userData.username
                                     a.anchorjs-link(href='#thumbnail-label')
                                         span.anchorjs-icon
                 .row
@@ -69,7 +68,7 @@ block content
                                 li.list-group-item
                                     strong
                                         | Role:&nbsp;
-                                    | #{userData.role}
+                                    span= userData.role
             .col-md-6
                 .row
                     .col-md-12
@@ -94,8 +93,7 @@ block content
                                     .sub-title
                                         | Website
                                     p
-                                        a(href = '#{userData.website}', target = '_blank')
-                                            | #{userData.website}
+                                        a(href=`${userData.website}`, target = '_blank')= userData.website
             .col-md-3
                 .row
                     .col-md-12
@@ -109,8 +107,8 @@ block content
                                         li.list-group-item
                                             strong
                                                 | Created:&nbsp;
-                                            | #{moment(userData.createdAt).format("YYYY-MM-DD HH:mm")}
+                                            span= moment(userData.createdAt).format("YYYY-MM-DD HH:mm")
                                         li.list-group-item
                                             strong
                                                 | Last Updated:&nbsp;
-                                            | #{moment(userData.updatedAt).format("YYYY-MM-DD HH:mm")}
+                                            span= moment(userData.updatedAt).format("YYYY-MM-DD HH:mm")

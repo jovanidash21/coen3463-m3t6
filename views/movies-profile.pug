@@ -4,13 +4,13 @@ block content
     if(user.role === 'administrator' || user.role === 'editor')
         .col-xs-12
             div(align='right')
-                a.btn.btn-lg.btn-success(href='/movies/#{movieData._id}/edit', role='button') Edit Movie
+                a.btn.btn-lg.btn-success(href=`/movies/${movieData._id}/edit`, role='button') Edit Movie
                 if (user.role === 'administrator')
                     | &nbsp;
-                    a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target='##{movieData._id}') Delete Movie
+                    a.btn.btn-lg.btn-warning(role='button', data-toggle='modal', data-target=`#${movieData._id}`) Delete Movie
     if (user.role === 'administrator')
-        .modal.fade(id="#{movieData._id}")
-            form(action='/movies/#{movieData._id}/delete', method='post')
+        .modal.fade(id=`${movieData._id}`)
+            form(action=`/movies/${movieData._id}/delete`, method='post')
                 .modal-dialog
                     .modal-content
                         .modal-header
@@ -20,7 +20,7 @@ block content
                         .modal-body
                             p
                                 span.text-danger
-                                    | #{movieData.title}
+                                    | movieData.title
                                 span
                                     | &nbsp;will be deleted. This action cannot be undone. Are you sure you want to delete this movie?
                         .modal-footer
@@ -33,15 +33,15 @@ block content
                     .card-header
                         .card-title
                             .title
-                                | #{movieData.title}
+                                span= movieData.title
     .col-xs-12
         .row
             .col-md-3
                 .row
                     .col-md-12
                         if movieData.posterImage
-                            a.thumbnail(href='/movies/#{movieData._id}')
-                                img.img-responsive(src='#{movieData.posterImage}')
+                            a.thumbnail(href=`/movies/${movieData._id}`)
+                                img.img-responsive(src=`${movieData.posterImage}`)
                 .row
                     .col-md-12
                         div
@@ -50,18 +50,18 @@ block content
                                     strong
                                         | Year:&nbsp;
                                     if  movieData.year
-                                        | #{movieData.year}
+                                        span= movieData.year
                                 li.list-group-item
                                     strong
                                         | Genre:&nbsp;
                                     if  movieData.genre
-                                        | #{movieData.genre}
+                                        span= movieData.genre
                                 li.list-group-item
                                     strong
                                         | Gross Ticket Sales:&nbsp;
                                     if  movieData.grossTicketSales
                                         | &#8369;
-                                        | #{movieData.grossTicketSales}
+                                        span= movieData.grossTicketSales
             .col-md-6
                 .row
                     .col-md-12
@@ -84,49 +84,64 @@ block content
                                 each director in movieData.directors
                                     p
                                         if director.director1
-                                            | #{director.director1}
+                                            span= director.director1
                                         if director.director2
-                                            | ,&nbsp;#{director.director2}
+                                            | ,&nbsp;
+                                            span= director.director2
                                         if director.director3
-                                            | ,&nbsp;#{director.director3}
+                                            | ,&nbsp;
+                                            span= director.director3
                                 .sub-title
                                     | Studio
                                 each studio in movieData.studios
                                     p
                                         if studio.studio1
-                                            | #{studio.studio1}
+                                            span= studio.studio1
                                         if studio.studio2
-                                            | ,&nbsp;#{studio.studio2}
+                                            | ,&nbsp;
+                                            span= studio.studio2
                                         if studio.studio3
-                                            | ,&nbsp;#{studio.studio3}
+                                            | ,&nbsp;
+                                            span= studio.studio3
                                         if studio.studio4
-                                            | ,&nbsp;#{studio.studio4}
+                                            | ,&nbsp;
+                                            span= studio.studio4
                                         if studio.studio5
-                                            | ,&nbsp;#{studio.studio5}
+                                            | ,&nbsp;
+                                            span= studio.studio5
                                 .sub-title
                                     | Starring
                                 each star in movieData.starring
                                     p
                                         if star.starring1
-                                            | #{star.starring1}
+                                            span= star.starring1
                                         if star.starring2
-                                            | ,&nbsp;#{star.starring2}
+                                            | ,&nbsp;
+                                            span= star.starring2
                                         if star.starring3
-                                            | ,&nbsp;#{star.starring3}
+                                            | ,&nbsp;
+                                            span= star.starring3
                                         if star.starring4
-                                            | ,&nbsp;#{star.starring4}
+                                            | ,&nbsp;
+                                            span= star.starring4
                                         if star.starring5
-                                            | ,&nbsp;#{star.starring5}
+                                            | ,&nbsp;
+                                            span= star.starring5
                                         if star.starring6
-                                            | ,&nbsp;#{star.starring6}
+                                            | ,&nbsp;
+                                            span= star.starring6
                                         if star.starring7
-                                            | ,&nbsp;#{star.starring7}
+                                            | ,&nbsp;
+                                            span= star.starring7
                                         if star.starring8
-                                            | ,&nbsp;#{star.starring8}
+                                            | ,&nbsp;
+                                            span= star.starring8
                                         if star.starring9
-                                            | ,&nbsp;#{star.starring9}
+                                            | ,&nbsp;
+                                            span= star.starring9
                                         if star.starring10
-                                            | ,&nbsp;#{star.starring10}
+                                            | ,&nbsp;
+                                            span= star.starring10
                 .row
                     .col-md-12
                         .card
@@ -138,23 +153,19 @@ block content
                                     | IMDB Link
                                 if movieData.imdbLink
                                     p
-                                        a(href='#{movieData.imdbLink}', target='_blank')
-                                            | #{movieData.imdbLink}
+                                        a(href=`${movieData.imdbLink}`, target='_blank')= movieData.imdbLink
                                 .sub-title
                                     | Trailer Link
                                 each trailerLink in movieData.trailerLinks
                                     if trailerLink.trailerLink1
                                         p
-                                            a(href='#{trailerLink.trailerLink1}', target='_blank')
-                                                | #{trailerLink.trailerLink1}
+                                            a(href=`${trailerLink.trailerLink1}`, target='_blank')= trailerLink.trailerLink1
                                     if trailerLink.trailerLink2
                                         p
-                                            a(href='#{trailerLink.trailerLink2}', target='_blank')
-                                                | #{trailerLink.trailerLink2}
+                                            a(href=`${trailerLink.trailerLink2}`, target='_blank')= trailerLink.trailerLink2
                                     if trailerLink.trailerLink3
                                         p
-                                            a(href='#{trailerLink.trailerLink3}', target='_blank')
-                                                | #{trailerLink.trailerLink3}
+                                            a(href=`${trailerLink.trailerLink3}`, target='_blank')= trailerLink.trailerLink3
                                 .sub-title
                                     | Image Gallery
                                 .row
@@ -163,23 +174,23 @@ block content
                                             if imageLink.imageLink1
                                                 .col-md-6
                                                     p
-                                                        a.thumbnail(href='#{imageLink.imageLink1}', target='_blank')
-                                                            img.img-responsive(src='#{imageLink.imageLink1}')
+                                                        a.thumbnail(href=`${imageLink.imageLink1}`, target='_blank')
+                                                            img.img-responsive(src=`${imageLink.imageLink1}`)
                                             if imageLink.imageLink2
                                                 .col-md-6
                                                     p
-                                                        a.thumbnail(href='#{imageLink.imageLink2}', target='_blank')
-                                                            img.img-responsive(src='#{imageLink.imageLink2}')
+                                                        a.thumbnail(href=`${imageLink.imageLink2}`, target='_blank')
+                                                            img.img-responsive(src=`${imageLink.imageLink2}`)
                                             if imageLink.imageLink3
                                                 .col-md-6
                                                     p
-                                                        a.thumbnail(href='#{imageLink.imageLink3}', target='_blank')
-                                                            img.img-responsive(src='#{imageLink.imageLink3}')
+                                                        a.thumbnail(href=`${imageLink.imageLink3}`, target='_blank')
+                                                            img.img-responsive(src=`${imageLink.imageLink3}`)
                                             if imageLink.imageLink4
                                                 .col-md-6
                                                     p
-                                                        a.thumbnail(href='#{imageLink.imageLink4}', target='_blank')
-                                                            img.img-responsive(src='#{imageLink.imageLink4}')
+                                                        a.thumbnail(href=`${imageLink.imageLink4}`, target='_blank')
+                                                            img.img-responsive(src=`${imageLink.imageLink4}`)
             .col-md-3
                 .row
                     .col-md-12
@@ -193,8 +204,8 @@ block content
                                         li.list-group-item
                                             strong
                                                 | Created: &nbsp;
-                                            | #{moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")}
+                                            span= moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")
                                         li.list-group-item
                                             strong
                                                 | Last Updated: &nbsp;
-                                            | #{moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")}
+                                            span= moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")

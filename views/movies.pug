@@ -33,39 +33,50 @@ block content
                         each movieData in moviesData.reverse()
                             tr
                                 td
-                                    a(href='/movies/#{movieData._id}')= movieData.title
+                                    a(href=`/movies/${movieData._id}`)= movieData.title
                                 td
                                     each director in movieData.directors
                                         if director.director1
-                                            | #{director.director1}
+                                            span= director.director1
                                         if director.director2
-                                            | ,&nbsp;#{director.director2}
+                                            | ,&nbsp;
+                                            span= director.director2
                                         if director.director3
-                                            | ,&nbsp;#{director.director3}
+                                            | ,&nbsp;
+                                            span= director.director3
                                 td
                                     each star in movieData.starring
                                         if star.starring1
-                                            | #{star.starring1}
+                                            span= star.starring1
                                         if star.starring2
-                                            | ,&nbsp;#{star.starring2}
+                                            | ,&nbsp;
+                                            span= star.starring2
                                         if star.starring3
-                                            | ,&nbsp;#{star.starring3}
+                                            | ,&nbsp;
+                                            span= star.starring3
                                         if star.starring4
-                                            | ,&nbsp;#{star.starring4}
+                                            | ,&nbsp;
+                                            span= star.starring4
                                         if star.starring5
-                                            | ,&nbsp;#{star.starring5}
+                                            | ,&nbsp;
+                                            span= star.starring5
                                         if star.starring6
-                                            | ,&nbsp;#{star.starring6}
+                                            | ,&nbsp;
+                                            span= star.starring6
                                         if star.starring7
-                                            | ,&nbsp;#{star.starring7}
+                                            | ,&nbsp;
+                                            span= star.starring7
                                         if star.starring8
-                                            | ,&nbsp;#{star.starring8}
+                                            | ,&nbsp;
+                                            span= star.starring8
                                         if star.starring9
-                                            | ,&nbsp;#{star.starring9}
+                                            | ,&nbsp;
+                                            span= star.starring9
                                         if star.starring10
-                                            | ,&nbsp;#{star.starring10}
+                                            | ,&nbsp;
+                                            span= star.starring10
                                 td= movieData.year
                                 td= movieData.genre
                                 td= movieData.grossTicketSales
-                                td #{moment(movieData.createdAt).format("YYYY-MM-DD")}
-                                td #{moment(movieData.updatedAt).format("YYYY-MM-DD")}
+                                td= moment(movieData.createdAt).format("YYYY-MM-DD")
+                                td= moment(movieData.updatedAt).format("YYYY-MM-DD")
