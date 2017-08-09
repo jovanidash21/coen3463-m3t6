@@ -14,16 +14,13 @@ var flash = require('connect-flash');
 var mongoose = require('mongoose');
 
 var options = {
-  server: {
-    socketOptions: {
-      keepAlive: 300000, connectTimeoutMS: 30000
-    }
+  socketOptions: {
+    keepAlive: 300000, connectTimeoutMS: 30000
   },
-  replset: {
-    socketOptions: {
-      keepAlive: 300000, connectTimeoutMS : 30000
-    }
-  }
+  socketOptions: {
+    keepAlive: 300000, connectTimeoutMS : 30000
+  },
+  useMongoClient: true
 };
 
 var index = require('./routes/index');
