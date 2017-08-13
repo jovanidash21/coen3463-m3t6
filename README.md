@@ -1,10 +1,5 @@
-# Software Engineering - Module Three - Express
+# MMFF Movies
 ---
-
-## Screenshot
-<p align="center">
-  <img src="https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/screenshot.png">
-</p>
 
 ## Prerequisite
 * [Node.js](https://nodejs.org/en/) installed.
@@ -12,7 +7,13 @@
 
 ## Installation
 * Clone or download this repository.
+```
+git clone https://github.com/jovanidash21/mmff-movies.git
+```
 * Using a terminal or cmd, navigate to the project directory.
+```
+cd mmff-movies
+```
 * Install node modules.
 ```
 npm install
@@ -30,15 +31,24 @@ mongo
 use mmff-movies
 ``` 
 * Insert to the database the JSON files inside the data folder of this project.
-* Open app.js and replace ```process.env.MONGODB_URI``` with ```'localhost:27017/mmff-movies'```.
-* On the same file, replace ```process.env.SECRET_KEY``` with ```'secret'```.
+* Create a ```.env``` file. 
+* Copy and paste the texts in ```.env.example``` to ```.env``` and insert the values for each environment variables.
 * Open another terminal or cmd and run 'www' file inside the bin directory.
 ```
-node ./bin/www
+npm start
 ```
 * Open a browser and visit ```localhost:3000```.
 * Signup to create an account.
 * Change the role of the account created from ```viewer``` to ```administrator``` on the database.
+* Run in dev mode.
+```
+npm run dev
+```
+
+## NPM Scripts
+* ```npm start``` - start the server.
+* ```npm run build``` - run the project in production mode.
+* ```npm run dev - run the project in dev mode.
 
 ## Credits
 - [Login Page](https://codepen.io/ehermanson/full/KwKWEv/)
@@ -46,12 +56,5 @@ node ./bin/www
 - Contents from Google Search
 - Images downloaded from Google
 
-## Connect
-- [Wordpress](https://jovaniwarguez.wordpress.com/)
-- [Facebook](https://facebook.com/jovani.cadornawarguez)
-- [Twitter](https://twitter.com/jovanidash21)
-- [Instagram](https://www.instagram.com/jovanidash21/)
-- [Google+](https://plus.google.com/u/0/104385173780051504413)
-- [LinkedIn](https://www.linkedin.com/in/jovani-warguez-827a8a11b?trk=nav_responsive_tab_profile_pic)
-- [YouTube](https://www.youtube.com/channel/UCNiVxhbJ6Ku9keIjkQX3RRQ)
-- [CodePen](http://codepen.io/jovanidash21/)
+## Website
+[Live Demo](https://mmff-movies-jovanidash21.herokuapp.com/)
