@@ -1,40 +1,40 @@
 nav.navbar.navbar-default.navbar-fixed-top.navbar-top.navbar-inverse
-    .container-fluid
-        .navbar-header
-            button.navbar-expand-toggle(type='button')
-                i.fa.fa-bars.icon
-            ol.breadcrumb.navbar-breadcrumb
-                li= navBarTitle
-            button.navbar-right-expand-toggle.pull-right.visible-xs(type='button')
-                i.fa.fa-th.icon
-        if user
-            form(action='/logout', method='post')
-                ul.nav.navbar-nav.navbar-right
-                    li.dropdown.profile
-                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                            if user.firstName || user.lastName
-                                span= user.firstName
-                                | &nbsp;
-                                span= user.lastName
-                            else if user.username
-                                | &#64;
-                                span= user.username
-                            span.caret
-                        ul.dropdown-menu.animated.fadeInDown
-                            if user.profileImage
-                                li.profile-img
-                                    img.profile-img(src=`${user.profileImage}`)
-                            li
-                                .profile-info
-                                    h4.username
-                                        | &#64;
-                                        span= user.username
-                                    if user.email
-                                        p= user.email
-                                    .btn-group.margin-bottom-2x(role='group')
-                                        a.btn.btn-default(href=`/users/${user.username}`, role='button')
-                                            i.fa.fa-user
-                                            |  Profile
-                                        button.btn.btn-primary(name='submit', type='submit')
-                                            i.fa.fa-sign-out
-                                            | &nbsp;Logout
+  .container-fluid
+    .navbar-header
+      button.navbar-expand-toggle(type='button')
+        i.fa.fa-bars.icon
+      ol.breadcrumb.navbar-breadcrumb
+        li= navBarTitle
+      button.navbar-right-expand-toggle.pull-right.visible-xs(type='button')
+        i.fa.fa-th.icon
+    if user
+      form(action='/logout', method='post')
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown.profile
+            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+              if user.firstName || user.lastName
+                span= user.firstName
+                | &nbsp;
+                span= user.lastName
+              else if user.username
+                | &#64;
+                span= user.username
+              span.caret
+            ul.dropdown-menu.animated.fadeInDown
+              if user.profileImage
+                li.profile-img
+                    img.profile-img(src=`${user.profileImage}`)
+              li
+                .profile-info
+                  h4.username
+                    | &#64;
+                    span= user.username
+                  if user.email
+                    p= user.email
+                  .btn-group.margin-bottom-2x(role='group')
+                    a.btn.btn-default(href=`/users/${user.username}`, role='button')
+                      i.fa.fa-user
+                      |  Profile
+                    button.btn.btn-primary(name='submit', type='submit')
+                      i.fa.fa-sign-out
+                      | &nbsp;Logout

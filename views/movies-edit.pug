@@ -1,197 +1,197 @@
 extends layout
 
 block content
-    .col-xs-12
-        div(align='right')
-            a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
-    .col-xs-12
-        if(typeof alertMessage !== "undefined")
-            if(!!postError)
-                .alert.alert-danger.alert-dismissable.fade.in
-                    spna= alertMessage
-                    a.close(href="#", data-dismiss="alert", aria-label="close") &times;
-            else
-                .alert.alert-success.alert-dismissable.fade.in
-                    span= alertMessage
+  .col-xs-12
+    div(align='right')
+      a.btn.btn-lg.btn-success(href='/movies/add', role='button') Add New Movie
+  .col-xs-12
+    if(typeof alertMessage !== "undefined")
+      if(!!postError)
+        .alert.alert-danger.alert-dismissable.fade.in
+          span= alertMessage
+          a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+      else
+        .alert.alert-success.alert-dismissable.fade.in
+          span= alertMessage
+          | &nbsp;
+          a.alert-link(href=`/movies/${movieData._id}`) View Profile
+          a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+  .col-xs-12
+    form(action=`/movies/${movieData._id}/edit`, method='post')
+      .row.no-margin-bottom
+        .col-md-9
+          .row
+            .col-md-12
+              .card
+                .card-body
+                  div
+                    input.form-control(name='title', type='text', placeholder='Movie Title *', value=`${movieData.title}`, required='')
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .title Plot / Synopsis
+                .card-body
+                  textarea.form-control(name='plot', rows='12')= movieData.plot
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .title Background
+                .card-body
+                  .sub-title
+                      | Director
+                  .row
+                    each director in movieData.directors
+                      .col-md-4
+                        input.form-control(name='director1', type='text', placeholder='Director 1', value=`${director.director1}`)
+                      .col-md-4
+                        input.form-control(name='director2', type='text', placeholder='Director 2', value=`${director.director2}`)
+                      .col-md-4
+                        input.form-control(name='director3', type='text', placeholder='Director 3', value=`${director.director3}`)
+                  .sub-title
+                    | Studio
+                  .row
+                    each studio in movieData.studios
+                      .col-md-4
+                        input.form-control(name='studio1', type='text', placeholder='Studio 1', value=`${studio.studio1}`)
+                      .col-md-4
+                        input.form-control(name='studio2', type='text', placeholder='Studio 2', value=`${studio.studio2}`)
+                      .col-md-4
+                        input.form-control(name='studio3', type='text', placeholder='Studio 3', value=`${studio.studio3}`)
+                      .col-md-4
+                        input.form-control(name='studio4', type='text', placeholder='Studio 4', value=`${studio.studio4}`)
+                      .col-md-4
+                        input.form-control(name='studio5', type='text', placeholder='Studio 5', value=`${studio.studio5}`)
+                      .col-md-4
+                        input.form-control(name='studio6', type='text', placeholder='Studio 6', value=`${studio.studio6}`)
+                  .sub-title
+                    | Starring
+                  .row
+                    each star in movieData.starring
+                      .col-md-4
+                        input.form-control(name='starring1', type='text', placeholder='Starring 1', value=`${star.starring1}`)
+                      .col-md-4
+                        input.form-control(name='starring2', type='text', placeholder='Starring 2', value=`${star.starring2}`)
+                      .col-md-4
+                        input.form-control(name='starring3', type='text', placeholder='Starring 3', value=`${star.starring3}`)
+                      .col-md-4
+                        input.form-control(name='starring4', type='text', placeholder='Starring 4', value=`${star.starring4}`)
+                      .col-md-4
+                        input.form-control(name='starring5', type='text', placeholder='Starring 5', value=`${star.starring5}`)
+                      .col-md-4
+                        input.form-control(name='starring6', type='text', placeholder='Starring 6', value=`${star.starring6}`)
+                      .col-md-4
+                        input.form-control(name='starring7', type='text', placeholder='Starring 7', value=`${star.starring7}`)
+                      .col-md-4
+                        input.form-control(name='starring8', type='text', placeholder='Starring 8', value=`${star.starring8}`)
+                      .col-md-4
+                        input.form-control(name='starring9', type='text', placeholder='Starring 9', value=`${star.starring9}`)
+                      .col-md-4
+                        input.form-control(name='starring10', type='text', placeholder='Starring 10', value=`${star.starring10}`)
+                      .col-md-4
+                        input.form-control(name='starring11', type='text', placeholder='Starring 11', value=`${star.starring11}`)
+                      .col-md-4
+                        input.form-control(name='starring12', type='text', placeholder='Starring 12', value=`${star.starring12}`)
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .title Media
+                .card-body
+                  .sub-title
+                    | IMDB
+                  div
+                    input.form-control(name='imdbLink', type='text', placeholder='IMDB Link (URL)', value=`${movieData.imdbLink}`)
+                  .sub-title
+                      | Trailer Link
+                  div
+                    each trailerLink in movieData.trailerLinks
+                        input.form-control(name='trailerLink1', type='text', placeholder='Traler 1 (URL)', value=`${trailerLink.trailerLink1}`)
+                        input.form-control(name='trailerLink2', type='text', placeholder='Trailer 2 (URL)', value=`${trailerLink.trailerLink2}`)
+                        input.form-control(name='trailerLink3', type='text', placeholder='Trailer 3 (URL)', value=`${trailerLink.trailerLink3}`)
+                  .sub-title
+                    | Image Gallery
+                  .row
+                    each imageLink in movieData.imageLinks
+                      .col-md-3
+                        input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value=`${imageLink.imageLink1}`)
+                        if imageLink.imageLink1
+                          p
+                            a.thumbnail(href=`${imageLink.imageLink1}`, target='_blank')
+                              img.img-responsive(src=`${imageLink.imageLink1}`)
+                      .col-md-3
+                        input.form-control(name='imageLink2', type='text', placeholder='Image 2 (URL)', value=`${imageLink.imageLink2}`)
+                        if imageLink.imageLink2
+                          p
+                            a.thumbnail(href=`${imageLink.imageLink2}`, target='_blank')
+                              img.img-responsive(src=`${imageLink.imageLink2}`)
+                      .col-md-3
+                        input.form-control(name='imageLink3', type='text', placeholder='Image 3 (URL)', value=`${imageLink.imageLink3}`)
+                        if imageLink.imageLink3
+                          p
+                            a.thumbnail(href=`${imageLink.imageLink3}`, target='_blank')
+                              img.img-responsive(src=`${imageLink.imageLink3}`)
+                      .col-md-3
+                        input.form-control(name='imageLink4', type='text', placeholder='Image 4 (URL)', value=`${imageLink.imageLink4}`)
+                        if imageLink.imageLink4
+                          p
+                            a.thumbnail(href=`${imageLink.imageLink4}`, target='_blank')
+                              img.img-responsive(src=`${imageLink.imageLink4}`)
+        .col-md-3
+          .row
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .sub-title Publish
+                .card-body
+                  div
+                    ul.list-group
+                      li.list-group-item
+                        strong
+                          | Created:&nbsp;
+                        span= moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")
+                      li.list-group-item
+                        strong
+                          | Last Updated:&nbsp;
+                        span= moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")
+                  div(align='right')
+                    a.btn.btn-default(href=`/movies/${movieData._id}`, role='button') View Profile
                     | &nbsp;
-                    a.alert-link(href=`/movies/${movieData._id}`) View Profile
-                    a.close(href="#", data-dismiss="alert", aria-label="close") &times;
-    .col-xs-12
-        form(action=`/movies/${movieData._id}/edit`, method='post')
-            .row.no-margin-bottom
-                .col-md-9
-                    .row
-                        .col-md-12
-                            .card
-                                .card-body
-                                    div
-                                        input.form-control(name='title', type='text', placeholder='Movie Title *', value=`${movieData.title}`, required='')
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .title Plot / Synopsis
-                                .card-body
-                                    textarea.form-control(name='plot', rows='12')= movieData.plot
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .title Background
-                                .card-body
-                                    .sub-title
-                                        | Director
-                                    .row
-                                        each director in movieData.directors
-                                            .col-md-4
-                                                input.form-control(name='director1', type='text', placeholder='Director 1', value=`${director.director1}`)
-                                            .col-md-4
-                                                input.form-control(name='director2', type='text', placeholder='Director 2', value=`${director.director2}`)
-                                            .col-md-4
-                                                input.form-control(name='director3', type='text', placeholder='Director 3', value=`${director.director3}`)
-                                    .sub-title
-                                        | Studio
-                                    .row
-                                        each studio in movieData.studios
-                                            .col-md-4
-                                                input.form-control(name='studio1', type='text', placeholder='Studio 1', value=`${studio.studio1}`)
-                                            .col-md-4
-                                                input.form-control(name='studio2', type='text', placeholder='Studio 2', value=`${studio.studio2}`)
-                                            .col-md-4
-                                                input.form-control(name='studio3', type='text', placeholder='Studio 3', value=`${studio.studio3}`)
-                                            .col-md-4
-                                                input.form-control(name='studio4', type='text', placeholder='Studio 4', value=`${studio.studio4}`)
-                                            .col-md-4
-                                                input.form-control(name='studio5', type='text', placeholder='Studio 5', value=`${studio.studio5}`)
-                                            .col-md-4
-                                                input.form-control(name='studio6', type='text', placeholder='Studio 6', value=`${studio.studio6}`)
-                                    .sub-title
-                                        | Starring
-                                    .row
-                                        each star in movieData.starring
-                                            .col-md-4
-                                                input.form-control(name='starring1', type='text', placeholder='Starring 1', value=`${star.starring1}`)
-                                            .col-md-4
-                                                input.form-control(name='starring2', type='text', placeholder='Starring 2', value=`${star.starring2}`)
-                                            .col-md-4
-                                                input.form-control(name='starring3', type='text', placeholder='Starring 3', value=`${star.starring3}`)
-                                            .col-md-4
-                                                input.form-control(name='starring4', type='text', placeholder='Starring 4', value=`${star.starring4}`)
-                                            .col-md-4
-                                                input.form-control(name='starring5', type='text', placeholder='Starring 5', value=`${star.starring5}`)
-                                            .col-md-4
-                                                input.form-control(name='starring6', type='text', placeholder='Starring 6', value=`${star.starring6}`)
-                                            .col-md-4
-                                                input.form-control(name='starring7', type='text', placeholder='Starring 7', value=`${star.starring7}`)
-                                            .col-md-4
-                                                input.form-control(name='starring8', type='text', placeholder='Starring 8', value=`${star.starring8}`)
-                                            .col-md-4
-                                                input.form-control(name='starring9', type='text', placeholder='Starring 9', value=`${star.starring9}`)
-                                            .col-md-4
-                                                input.form-control(name='starring10', type='text', placeholder='Starring 10', value=`${star.starring10}`)
-                                            .col-md-4
-                                                input.form-control(name='starring11', type='text', placeholder='Starring 11', value=`${star.starring11}`)
-                                            .col-md-4
-                                                input.form-control(name='starring12', type='text', placeholder='Starring 12', value=`${star.starring12}`)
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .title Media
-                                .card-body
-                                    .sub-title
-                                        | IMDB
-                                    div
-                                        input.form-control(name='imdbLink', type='text', placeholder='IMDB Link (URL)', value=`${movieData.imdbLink}`)
-                                    .sub-title
-                                        | Trailer Link
-                                    div
-                                        each trailerLink in movieData.trailerLinks
-                                            input.form-control(name='trailerLink1', type='text', placeholder='Traler 1 (URL)', value=`${trailerLink.trailerLink1}`)
-                                            input.form-control(name='trailerLink2', type='text', placeholder='Trailer 2 (URL)', value=`${trailerLink.trailerLink2}`)
-                                            input.form-control(name='trailerLink3', type='text', placeholder='Trailer 3 (URL)', value=`${trailerLink.trailerLink3}`)
-                                    .sub-title
-                                        | Image Gallery
-                                    .row
-                                        each imageLink in movieData.imageLinks
-                                            .col-md-3
-                                                input.form-control(name='imageLink1', type='text', placeholder='Image 1 (URL)', value=`${imageLink.imageLink1}`)
-                                                if imageLink.imageLink1
-                                                    p
-                                                        a.thumbnail(href=`${imageLink.imageLink1}`, target='_blank')
-                                                            img.img-responsive(src=`${imageLink.imageLink1}`)
-                                            .col-md-3
-                                                input.form-control(name='imageLink2', type='text', placeholder='Image 2 (URL)', value=`${imageLink.imageLink2}`)
-                                                if imageLink.imageLink2
-                                                    p
-                                                        a.thumbnail(href=`${imageLink.imageLink2}`, target='_blank')
-                                                            img.img-responsive(src=`${imageLink.imageLink2}`)
-                                            .col-md-3
-                                                input.form-control(name='imageLink3', type='text', placeholder='Image 3 (URL)', value=`${imageLink.imageLink3}`)
-                                                if imageLink.imageLink3
-                                                    p
-                                                        a.thumbnail(href=`${imageLink.imageLink3}`, target='_blank')
-                                                            img.img-responsive(src=`${imageLink.imageLink3}`)
-                                            .col-md-3
-                                                input.form-control(name='imageLink4', type='text', placeholder='Image 4 (URL)', value=`${imageLink.imageLink4}`)
-                                                if imageLink.imageLink4
-                                                    p
-                                                        a.thumbnail(href=`${imageLink.imageLink4}`, target='_blank')
-                                                            img.img-responsive(src=`${imageLink.imageLink4}`)
-                .col-md-3
-                    .row
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Publish
-                                .card-body
-                                    div
-                                        ul.list-group
-                                            li.list-group-item
-                                                strong
-                                                    | Created:&nbsp;
-                                                span= moment(movieData.createdAt).format("YYYY-MM-DD HH:mm")
-                                            li.list-group-item
-                                                strong
-                                                    | Last Updated:&nbsp;
-                                                span= moment(movieData.updatedAt).format("YYYY-MM-DD HH:mm")
-                                    div(align='right')
-                                        a.btn.btn-default(href=`/movies/${movieData._id}`, role='button') View Profile
-                                        | &nbsp;
-                                        button.btn.btn-primary(name='submit', type='submit') Update
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Year&nbsp;
-                                            span.required *
-                                .card-body
-                                    div
-                                        input.form-control(name='year', type='text', placeholder='Year', value=`${movieData.year}`, required='')
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Genre
-                                .card-body
-                                    div
-                                        input.form-control(name='genre', type='text', placeholder='Genre', value=`${movieData.genre}`)
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Gross Ticket Sales
-                                .card-body
-                                    input.form-control(name='grossTicketSales', type='text', placeholder='Gross TIcket Sales (in pesos)', value=`${movieData.grossTicketSales}`)
-                        .col-md-12
-                            .card
-                                .card-header
-                                    .card-title
-                                        .sub-title Poster Image
-                                .card-body
-                                    input.form-control(name='posterImage', type='text', placeholder='Poster Image', value=`${movieData.posterImage}`)
-                                    if movieData.posterImage
-                                        p
-                                            a.thumbnail(href=`movieData.posterImage}`, target='_blank')
-                                                img.img-responsive(src=`${movieData.posterImage}`)
+                    button.btn.btn-primary(name='submit', type='submit') Update
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .sub-title Year&nbsp;
+                      span.required *
+                .card-body
+                  div
+                    input.form-control(name='year', type='text', placeholder='Year', value=`${movieData.year}`, required='')
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .sub-title Genre
+                .card-body
+                  div
+                    input.form-control(name='genre', type='text', placeholder='Genre', value=`${movieData.genre}`)
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .sub-title Gross Ticket Sales
+                .card-body
+                  input.form-control(name='grossTicketSales', type='text', placeholder='Gross TIcket Sales (in pesos)', value=`${movieData.grossTicketSales}`)
+            .col-md-12
+              .card
+                .card-header
+                  .card-title
+                    .sub-title Poster Image
+                .card-body
+                  input.form-control(name='posterImage', type='text', placeholder='Poster Image', value=`${movieData.posterImage}`)
+                  if movieData.posterImage
+                    p
+                      a.thumbnail(href=`movieData.posterImage}`, target='_blank')
+                        img.img-responsive(src=`${movieData.posterImage}`)

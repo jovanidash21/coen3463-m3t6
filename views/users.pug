@@ -1,49 +1,49 @@
 extends layout
 
 block content
-    if (user.role === 'administrator')
-        .col-xs-12
-            div(align='right')
-                a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
-    if (alertMessage.length > 0)
-        .col-xs-12
-            .alert.alert-success.alert-dismissable.fade.in
-                span= alertMessage
-                a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+  if (user.role === 'administrator')
     .col-xs-12
-        .card
-            .card-body
-                table.datatable.table.table-striped(cellspacing='0', width='100%')
-                    thead
-                        tr
-                            th Username
-                            th First Name
-                            th Last Name
-                            th Email
-                            th Website
-                            th Role
-                            th Date Created
-                            th Last Update
-                    tfoot
-                        tr
-                            th Username
-                            th First Name
-                            th Last Name
-                            th Email
-                            th Website
-                            th Role
-                            th Date Published
-                            th Last Update
-                    tbody
-                        each userData in usersData
-                            tr
-                                td
-                                    a(href=`/users/${userData.username}`)= userData.username
-                                td= userData.firstName
-                                td= userData.lastName
-                                td= userData.email
-                                td
-                                    a(href=`${userData.website}`, target='_blank')= userData.website
-                                td= userData.role
-                                td= moment(userData.createdAt).format("YYYY-MM-DD")
-                                td= moment(userData.updatedAt).format("YYYY-MM-DD")
+      div(align='right')
+        a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
+  if (alertMessage.length > 0)
+    .col-xs-12
+      .alert.alert-success.alert-dismissable.fade.in
+        span= alertMessage
+        a.close(href="#", data-dismiss="alert", aria-label="close") &times;
+  .col-xs-12
+    .card
+      .card-body
+        table.datatable.table.table-striped(cellspacing='0', width='100%')
+          thead
+            tr
+              th Username
+              th First Name
+              th Last Name
+              th Email
+              th Website
+              th Role
+              th Date Created
+              th Last Update
+          tfoot
+            tr
+              th Username
+              th First Name
+              th Last Name
+              th Email
+              th Website
+              th Role
+              th Date Published
+              th Last Update
+          tbody
+            each userData in usersData
+              tr
+                td
+                  a(href=`/users/${userData.username}`)= userData.username
+                td= userData.firstName
+                td= userData.lastName
+                td= userData.email
+                td
+                  a(href=`${userData.website}`, target='_blank')= userData.website
+                td= userData.role
+                td= moment(userData.createdAt).format("YYYY-MM-DD")
+                td= moment(userData.updatedAt).format("YYYY-MM-DD")

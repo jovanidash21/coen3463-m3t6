@@ -1,43 +1,43 @@
 .side-menu.sidebar-inverse
-    nav.navbar.navbar-default(role='navigation')
-        .side-menu-container
-            .navbar-header
-                a.navbar-brand(href='#')
-                    .icon.fa.fa-play-circle
-                    .title MMFF Movies
-                button.navbar-expand-toggle.pull-right.visible-xs(type='button')
-                    i.fa.fa-times.icon
-            if user
+  nav.navbar.navbar-default(role='navigation')
+    .side-menu-container
+      .navbar-header
+        a.navbar-brand(href='#')
+          .icon.fa.fa-play-circle
+          .title MMFF Movies
+        button.navbar-expand-toggle.pull-right.visible-xs(type='button')
+          i.fa.fa-times.icon
+      if user
+        ul.nav.navbar-nav
+          li
+            a(href='/')
+              span.icon.fa.fa-tachometer
+              span.title Dashboard
+          li.panel.panel-default.dropdown
+            a(data-toggle='collapse', href='#dropdown-movie')
+              span.icon.fa.fa-forward
+              span.title Movie
+            #dropdown-movie.panel-collapse.collapse
+              .panel-body
                 ul.nav.navbar-nav
+                  li
+                    a(href='/movies') All Movies
+                  if(user.role === 'administrator' || user.role === 'editor')
                     li
-                        a(href='/')
-                            span.icon.fa.fa-tachometer
-                            span.title Dashboard
-                    li.panel.panel-default.dropdown
-                        a(data-toggle='collapse', href='#dropdown-movie')
-                            span.icon.fa.fa-forward
-                            span.title Movie
-                        #dropdown-movie.panel-collapse.collapse
-                            .panel-body
-                                ul.nav.navbar-nav
-                                    li
-                                        a(href='/movies') All Movies
-                                    if(user.role === 'administrator' || user.role === 'editor')
-                                        li
-                                            a(href='/movies/add') Add New
-                    li.panel.panel-default.dropdown
-                        a(data-toggle='collapse', href='#dropdown-user')
-                            span.icon.fa.fa-user
-                            span.title User
-                        #dropdown-user.panel-collapse.collapse
-                            .panel-body
-                                ul.nav.navbar-nav
-                                    li
-                                        a(href='/users') All Users
-                                    if (user.role === 'administrator')
-                                        li
-                                            a(href='/users/add') Add New
-                                    li
-                                        a(href=`/users/${user.username}`) My Profile
-                                    li
-                                        a(href=`/users/${user.username}/edit`) Edit Profile
+                        a(href='/movies/add') Add New
+          li.panel.panel-default.dropdown
+            a(data-toggle='collapse', href='#dropdown-user')
+              span.icon.fa.fa-user
+              span.title User
+            #dropdown-user.panel-collapse.collapse
+              .panel-body
+                ul.nav.navbar-nav
+                  li
+                    a(href='/users') All Users
+                  if (user.role === 'administrator')
+                    li
+                      a(href='/users/add') Add New
+                  li
+                    a(href=`/users/${user.username}`) My Profile
+                  li
+                    a(href=`/users/${user.username}/edit`) Edit Profile

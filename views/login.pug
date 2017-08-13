@@ -1,56 +1,56 @@
 doctype html
 html
-    head
-        title= title
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400', rel='stylesheet', type='text/css')
-        link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900', rel='stylesheet', type='text/css')
-        link(rel='stylesheet', type='text/css', href='/stylesheets/login.css')
-        link(rel='stylesheet', type='text/css', href='/stylesheets/custom.css')
-    body.login-page(style="background-image: url(/images/login_background.png);")
-        .form
-            div(align='center')
-                img.logo(src='/images/login_logo.png')
-            if (alertMessage.length > 0)
-                h4.alert-message
-                    span= alertMessage
-            ul.tab-group
-                li.tab.active
-                    a(href='#login') Log In
-                li.tab
-                    a(href='#signup') Sign Up
-            .tab-content
-                #login
-                    form(action='/login', method='post')
-                        .field-wrap
-                            label
-                                | Username
-                                span.req *
-                            input(name='username', type='text', required='', autocomplete='off')
-                        .field-wrap
-                            label
-                                | Password
-                                span.req *
-                            input(name='password', type='password', required='', autocomplete='off')
-                        button.button.button-block(type='submit') Log In
-                #signup
-                    form(action='/signup', method='post')
-                        .field-wrap
-                            label
-                                | Username
-                                span.req *
-                            input(name='username', type='text', required='', autocomplete='off')
-                        .field-wrap
-                            label
-                                | Password
-                                span.req *
-                            input(name='password', id='password', type='password', required='', autocomplete='off')
-                        .field-wrap
-                            label
-                                | Confirm Password
-                                span.req *
-                            input(name='confirmPassword', id='confirmPassword', type='password', required='', autocomplete='off')
-                        button.button.button-block(type='submit') Get Started
-        script(type='text/javascript', src='/javascripts/jquery.min.js')
-        script(type='text/javascript', src='/javascripts/login.js')
-        script(type='text/javascript', src='/javascripts/custom.js')
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/login.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/custom.css')
+  body.login-page(style="background-image: url(/images/login_background.png);")
+    .form
+      div(align='center')
+        img.logo(src='/images/login_logo.png')
+      if (alertMessage.length > 0)
+        h4.alert-message
+          span= alertMessage
+      ul.tab-group
+        li.tab.active
+          a(href='#login') Log In
+        li.tab
+          a(href='#signup') Sign Up
+      .tab-content
+        #login
+          form(action='/login', method='post')
+            .field-wrap
+              label
+                | Username
+                span.req *
+              input(name='username', type='text', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Password
+                span.req *
+              input(name='password', type='password', required='', autocomplete='off')
+            button.button.button-block(type='submit') Log In
+        #signup
+          form(action='/signup', method='post')
+            .field-wrap
+              label
+                | Username
+                span.req *
+              input(name='username', type='text', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Password
+                span.req *
+              input(name='password', id='password', type='password', required='', autocomplete='off')
+            .field-wrap
+              label
+                | Confirm Password
+                span.req *
+              input(name='confirmPassword', id='confirmPassword', type='password', required='', autocomplete='off')
+            button.button.button-block(type='submit') Get Started
+    script(type='text/javascript', src='/javascripts/jquery.min.js')
+    script(type='text/javascript', src='/javascripts/login.js')
+    script(type='text/javascript', src='/javascripts/custom.js')
