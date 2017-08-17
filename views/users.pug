@@ -7,8 +7,7 @@ block content
         a.btn.btn-lg.btn-success(href='/users/add', role='button') Add New User
   if (alertMessage.length > 0)
     .col-xs-12
-      .alert.alert-success.alert-dismissable.fade.in
-        span= alertMessage
+      .alert.alert-success.alert-dismissable.fade.in= alertMessage
         a.close(href="#", data-dismiss="alert", aria-label="close") &times;
   .col-xs-12
     .card

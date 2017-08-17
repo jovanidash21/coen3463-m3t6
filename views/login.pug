@@ -12,8 +12,7 @@ html
       div(align='center')
         img.logo(src='/images/login_logo.png')
       if (alertMessage.length > 0)
-        h4.alert-message
-          span= alertMessage
+        h4.alert-message= alertMessage
       ul.tab-group
         li.tab.active
           a(href='#login') Log In

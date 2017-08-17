@@ -3,8 +3,7 @@ extends layout
 block content
   .col-xs-12
     if(typeof alertMessage !== "undefined")
-      .alert.alert-danger.alert-dismissable.fade.in
-        span= alertMessage
+      .alert.alert-danger.alert-dismissable.fade.in= alertMessage
         a.close(href="#", data-dismiss="alert", aria-label="close") &times;
   .col-xs-12
     form(action='/users/add', method='post')

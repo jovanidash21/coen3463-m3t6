@@ -12,8 +12,7 @@ block content
           span= alertMessage
           a.close(href="#", data-dismiss="alert", aria-label="close") &times;
       else
-        .alert.alert-success.alert-dismissable.fade.in
-          span= alertMessage
+        .alert.alert-success.alert-dismissable.fade.in= alertMessage
           | &nbsp;
           a.alert-link(href=`/users/${userData.username}`) View Profile
           a.close(href="#", data-dismiss="alert", aria-label="close") &times;
