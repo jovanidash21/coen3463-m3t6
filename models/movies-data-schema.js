@@ -8,7 +8,7 @@ var moviesDataSchema = new Schema
     title: {type: String, required: true},
     posterImage: {
       type: String,
-      default: 'https://raw.githubusercontent.com/jovanidash21/coen3463-m3t6/master/public/images/poster_images/default.png'
+      default: 'https://raw.githubusercontent.com/jovanidash21/mmff-movies/master/public/images/poster_images/default.png'
     },
     directors: [{
       director1: {type: String, default: ''},
